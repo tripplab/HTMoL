@@ -1,0 +1,19 @@
+Installation in your web site
+///////////////////////////////////////////////////////////////////
+1.-unzip the file.
+
+2.- Create an element <iframe> into your website wherever you want is to locate the application with the following elements:
+
+Address of the HTMoL.html file.
+Add the attribute "class" with the value of HTMoL.
+Add the attribute scrolling with the value "no".
+
+<iframe src=".../HTMol.html" class="HTMoL" scrolling="no">    </iframe>
+
+3.- Add the link to sizeHTMoL.css file in your .html file
+
+<link rel='stylesheet'href='HTMoL-Alfa/styles/sizeHTMol.css'  media='screen'>
+
+4.-Modify sizeHTMoL.css file located in the folder "style" of the application to fit the size that you wish.
+
+.HTMoL{width:425px;height:400px;}
