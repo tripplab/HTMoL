@@ -138,7 +138,7 @@ function initBuffersSpheresSB()
                 indexData[0].push( indx[t] + indiceOffset);
 
             }
-            indiceOffset= indiceOffset + 289;
+            indiceOffset= indiceOffset + indexOff;
 
             apuntador=apuntador+1;
 
@@ -282,7 +282,7 @@ function initBuffersSpheresSB()
                     {
                         indexData[i].push( indx[t] + indiceOffset);
                     }
-                    indiceOffset= indiceOffset + 289;
+                    indiceOffset= indiceOffset + indexOff;
                     apuntador=apuntador+1;
 
                     //---------------------------------------------------------------------------------------------------------
@@ -413,7 +413,7 @@ function initBuffersSpheresSB()
                     {
                         indexData[i].push( indx[t] + indiceOffset);
                     }
-                    indiceOffset= indiceOffset + 289;
+                    indiceOffset= indiceOffset + indexOff;
                     apuntador=apuntador+1;
 
                         //---------------------------------------------------------------------------------------------------
@@ -646,7 +646,7 @@ function initBuffersSpheresCPK()
                     {
                         indexData[0].push( indx[t] + indiceOffset);
                     }
-                    indiceOffset= indiceOffset + 289;
+                    indiceOffset= indiceOffset + indexOff;
             apuntador = apuntador + 1;
 
             //-----------------------------------------------------------------------------------------------------
@@ -877,7 +877,7 @@ function initBuffersSpheresCPK()
                     {
                         indexData[i].push( indx[t] + indiceOffset);
                     }
-                    indiceOffset= indiceOffset + 289;
+                    indiceOffset= indiceOffset + indexOff;
                     apuntador = apuntador + 1;
 
                     //---------------------------------------------------------------------------------------------------------
@@ -1079,7 +1079,7 @@ function initBuffersSpheresCPK()
                     {
                         indexData[i].push( indx[t] + indiceOffset);
                     }
-                    indiceOffset= indiceOffset + 289;
+                    indiceOffset= indiceOffset + indexOff;
                     apuntador = apuntador + 1;
 
                     //---------------------------------------------------------------------------------------------------
