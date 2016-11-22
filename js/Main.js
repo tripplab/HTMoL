@@ -1155,7 +1155,7 @@ var menuStyle="";
         var buttontrj = document.getElementById( "trajauto" );
         buttontrj.onclick=function()
         {
-            url="http://127.0.0.1:25565/test/prueba.pdb";
+            url="http://127.0.0.1:25565/pdb/prueba.pdb";
             main.MakeModel(url);
         }
 
@@ -1176,7 +1176,7 @@ var menuStyle="";
         return function(event)
         {
             //se coloca la ip del servidor y el puerto que se abrió
-            url = prompt("URL: ", "http://127.0.0.1:25565/test/2vep_md_prot.pdb");
+            url = prompt("URL: ", "http://127.0.0.1:25565/pdb/2vep_md_prot.pdb");
             if(url!='')
             {
                 if(url.length==4)

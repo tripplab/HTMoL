@@ -1824,5 +1824,9 @@ function NoAtomCenter()
     }
     
 }
+function Prueba()
+{
+    alert("entra");
+}
 
 
