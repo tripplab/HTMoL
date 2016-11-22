@@ -20,7 +20,7 @@ bs.on('connection', function(client){
   client.on('stream', function(stream, meta){
 
   	if(meta.reqsize==true){
-	  	var path = "xtcfiles/" + meta.fpath;
+	  	var path = "trajectories/" + meta.fpath;
 		fs.exists(path, function(exists) { 
 			if (exists) { 
 			console.log(path);
@@ -33,7 +33,7 @@ bs.on('connection', function(client){
 			 }
 		});
 	}else{
-	  	var path = "xtcfiles/" + meta.fpath;
+	  	var path = "trajectories/" + meta.fpath;
 		fs.exists(path, function(exists) { 
 			if (exists) {
 				if(meta.verif==true){
