@@ -8,10 +8,20 @@
   self.addEventListener('message', function(e) {
       if (e.data.cmd == "startfile") {
           if (e.data.bitrate == "infinity") {
-              //console.log("es infinity");
+              console.log("HTMoL3: "+"bitrate es infinity");
           } else {
-              //console.log(e.data.bitrate);
+              console.log("HTMoL3: bitrate es "+e.data.bitrate);
           }
+  
+  // =============================== User defined variables =================================
+
+    // Define server IP and NodePort
+    var WebIP="148.247.230.41";
+    var NodePort="69";
+
+// ========================================================================================
+
+          var client = new BinaryClient("ws://"+WebIP+":"+NodePort);
           var sizeint = new Array(3);
           var minint = new Array(3);
           var maxint = new Array(3);
@@ -31,7 +41,6 @@
           var arreglo = new Float32Array(50000);
           var arreglo1 = new Float32Array(50000);
           var arreglo2 = new Float32Array(50000);
-          var client = new BinaryClient('ws://127.0.0.1:25565');
 
           //Bandera
           var xtc = false;
@@ -78,7 +87,7 @@
           setTimeout(function() {
               client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
           }, 600);
-          console.log("aa");
+          console.log("HTMoL3: aa");
           client.on('stream', function(stream, meta) {
               // Buffer for parts:
 
@@ -86,7 +95,7 @@
               stream.on('data', function(data) {
                   try {
                       if (data == 'error') {
-                          throw Error("Error, no file exist or file corrupt");
+                          throw Error("HTMoL3: Error. File does not exists or corrupt");
                       } else if (data.slice(0, 4) == "size") {
                           tam = parseInt(data.slice(4));
                           //    self.postMessage({cmd:"sizefile",
@@ -102,7 +111,7 @@
                               client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend });
                           }
                           else{
-                            throw new Error("Unrecognized/Damaged File or XTC:Number of Atoms on file are not equal (XTC:"+new DataView(data).getInt32(0)+"/Loaded Molecule:"+e.data.natoms+")");
+                            throw new Error("HTMoL3: Unrecognized or damaged file. Number of atoms on file are not equal (TRJ:"+new DataView(data).getInt32(0)+" PDB:"+e.data.natoms+")");
                           }
                       } else {
                           //    console.log(part.byteLength);
@@ -117,11 +126,11 @@
                                   if (bndrev == true) {
                                       for (var i = 0; i < 5; i++) {
                                           if (new DataView(part).getInt32(i) != 1995) {
-                                              console.log("ACA ");
+                                              console.log("HTMoL3: ACA ");
                                           } else {
                                               part = part.slice(i);
                                               bndrev = false;
-                                              console.log("AQUI" + new DataView(part).getInt32(0));
+                                              console.log("HTMoL3: AQUI" + new DataView(part).getInt32(0));
 
                                               break;
                                           }
@@ -146,7 +155,7 @@
               stream.on('end', function() {
                   if (dcd==true) {
                     leer(part);
-                    console.log("final");
+                    console.log("HTMoL3: final");
                               bnd = true;
                               readend = 0;
                               readstart = 0;
@@ -172,7 +181,7 @@
                           self.postMessage({ cmd: "final", wast: part.byteLength - 1 });
                           bnd = !bnd;
                           if (readend >= tam) {
-                              console.log("final");
+                              console.log("HTMoL3: final");
                               bnd = true;
                               readend = 0;
                               readstart = 0;
@@ -188,13 +197,13 @@
 
           function checkfile(buffer) {
               if (new DataView(buffer).getInt32(0) != 1995) {
-                  throw new Error("File is not a XTC-File! ");
+                  throw new Error("HTMoL3: Erro. File is not an XTC-File! ");
                   stop = 1;
                   return -1;
               }
               natoms = new DataView(buffer).getInt32(4);
               if (natoms != e.data.natoms) {
-                  throw Error("XTC:Bad Format or Number of Atoms on file are not equal (XTC:"+natoms+"/Loaded Molecule:"+e.data.natoms+")");
+                  throw Error("HTMoL3:  Bad format or number of atoms on file are not equal (TRJ:"+natoms+" PDB:"+e.data.natoms+")");
                   stop = 1;
                   return -1;
               }
@@ -458,7 +467,7 @@
                   part = buffer.slice(buf[3].byteLength);
                   bndrev = true;
               }
-              console.log(part.byteLength);
+              console.log("HTMoL3: "+part.byteLength);
 
               if (part.byteLength >= 92) {
                   nextbuf = new DataView(part).getInt32(88);
@@ -657,20 +666,20 @@
           leer = function(part) {
               var doc = new Int32Array(part); // Se ven los bytes como Ints de 4 Bytes
               if (doc[0] + doc[1] == 84) { //Todos los Archivos DCD Empiezan con un 84 seguido de la palabra CORD
-                  console.log("64 bits Recscale ");
+                  console.log("HTMoL3: 64 bits Rescale ");
                   rec_scale64 = true; //Se Activa La Bandera de que son Numeros de 64bits(8 Bytes)
-                  throw new error("64 bits Format Is not Supported");
+                  throw new error("HTMoL3: Error. 64 bit Format Is not Supported");
               } else if (doc[0] == 84 && doc[1] == 1146244931) { //Valor de la palabra CORD en Numero
-                  console.log("32 bit Recscale" );
+                  console.log("HTMoL3: 32 bit Rescale" );
                   rec_scale64 = false; //Se desactiva la bandera son enteros comunes 32bits(4 bytes)
               } else if(swap32(doc[0],true)==84 && doc[1]==1146244931){
                   endianess=true;
-                  console.log("Need To Change Endianess");
+                  console.log("HTMoL3: Need To Change Endianess");
               }else if(doc[0]==null){
-                throw new Error("Connection Delay, Still Loading.....");
+                throw new Error("HTMoL3: Connection Delay, Still Loading.....");
               }
               else{
-                  throw new Error("DCD: CORD or Initial 84 Not Found");
+                  throw new Error("HTMoL3: Error. DCD CORD or Initial 84 Not Found");
               }
               if (!rec_scale64) { //Proceso si el archivo maneja enteros de 32bits
                   hdrbuf = new Int32Array(doc.subarray(2, 22)); //Se Lee encabezado(80 Bytes)
@@ -678,7 +687,7 @@
                   if (hdrbuf[-1] != 0) { //Si el ultimo valor del encabezado 0 es formato X-PLOR de lo contrario es CHARMM
                       charmm = true;
                   } else {
-                      throw new Error("DCD: X-plor Format Not Supported"); //Por Ahora
+                      throw new Error("HTMoL3: Error. DCD X-plor Format Not Supported"); //Por Ahora
                   }
                   n_csets = swap32(hdrbuf[0],endianess); //Numero de sets de 
                   first_ts = swap32(hdrbuf[1],endianess); //Cuadro desde el que inicia la animacion
@@ -687,7 +696,7 @@
                   
 
                   if (n_fixed != 0) {
-                      throw new Error("DCD: Trajectories with Fixed Atoms are Not Supported");
+                      throw new Error("HTMoL3: Error. DCD Trajectories with Fixed Atoms are Not Supported");
                   }
 
                   timestep = swap32(hdrbuf[9],endianess); //Cantidad De Cuadros Por segundo
@@ -699,10 +708,10 @@
                   }
 
                   if (swap32(doc[22],endianess) != 84) { //Estas validaciones verifican el fin del bloque....
-                      throw new Error("DCD:Bad Format");
+                      throw new Error("HTMoL3: Error. DCD Bad Format");
                   }
                   if ((swap32(doc[23],endianess) - 4) % 80 != 0) { //y El inicio del siguiente
-                      throw new Error("DCD:Bad Format");
+                      throw new Error("HTMoL3: Error. DCD Bad Format");
                   }
                   noremarks = swap32(doc[23],endianess) == 84; //Se verifica si hay remarks 
                   ntitle = swap32(doc[24],endianess); // se lee ntitle
@@ -710,13 +719,13 @@
                   dcdtitle = new Uint32Array(doc.subarray(pos, pos+(ntitle*20))); //Se lee dcdtitle
                   pos+=(ntitle*20);
                   if ((swap32(doc[pos],endianess) - 4) % 80 != 0 || swap32(doc[pos+1],endianess) != 4) { //Aqui se valida el fin del bloque
-                      throw new Error("DCD:Bad Format");
+                      throw new Error("HTMoL3: Error. DCD Bad Format");
                   }
                   pos+=2;
                   n_atoms = swap32(doc[pos],endianess);
                   pos++;
                   if (swap32(doc[pos],endianess) != 4 || n_atoms!=e.data.natoms) {
-                      throw new Error("DCD:Bad Format or Number of Atoms on file are not equal (DCD:"+n_atoms+"/Loaded Molecule:"+e.data.natoms+")");
+                      throw new Error("HTMoL3: Error. Bad Format or Number of Atoms on file are not equal (TRJ:"+n_atoms+" PDB:"+e.data.natoms+")");
                   }
                   pos+=paso+1;
                   var buff= new Float32Array(part);
@@ -742,7 +751,7 @@
                         }
                       
                   
-                  console.log("Fin de lectura");
+                  console.log("HTMoL3: Fin de lectura");
 
 
               }
