@@ -1,9 +1,27 @@
 /*
-Licensed under the MIT license.
-http://www.opensource.org/licenses/mit-license.php
-this file is part of HTMoL:
-Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Vega Ramirez Adan
+This file is part of HTMoL3:
+Copyright (C) 2015 Mauricio Carrillo-Tripp  
+http://tripplab.com
+
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
 */
+
+// =============================== User defined variables =================================
+// Server IP
+var WebIP="148.247.230.41";
+// PDB file with trajectory info specified in the header
+var URL_TRJ_AutoLoad_default="http://"+WebIP+"/HTMoL/pdbfiles/lysozyme.pdb";
+// A PDB file with no trajectory info in the header
+var URL_PDB_Load_default="http://"+WebIP+"/HTMoL/pdbfiles/2vep_md_prot.pdb";
+// Trajectory info for the previous PDB file. 
+// The file has to be in the directory specified by TRJDIR defined at server.js
+var URL_TRJ_Load_default="2vep_md_prot_fit.xtc";
+
+// =======================================================================================
+
 var zoom,data,MainMenu;
 var worker1;
 var sizeglob=0;
@@ -39,7 +57,7 @@ function Main()
     //-----------------------------------Bloque inicial para declarar el worker----------------------------------
     if (typeof(Worker)=="undefined")
     {
-        alert("Workers no soportados");
+        alert("HTMoL: Alert. Workers no soportados.");
     }
     else
     {
@@ -48,7 +66,7 @@ function Main()
         worker1 = new Worker("js/worker.js?=" + marcaTime);
         worker1.postMessage = worker1.webkitPostMessage || worker1.postMessage;
         worker1.onerror= function(e){
-            data.innerHTML=e.message;
+            data.innerHTML="HTMoL3: "+e.message;
         }
         worker1.addEventListener("message", manejadorEventoWorker1, false);
     }
@@ -217,22 +235,22 @@ function Main()
 
        if(molecule!=null)
        {
-           data.innerHTML="Loading...";
+           data.innerHTML="HTMoL3: Loading...";
            window.setTimeout(function(){
            if(main.ObjP.Model.Frames!=0 && main.ObjP.Model.Frames!="")
            {
            main.filerequest();
-           console.log(trjauto);
+           console.log("HTMoL3: "+trjauto);
            trjauto=true;
            autoplay=false;
-           console.log(trjauto);
+           console.log("HTMoL3: "+trjauto);
            DinamicaActiva=true;
             }
            data.innerHTML="";
        },100);
        }
        else{
-        data.innerHTML='Error: Invalid URL or Connection not available';
+        data.innerHTML="HTMoL3: Error (Main.js). Invalid URL or Connection not available.";
        }
     }
 
@@ -878,7 +896,7 @@ function Main()
             }
 
             //alert(AtomosSeleccionados.length);
-            document.getElementById("Console_output").value='selected atoms: ' + AtomosSeleccionados.length;
+            document.getElementById("Console_output").value='HTMoL3 selected atoms: ' + AtomosSeleccionados.length;
         }
         else if (comando=='color')
         {
@@ -931,14 +949,14 @@ function Main()
             }
             else
             {
-                document.getElementById("Console_output").value='Unknown command';
+                document.getElementById("Console_output").value='HTM0L3: Error. Unknown command';
             }
 
 
         }
         else
         {
-            document.getElementById("Console_output").value='Unknown command';
+            document.getElementById("Console_output").value='HTM0L3: Error. Unknown command';
         }
 
     }
@@ -1155,7 +1173,7 @@ var menuStyle="";
         var buttontrj = document.getElementById( "trajauto" );
         buttontrj.onclick=function()
         {
-            url="http://127.0.0.1:25565/pdb/prueba.pdb";
+            url=URL_TRJ_AutoLoad_default;
             main.MakeModel(url);
         }
 
@@ -1175,8 +1193,9 @@ var menuStyle="";
     {
         return function(event)
         {
-            //se coloca la ip del servidor y el puerto que se abrió
-            url = prompt("URL: ", "http://127.0.0.1:25565/pdb/2vep_md_prot.pdb");
+            // We can define a default PDB file used at the prompt
+               url = prompt("URL: ", URL_PDB_Load_default);
+            // or input the 4 letter code of the protein to be dowloaded from the PDB site
             if(url!='')
             {
                 if(url.length==4)
@@ -1187,7 +1206,7 @@ var menuStyle="";
                 }
                 catch(e)
                 {
-                    data.innerHTML='Error: Invalid URL or Connection not available';
+                    data.innerHTML='HTMoL3: Error (ScenebyURL). Invalid URL ('+url+') or connection to PDB server not available.';
                 }
             }
 
@@ -1212,7 +1231,7 @@ var menuStyle="";
                 DinamicaActiva=true;
             }catch(e)
             {
-                data.innerHTML='Error: Invalid file or Connection not available '.concat(e);
+                data.innerHTML='HTMoL3: Error. Invalid file or connection not available '.concat(e);
             }
         }
     }
@@ -1271,7 +1290,8 @@ var menuStyle="";
         bitrate = Math.round(bitsLoaded / duration) ;
         if(!trjauto)                                                            //en este bloque se asigna la trayectoria
         {
-            fpath = window.prompt("enter path file","2vep_md_prot_fit.xtc");
+            // We can set a default trajectory file to be displayed at the prompt
+            fpath = window.prompt("Name of the trajectory file",URL_TRJ_Load_default);
             molecule.TrjPath=fpath;
             bndknowframe=false;
         }
@@ -1289,7 +1309,7 @@ var menuStyle="";
         }
        if(autoplay)
         {
-            data.innerHTML='Loading trajectory ... '
+            data.innerHTML='HTMoL3: Loading trajectory ... '
         }
         worker1.postMessage({cmd:"startfile",
                            fpath:fpath,
@@ -1301,7 +1321,7 @@ var menuStyle="";
         {
             if(bndfinal==true)
             {
-                console.log("ya lo borro");
+                console.log("HTMoL3: ya lo borro");
                 clearInterval(intervalreq);
             }
             else
@@ -1310,7 +1330,7 @@ var menuStyle="";
                 {
                     //main.DeleteModel();
                     //main.MakeModel(url);
-                    console.log("lo va a borrar");
+                    console.log("HTMoL3: lo va a borrar");
                     clearInterval(intervalreq);
                 }
                 if(totalframes>200 && (totalframes-numframe)<=200 && requireddata==true)
