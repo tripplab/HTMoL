@@ -12,10 +12,11 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 // =============================== User defined variables =================================
 // Server IP
 var WebIP="148.247.230.41";
+var PDBDIR="http://"+WebIP+"/HTMoL/pdbfiles/";
 // PDB file with trajectory info specified in the header
-var URL_TRJ_AutoLoad_default="http://"+WebIP+"/HTMoL/pdbfiles/lysozyme.pdb";
+var URL_TRJ_AutoLoad_default=PDBDIR+"lysozyme.pdb";
 // A PDB file with no trajectory info in the header
-var URL_PDB_Load_default="http://"+WebIP+"/HTMoL/pdbfiles/2vep_md_prot.pdb";
+var URL_PDB_Load_default=PDBDIR+"2vep_md_prot.pdb";
 // Trajectory info for the previous PDB file. 
 // The file has to be in the directory specified by TRJDIR defined at server.js
 var URL_TRJ_Load_default="2vep_md_prot_fit.xtc";
