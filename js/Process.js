@@ -142,7 +142,7 @@ function createBonds(main)
 	            for(var s in amn.GetAtoms())
 	            {
 	                var atom=amn.GetAtoms()[s];
-            console.log ("for atom "+atom.NameAtom+" "+atom.Element);
+            console.log ("for atom '"+atom.NameAtom+"' "+atom.Element);
 	                for(var b in AtomsBonds[atom.NameAtom])
 	                {
 	                    var val=AtomsBonds[atom.NameAtom][b];
