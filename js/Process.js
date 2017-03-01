@@ -242,53 +242,53 @@ function Process()
 		    
 		    if(lines[i].substr(0,4)=="ATOM")
 		    {
-		   	var RecordName = lines[i].substr(0,6);    
-			var serial = parseInt(lines[i].substr(6,5),10); // so you get a decimal number even with a leading 0 and an old browser ([IE8, Firefox 20, Chrome 22 and older][1])   
-			var name = lines[i].substr(12,4);
-			var altLoc = lines[i].substr(16,1);
-			var resName = lines[i].substr(17,3);
-			var chainID = lines[i].substr(21,1);
-			var resSeq = parseInt(lines[i].substr(22,4),10); // same as above
-			var iCode = lines[i].substr(26,1);
-			var x = parseFloat(lines[i].substr(30,8));
-			var y = parseFloat(lines[i].substr(38,8));
-			var z = parseFloat(lines[i].substr(46,8));
-			var occupancy = lines[i].substr(54,6);
-			var tempFactor = lines[i].substr(60,6);
-			// var element = lines[i].substr(76,2);
-		       	var element = name.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
-			var charge = lines[i].substr(78,2);
+		   	var PDBRecordName = lines[i].substr(0,6);    
+			var PDBserial = parseInt(lines[i].substr(6,5),10); // so you get a decimal number even with a leading 0 and an old browser ([IE8, Firefox 20, Chrome 22 and older][1])   
+			var PDBname = lines[i].substr(12,4);
+			var PDBaltLoc = lines[i].substr(16,1);
+			var PDBresName = lines[i].substr(17,3);
+			var PDBchainID = lines[i].substr(21,1);
+			var PDBresSeq = parseInt(lines[i].substr(22,4),10); // same as above
+			var PDBiCode = lines[i].substr(26,1);
+			var PDBx = parseFloat(lines[i].substr(30,8));
+			var PDBy = parseFloat(lines[i].substr(38,8));
+			var PDBz = parseFloat(lines[i].substr(46,8));
+			var PDBoccupancy = lines[i].substr(54,6);
+			var PDBtempFactor = lines[i].substr(60,6);
+			// var PDBelement = lines[i].substr(76,2);
+		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
+			var PDBcharge = lines[i].substr(78,2);
 			
 			// Atom(number,x,y,z,state,element,nameatom)
 			var atom=new Atom
 		       	(
-		       		serial,
-		       		x,
-		       		y,
-		       		z,
+		       		PDBserial,
+		       		PDBx,
+		       		PDBy,
+		       		PDBz,
 		       		'Active',											//state
-		       		element,
-				name
+		       		PDBelement,
+				PDBname
 		       		//lines[i].substr(11,6).trim().replace(/\s/g,"&")	 	//nombre
 		       	);
 			
            
 				if(cont==0)
 				{
-					cmpAmino=resSeq; //lines[i].substr(22,4); //Número del aminoácido en el que aparece
-					cmpChain=chainID; //lines[i].substr(20,2);
-					aminoacid=new Aminoacid(cmpAmino,resName,'Active'); //alguno de los 20
+					cmpAmino=PDBresSeq; //lines[i].substr(22,4); //Número del aminoácido en el que aparece
+					cmpChain=PDBchainID; //lines[i].substr(20,2);
+					aminoacid=new Aminoacid(cmpAmino,PDBresName,'Active'); //alguno de los 20
 					chain=new Chain(cmpChain,'Active');
 				}
-				if(cmpAmino!=resSeq) // Cambio el residuo. Número del aminoácido en el que aparece
+				if(cmpAmino!=PDBresSeq) // Cambio el residuo. Número del aminoácido en el que aparece
 				{
-					cmpAmino=resSeq; //lines[i].substr(22,4);
+					cmpAmino=PDBresSeq; //lines[i].substr(22,4);
 					chain.LstAminoAcid.push(aminoacid);
-					aminoacid=new Aminoacid(cmpAmino,resName,'Active');
+					aminoacid=new Aminoacid(cmpAmino,PDBresName,'Active');
 				}
-			    if(cmpChain!=chainID) // Cambio la cadena
+			    if(cmpChain!=PDBchainID) // Cambio la cadena
 			    {
-					cmpChain=chainID; //lines[i].substr(20,2);
+					cmpChain=PDBchainID; //lines[i].substr(20,2);
 					this.Model.LstChain.push(chain);
 					chain=new Chain(cmpChain,'Active');
 					ChainCont=ChainCont + 1;
