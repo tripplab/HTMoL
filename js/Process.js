@@ -134,9 +134,11 @@ function createBonds(main)
 	    for (var t in molecule.GetChain())
 	    {
 	        var chn=molecule.GetChain()[t];
+            console.log ("for chain "+chn.Name);
 	        for(var r in chn.GetAminoacid())
 	        {
 	            var amn=chn.GetAminoacid()[r];
+            console.log ("for aminoacid "+amn.Name+" "+amn.Number);
 	            for(var s in amn.GetAtoms())
 	            {
 	                var atom=amn.GetAtoms()[s];
