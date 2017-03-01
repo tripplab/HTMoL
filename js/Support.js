@@ -148,7 +148,7 @@ var Turns={
             atom.ColorName="default";
             atom.ColorRGB=[1.0, 1.0, 1.0, 1.0]; //Es blanco
         }
-
+console.log("HTMoL3: assigned color is "+atom.ColorName+" for atom "+atom.NameAtom+" of type "+atom.Element);
 
     }
 
