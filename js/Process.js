@@ -214,37 +214,81 @@ function Process()
 		    {
 				this.Model.Name=lines[i].substr(62,4);
 		    }
-		  
+		
+// According to http://www.wwpdb.org/documentation/file-format-content/format33/sect9.html#ATOM
+// COLUMNS        DATA  TYPE    FIELD        DEFINITION
+// -------------------------------------------------------------------------------------
+//  1 -  6        Record name   "ATOM  "
+//  7 - 11        Integer       serial       Atom  serial number.
+// 13 - 16        Atom          name         Atom name.
+// 17             Character     altLoc       Alternate location indicator.
+// 18 - 20        Residue name  resName      Residue name.
+// 22             Character     chainID      Chain identifier.
+// 23 - 26        Integer       resSeq       Residue sequence number.
+// 27             AChar         iCode        Code for insertion of residues.
+// 31 - 38        Real(8.3)     x            Orthogonal coordinates for X in Angstroms.
+// 39 - 46        Real(8.3)     y            Orthogonal coordinates for Y in Angstroms.
+// 47 - 54        Real(8.3)     z            Orthogonal coordinates for Z in Angstroms.
+// 55 - 60        Real(6.2)     occupancy    Occupancy.
+// 61 - 66        Real(6.2)     tempFactor   Temperature  factor.
+// 77 - 78        LString(2)    element      Element symbol, right-justified.
+// 79 - 80        LString(2)    charge       Charge  on the atom.
+
+// Alignment of one-letter atom name such as C starts at column 14, while two-letter atom name such as FE starts at column 13.
+// Atom nomenclature begins with atom type
+// Non-blank alphanumerical character is used for chain identifier
+		    
+// Beware lines[] index start at 0, not 1
+		    
 		    if(lines[i].substr(0,4)=="ATOM")
 		    {
-		   	    var atom=new Atom
+		   	var RecordName = lines[i].substr(0,6);    
+			var serial = parseInt(lines[i].substr(6,5),10); // so you get a decimal number even with a leading 0 and an old browser ([IE8, Firefox 20, Chrome 22 and older][1])   
+			var name = lines[i].substr(12,4);
+			var altLoc = lines[i].substr(16,1);
+			var resName = lines[i].substr(17,3);
+			var chainID = lines[i].substr(21,1);
+			var resSeq = parseInt(lines[i].substr(22,4),10); // same as above
+			var iCode = lines[i].substr(26,1);
+			var x = parseFloat(lines[i].substr(30,8));
+			var y = parseFloat(lines[i].substr(38,8));
+			var z = parseFloat(lines[i].substr(46,8));
+			var occupancy = lines[i].substr(54,6);
+			var tempFactor = lines[i].substr(60,6);
+			// var element = lines[i].substr(76,2);
+		       	var element = name.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
+			var charge = lines[i].substr(78,2);
+			
+			// Atom(number,x,y,z,state,element,nameatom)
+			var atom=new Atom
 		       	(
-		       		lines[i].substr(6,5), 								//Number
-		       		parseFloat(lines[i].substr(30,8)), 					//x
-		       		parseFloat(lines[i].substr(38,8)), 					//y
-		       		parseFloat(lines[i].substr(46,8)), 					//z
+		       		serial,
+		       		x,
+		       		y,
+		       		z,
 		       		'Active',											//state
-		       		lines[i].substr(11,5).trim().substr(0,1),			//element
-		       		lines[i].substr(11,6).trim().replace(/\s/g,"&")	 	//nombre
+		       		element,
+				name
+		       		//lines[i].substr(11,6).trim().replace(/\s/g,"&")	 	//nombre
 		       	);
 			
            
 				if(cont==0)
 				{
-					cmpAmino=lines[i].substr(22,4); //Número del aminoácido en el que aparece
-					cmpChain=lines[i].substr(20,2);
-					aminoacid=new Aminoacid(cmpAmino,lines[i].substr(17,3),'Active'); //THR o alguno de los 20
+					cmpAmino=resSeq; //lines[i].substr(22,4); //Número del aminoácido en el que aparece
+					cmpChain=chainID; //lines[i].substr(20,2);
+					aminoacid=new Aminoacid(cmpAmino,resName,'Active'); //alguno de los 20
 					chain=new Chain(cmpChain,'Active');
 				}
-				if(cmpAmino!=lines[i].substr(22,4)) //Número del aminoácido en el que apaarece
+				if(cmpAmino!=resSeq) // Cambio el residuo. Número del aminoácido en el que aparece
 				{
-					cmpAmino=lines[i].substr(22,4);
+					cmpAmino=resSeq; //lines[i].substr(22,4);
 					chain.LstAminoAcid.push(aminoacid);
-					aminoacid=new Aminoacid(cmpAmino,lines[i].substr(17,3),'Active');
+					aminoacid=new Aminoacid(cmpAmino,resName,'Active');
 				}
-			    if(cmpChain!=lines[i].substr(20,2))
+			    if(cmpChain!=chainID) // Cambio la cadena
 			    {
-					cmpChain=lines[i].substr(20,2);
+					cmpChain=chainID; //lines[i].substr(20,2);
 					this.Model.LstChain.push(chain);
 					chain=new Chain(cmpChain,'Active');
 					ChainCont=ChainCont + 1;
