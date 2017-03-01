@@ -148,6 +148,7 @@ function createBonds(main)
 	                        if(val==atomb.NameAtom)
 	                        {
 	                            bond=main.ObjP.AddBond(bond,atom,atomb);
+				    console.log("HTMoL3: added bond between "+atom.NameAtom+" and "+atomb.NameAtom);
 	                        }
 	                    }
 	                }
@@ -261,7 +262,7 @@ function Process()
 		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
 			var PDBcharge = lines[i].substr(78,2);
 			
-console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
+// console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
 
 			var atom=new Atom
 		       	(
@@ -318,12 +319,12 @@ console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"
 			    atom.Aminoacid=aminoacid.Name;
 			    atom.AminoNum=aminoacid.Number;
 
-			    if(atom.NameAtom=='C'||atom.NameAtom=='O3\'')
+			    if(atom.NameAtom=='C'|| atom.NameAtom=='O3\'')
 			    {
 			    	var atomtmp=atom;
 			    }
 		       		       		       
-		        if((atom.NameAtom=='N'||atom.NameAtom=='P')&&cont>1)
+		        if((atom.NameAtom=='N'|| atom.NameAtom=='P') && cont>1)
 		        {
 		        	bond=this.AddBond(bond,atomtmp,atom);	
 		        }
@@ -410,7 +411,7 @@ console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"
 		try
 		{
 		    var distancia=Math.sqrt(Math.pow(atom.X-union.X,2)+Math.pow(atom.Y-union.Y,2)+Math.pow(atom.Z-union.Z,2));
-		    if(distancia<2)
+		    if(distancia<4) //2
 		    {
 			bond.LstAtoms.push(atom);
 			bond.LstAtoms.push(union);
@@ -424,7 +425,7 @@ console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"
 			contBonds++;
 		    }
 		}catch(e)
-		{}
+		{console.log("HTMoL3: Error adding bond ("+e+") between atom "+atom.NameAtom+" and "+union.NameAtom);}
 	    return bond=new Bond();
 	}
 
