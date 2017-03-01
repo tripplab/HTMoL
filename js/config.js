@@ -11,7 +11,7 @@ var NoPaso = 100; //es el número de átomos por bloque para realizar la llamada
 //Float32Array para los vértices
 //Uint16Array para índices
 
-var pdbInicial='pdb/1crn.pdb';
+var pdbInicial='pdbfiles/1crn.pdb';
 
 var radius = 0.2; //es el radio definido para la representación Spheres Bonds
 
