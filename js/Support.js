@@ -124,10 +124,10 @@ var Turns={
        //
        switch (atom.Element) 
        {
-        case 'H':
-            atom.ColorName="white";
-            atom.ColorRGB=[1.0, 1.0, 1.0, 1.0]; //Es blanco
-            break;
+//        case 'H':
+//            atom.ColorName="white";
+//            atom.ColorRGB=[1.0, 1.0, 1.0, 1.0]; //Es blanco
+//            break;
         case 'C':
             atom.ColorName="gray";
             atom.ColorRGB=[0.411765,0.411765,0.411765,1.0]; //Es gris
@@ -161,8 +161,8 @@ var Turns={
         "purple",
         "pink",
         "gray",
-        "brown",
-        "white"
+        "brown" //,
+        //"white"
     ];
 
        
