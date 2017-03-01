@@ -252,7 +252,7 @@ function Process()
 		    {
 		   	var PDBRecordName = lines[i].substr(0,6);    
 			var PDBserial = parseInt(lines[i].substr(6,5),10); // so you get a decimal number even with a leading 0 and an old browser ([IE8, Firefox 20, Chrome 22 and older][1])   
-			var PDBname = lines[i].substr(12,4);
+			var PDBname = lines[i].substr(12,4); PDBname = PDBname.trim();
 			var PDBaltLoc = lines[i].substr(16,1);
 			var PDBresName = lines[i].substr(17,3);
 			var PDBchainID = lines[i].substr(21,1);
