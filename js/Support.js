@@ -143,7 +143,7 @@ var Turns={
             break;
         default:
             atom.ColorName="default";
-            atom.ColorRGB=[0.0, 0.0, 1.0, 1.0]; //Es azul
+            atom.ColorRGB=[1.0, 1.0, 1.0, 1.0]; //Es blanco
         }
 
 
