@@ -549,22 +549,22 @@ color: #fff;
 
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?3vuy5b');
-    src:    url('fonts/icomoon.eot?3vuy5b#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?3vuy5b') format('truetype'),
-        url('fonts/icomoon.woff?3vuy5b') format('woff'),
-        url('fonts/icomoon.svg?3vuy5b#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?3vuy5b');
+    src:    url('../fonts/icomoon.eot?3vuy5b#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?3vuy5b') format('truetype'),
+        url('../fonts/icomoon.woff?3vuy5b') format('woff'),
+        url('../fonts/icomoon.svg?3vuy5b#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?rbpj2k');
-    src:    url('fonts/icomoon.eot?rbpj2k#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?rbpj2k') format('truetype'),
-        url('fonts/icomoon.woff?rbpj2k') format('woff'),
-        url('fonts/icomoon.svg?rbpj2k#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?rbpj2k');
+    src:    url('../fonts/icomoon.eot?rbpj2k#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?rbpj2k') format('truetype'),
+        url('../fonts/icomoon.woff?rbpj2k') format('woff'),
+        url('../fonts/icomoon.svg?rbpj2k#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
