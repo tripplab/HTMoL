@@ -259,6 +259,8 @@ function Process()
 		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
 			var PDBcharge = lines[i].substr(78,2);
 			
+			console.log(PDBserial+" "+PDBname+" "+PDBresName+" "+PDBchainID+" "+PDBresSeq+" "+PDBelement);
+			    
 			// Atom(number,x,y,z,state,element,nameatom)
 			var atom=new Atom
 		       	(
