@@ -129,7 +129,8 @@ function Atom(number,x,y,z,state,element,nameatom)
 
 function createBonds(main)
 	{
-		var bond= new Bond();
+            console.log ("HTMoL3: will try to create bonds");
+	    var bond= new Bond();
 	    for (var t in molecule.GetChain())
 	    {
 	        var chn=molecule.GetChain()[t];
