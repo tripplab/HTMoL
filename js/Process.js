@@ -205,10 +205,12 @@ function Process()
 	    	if(lines[i].substr(0,7)=="NFRAMES")
 	    	{
 	       		this.Model.Frames=lines[i].substr(10);
+			console.log("HTMoL3: Expecting "+this.Model.Frames+" frames");
 	       	}
 	       	if(lines[i].substr(0,7)=="TRJPATH")
 	       	{
 	       		this.Model.TrjPath=lines[i].substr(10);
+			console.log("from trajectory file "+this.Model.TrjPath+"");
 	       	}
 		    if(lines[i].substr(0,6)=="HEADER")
 		    {
@@ -259,9 +261,8 @@ function Process()
 		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
 			var PDBcharge = lines[i].substr(78,2);
 			
-			console.log(PDBserial+" "+PDBname+" "+PDBresName+" "+PDBchainID+" "+PDBresSeq+" "+PDBelement);
-			    
-			// Atom(number,x,y,z,state,element,nameatom)
+console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
+
 			var atom=new Atom
 		       	(
 		       		PDBserial,
@@ -273,8 +274,7 @@ function Process()
 				PDBname
 		       		//lines[i].substr(11,6).trim().replace(/\s/g,"&")	 	//nombre
 		       	);
-			
-           
+
 				if(cont==0)
 				{
 					cmpAmino=PDBresSeq; //lines[i].substr(22,4); //Número del aminoácido en el que aparece
@@ -294,8 +294,26 @@ function Process()
 					this.Model.LstChain.push(chain);
 					chain=new Chain(cmpChain,'Active');
 					ChainCont=ChainCont + 1;
-				}		
-		        aminoacid.LstAtoms.push(atom);	       
+				}
+
+// Checking correct assignments			    
+// Atom(number,x,y,z,state,element,nameatom)
+//    this.X=x;
+//    this.Y=y;
+//    this.Z=z;
+//    this.State=state;
+//    this.NumberAtom=number;
+//    this.Element=element;
+//    this.NameAtom=nameatom;			    			
+// Aminoacid(number,name,state)
+//     this.Number=number;
+//     this.Name=name;
+//     this.State=state;
+// Chain(name,state)
+//     this.Name=name;
+console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"+aminoacid.Name+" chainID:"+chain.Name+" resSeq:"+aminoacid.Number+" element:"+atom.Element);			    
+			    
+		            aminoacid.LstAtoms.push(atom);	       
 			    this.Model.LstAtoms.push(atom);
 			    atom.Aminoacid=aminoacid.Name;
 			    atom.AminoNum=aminoacid.Number;
@@ -311,7 +329,7 @@ function Process()
 		        }
 
 		        /////////////////////////// This part is for Skeletom´s Atoms ////////////////////////////////////////////
-		       	if(atom.NameAtom=='CA'||atom.NameAtom=='P')
+		       	if(atom.NameAtom=='CA'|| atom.NameAtom=='P')
 		       	{
 		       		if (contSkele==0) {
 		       			var atomtmp2=atom;
