@@ -26,7 +26,7 @@ function toggleNavPanel() {
         } else {
 
             panel.style.height = maxTam;
-            navarrow.innerHTML = "&#9652;";
+            //navarrow.innerHTML = "&#9652;";
         }
 }
 
