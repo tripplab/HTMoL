@@ -129,31 +129,31 @@ function Atom(number,x,y,z,state,element,nameatom)
 
 function createBonds(main)
 	{
-            console.log ("HTMoL3: will try to create bonds");
+            //console.log ("HTMoL3: will try to create bonds");
 	    var bond= new Bond();
 	    for (var t in molecule.GetChain())
 	    {
 	        var chn=molecule.GetChain()[t];
-            console.log ("for chain "+chn.Name);
+            //console.log ("for chain "+chn.Name);
 	        for(var r in chn.GetAminoacid())
 	        {
 	            var amn=chn.GetAminoacid()[r];
-            console.log ("for aminoacid "+amn.Name+" "+amn.Number);
+            //console.log ("for aminoacid "+amn.Name+" "+amn.Number);
 	            for(var s in amn.GetAtoms())
 	            {
 	                var atom=amn.GetAtoms()[s];
-            console.log ("for atom '"+atom.NameAtom+"' "+atom.Element);
+            //console.log ("for atom '"+atom.NameAtom+"' "+atom.Element);
 	                for(var b in AtomsBonds[atom.NameAtom])
 	                {
 	                    var val=AtomsBonds[atom.NameAtom][b];
-            console.log ("for bond "+val);
+            //console.log ("for bond "+val);
 	                    for(var i in amn.GetAtoms())
 	                    {
 	                        var atomb=amn.GetAtoms()[i];
 	                        if(val==atomb.NameAtom)
 	                        {
 	                            bond=main.ObjP.AddBond(bond,atom,atomb);
-				    console.log("HTMoL3: added bond between "+atom.NameAtom+" and "+atomb.NameAtom);
+				    //console.log("HTMoL3: added bond between "+atom.NameAtom+" and "+atomb.NameAtom);
 	                        }
 	                    }
 	                }
@@ -317,7 +317,8 @@ function Process()
 //     this.State=state;
 // Chain(name,state)
 //     this.Name=name;
-console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"+aminoacid.Name+" chainID:"+chain.Name+" resSeq:"+aminoacid.Number+" element:"+atom.Element);			    
+
+//console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"+aminoacid.Name+" chainID:"+chain.Name+" resSeq:"+aminoacid.Number+" element:"+atom.Element);			    
 			    
 		            aminoacid.LstAtoms.push(atom);	       
 			    this.Model.LstAtoms.push(atom);
@@ -397,7 +398,7 @@ console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"
 	            }
 	            atom.ColorRGBDiffuse=[R*Scala,G*Scala,B*Scala];
 
-	            //en esta parte se asigna el color al átom
+	        //en esta parte se asigna el color al átom
             	AsignaColor(atom); 
 		    }
 		    
@@ -416,7 +417,7 @@ console.log("NumberAtom:"+atom.NumberAtom+" NameAtom:"+atom.NameAtom+" resName:"
 		try
 		{
 		    var distancia=Math.sqrt(Math.pow(atom.X-union.X,2)+Math.pow(atom.Y-union.Y,2)+Math.pow(atom.Z-union.Z,2));
-		    if(distancia<4) //2
+		    if(distancia<3) //2
 		    {
 			bond.LstAtoms.push(atom);
 			bond.LstAtoms.push(union);
