@@ -142,12 +142,14 @@ function createBonds(main)
 	            for(var s in amn.GetAtoms())
 	            {
 	                var atom=amn.GetAtoms()[s];
+            console.log ("for atom "+atom.NameAtom+" "+atom.Element);
 	                for(var b in AtomsBonds[atom.NameAtom])
 	                {
 	                    var val=AtomsBonds[atom.NameAtom][b];
-	                    for(var s in amn.GetAtoms())
+            console.log ("for bond "+val);
+	                    for(var i in amn.GetAtoms())
 	                    {
-	                        var atomb=amn.GetAtoms()[s];
+	                        var atomb=amn.GetAtoms()[i];
 	                        if(val==atomb.NameAtom)
 	                        {
 	                            bond=main.ObjP.AddBond(bond,atom,atomb);
