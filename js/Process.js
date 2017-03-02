@@ -129,31 +129,31 @@ function Atom(number,x,y,z,state,element,nameatom)
 
 function createBonds(main)
 	{
-            console.log ("HTMoL3: will try to create bonds");
+            //console.log ("HTMoL3: will try to create bonds");
 	    var bond= new Bond();
 	    for (var t in molecule.GetChain())
 	    {
 	        var chn=molecule.GetChain()[t];
-            console.log ("for chain "+chn.Name);
+            //console.log ("for chain "+chn.Name);
 	        for(var r in chn.GetAminoacid())
 	        {
 	            var amn=chn.GetAminoacid()[r];
-            if(amn.Name=="GLU") console.log ("for aminoacid "+amn.Name+" "+amn.Number);
+            //if(amn.Name=="GLU") console.log ("for aminoacid "+amn.Name+" "+amn.Number);
 	            for(var s in amn.GetAtoms())
 	            {
 	                var atom=amn.GetAtoms()[s];
-            if(amn.Name=="GLU") console.log ("for atom '"+atom.NameAtom+"' "+atom.Element);
+            //if(amn.Name=="GLU") console.log ("for atom '"+atom.NameAtom+"' "+atom.Element);
 	                for(var b in AtomsBonds[atom.NameAtom])
 	                {
 	                    var val=AtomsBonds[atom.NameAtom][b];
-            if(amn.Name=="GLU") console.log ("for bond "+val);
+            //if(amn.Name=="GLU") console.log ("for bond "+val);
 	                    for(var i in amn.GetAtoms())
 	                    {
 	                        var atomb=amn.GetAtoms()[i];
 	                        if(val==atomb.NameAtom)
 	                        {
 	                            bond=main.ObjP.AddBond(bond,atom,atomb);
-				    if(amn.Name=="GLU") console.log("HTMoL3: added bond between "+atom.NameAtom+" and "+atomb.NameAtom);
+				    //if(amn.Name=="GLU") console.log("HTMoL3: added bond between "+atom.NameAtom+" and "+atomb.NameAtom);
 	                        }
 	                    }
 	                }
