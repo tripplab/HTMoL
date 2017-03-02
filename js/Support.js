@@ -180,7 +180,6 @@ var Turns={
         'C':['O'],
         'CA':['N','C','CB'],
         'CB':['CA'],
-        'CG':['CB'],
         'CG1':['CB','CD1'],
         'CG1A':['CB'],
         'CG1B':['CB'],
