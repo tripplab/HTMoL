@@ -267,10 +267,11 @@ function Process()
 		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
 			var PDBcharge = lines[i].substr(78,2);
 			    
-			    if(/^\d/.test(PDBname) {
+			    if(/^\d/.test(PDBname) 
+			    {
 			       console.log("Found a number in atom name: "+PDBname);
-			       PDBname = PDBname.substring(1);
-			       console.log("changed it to: "+PDBname);
+			       //PDBname = PDBname.substring(1);
+			       //console.log("changed it to: "+PDBname);
 			    }
 // console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
 
