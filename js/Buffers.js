@@ -533,7 +533,7 @@ function initBuffersSpheresCPK()
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            if (molecule.LstAtoms[apuntador].NameAtom == 'H') {
+            if (molecule.LstAtoms[apuntador].Element == 'H') { // NameAtom
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayH[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayH[z + 1] + atmY - Cy);
@@ -541,7 +541,7 @@ function initBuffersSpheresCPK()
 
                     z = z + 3;
                 }
-            } else if (molecule.LstAtoms[apuntador].Element == 'C') { // NameAtom
+            } else if (molecule.LstAtoms[apuntador].Element == 'C') { 
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
@@ -550,34 +550,34 @@ function initBuffersSpheresCPK()
                     z = z + 3;
                 }
 
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
-                for (var z = 0; z < verArray.length;) {
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//            } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
+//                for (var z = 0; z < verArray.length;) {
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                    z = z + 3;
+//                }
 
-                    z = z + 3;
-                }
+//            } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
+//                for (var z = 0; z < verArray.length;) {
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                    z = z + 3;
+//                }
 
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
-                for (var z = 0; z < verArray.length;) {
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//            } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
+//                for (var z = 0; z < verArray.length;) {
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                    z = z + 3;
+//                }
 
-                    z = z + 3;
-                }
-
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
-                for (var z = 0; z < verArray.length;) {
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                    vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
-
-                    z = z + 3;
-                }
-
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'N') {
+            } else if (molecule.LstAtoms[apuntador].Element == 'N') {
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayN[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayN[z + 1] + atmY - Cy);
@@ -586,7 +586,7 @@ function initBuffersSpheresCPK()
                     z = z + 3;
                 }
 
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'O') {
+            } else if (molecule.LstAtoms[apuntador].Element == 'O') {
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayO[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayO[z + 1] + atmY - Cy);
@@ -595,7 +595,7 @@ function initBuffersSpheresCPK()
                     z = z + 3;
                 }
 
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'S') {
+            } else if (molecule.LstAtoms[apuntador].Element == 'S') {
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayS[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayS[z + 1] + atmY - Cy);
@@ -604,7 +604,7 @@ function initBuffersSpheresCPK()
                     z = z + 3;
                 }
 
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'P') {
+            } else if (molecule.LstAtoms[apuntador].Element == 'P') {
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayP[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayP[z + 1] + atmY - Cy);
@@ -758,7 +758,7 @@ function initBuffersSpheresCPK()
 
                     //en esta parte se asigna el color al átom
                     AsignaColor(molecule.LstAtoms[apuntador]);
-                    if (molecule.LstAtoms[apuntador].NameAtom == 'H') {
+                    if (molecule.LstAtoms[apuntador].Element == 'H') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayH[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayH[z + 1] + atmY - Cy);
@@ -766,7 +766,7 @@ function initBuffersSpheresCPK()
 
                             z = z + 3;
                         }
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'C') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'C') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
@@ -775,34 +775,34 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                            z = z + 3;
+//                        }
 
-                            z = z + 3;
-                        }
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                            z = z + 3;
+//                        }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                            z = z + 3;
+//                        }
 
-                            z = z + 3;
-                        }
-
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
-
-                            z = z + 3;
-                        }
-
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'N') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'N') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayN[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayN[z + 1] + atmY - Cy);
@@ -811,7 +811,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'O') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'O') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayO[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayO[z + 1] + atmY - Cy);
@@ -820,7 +820,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'S') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'S') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayS[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayS[z + 1] + atmY - Cy);
@@ -829,7 +829,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'P') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'P') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayP[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayP[z + 1] + atmY - Cy);
@@ -960,7 +960,7 @@ function initBuffersSpheresCPK()
                     }
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    if (molecule.LstAtoms[apuntador].NameAtom == 'H') {
+                    if (molecule.LstAtoms[apuntador].Element == 'H') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayH[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayH[z + 1] + atmY - Cy);
@@ -968,7 +968,7 @@ function initBuffersSpheresCPK()
 
                             z = z + 3;
                         }
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'C') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'C') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
@@ -977,33 +977,33 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
-                            z = z + 3;
-                        }
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'PB') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//                            z = z + 3;
+//                        }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'TI') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                            z = z + 3;
+//                        }
 
-                            z = z + 3;
-                        }
+//                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
+//                        for (var z = 0; z < verArray.length;) {
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
+//                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
+//
+//                            z = z + 3;
+//                        }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'CA') {
-                        for (var z = 0; z < verArray.length;) {
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
-                            vertexPositionData[i].push(verArrayC_PB_TI_CA[z + 2] + atmZ - Cz);
-
-                            z = z + 3;
-                        }
-
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'N') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'N') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayN[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayN[z + 1] + atmY - Cy);
@@ -1012,7 +1012,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'O') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'O') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayO[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayO[z + 1] + atmY - Cy);
@@ -1021,7 +1021,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'S') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'S') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayS[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayS[z + 1] + atmY - Cy);
@@ -1030,7 +1030,7 @@ function initBuffersSpheresCPK()
                             z = z + 3;
                         }
 
-                    } else if (molecule.LstAtoms[apuntador].NameAtom == 'P') {
+                    } else if (molecule.LstAtoms[apuntador].Element == 'P') {
                         for (var z = 0; z < verArray.length;) {
                             vertexPositionData[i].push(verArrayP[z] + atmX - Cx);
                             vertexPositionData[i].push(verArrayP[z + 1] + atmY - Cy);
