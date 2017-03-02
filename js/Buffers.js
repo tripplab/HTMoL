@@ -541,7 +541,7 @@ function initBuffersSpheresCPK()
 
                     z = z + 3;
                 }
-            } else if (molecule.LstAtoms[apuntador].NameAtom == 'C') {
+            } else if (molecule.LstAtoms[apuntador].Element == 'C') { // NameAtom
                 for (var z = 0; z < verArray.length;) {
                     vertexPositionData[0].push(verArrayC_PB_TI_CA[z] + atmX - Cx);
                     vertexPositionData[0].push(verArrayC_PB_TI_CA[z + 1] + atmY - Cy);
