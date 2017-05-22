@@ -1,12 +1,10 @@
-<!--Licensed under the MIT license.
-http://www.opensource.org/licenses/mit-license.php
+<!-- This file is part of HTMoL v3.5:
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
 
-this file is part of HTMoL:
-Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Vega Ramirez Adan -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HTMoL v3.0</title>
+    <title>HTMoL v3.5</title>
 
     <script src='js/config.js'></script>
     
@@ -151,19 +149,15 @@ Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Veg
     }
 </script>
 
+<script type="text/javascript">
 
 
-
-    <script type="text/javascript">
-
-
-     var coordsX= new Float32Array();
+    var coordsX= new Float32Array();
     var coordsX1= new Float32Array();
-        var coordsY= new Float32Array();
-        var coordsY1=new Float32Array();
-        var coordsZ= new Float32Array();
-        var coordsZ1=new Float32Array();
-
+    var coordsY= new Float32Array();
+    var coordsY1=new Float32Array();
+    var coordsZ= new Float32Array();
+    var coordsZ1=new Float32Array();
 
     var gl;
     var NoBloques=0;
@@ -230,7 +224,7 @@ Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Veg
         } catch (e) {
         }
         if (!gl) {
-            alert("Su visualizador no tiene soporte para WebGL");
+            alert("HTMoL: ERROR. Your browser does not support WebGL");
         }
     }
 
