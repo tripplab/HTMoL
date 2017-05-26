@@ -936,28 +936,28 @@ function Main()
             {
                 CambiarRepresentacion('CPK');
             }
-            else if(instLower=='spherebond') //para mostrar en spheres bonds
+            else if(instLower=='sb') //para mostrar en spheres bonds
             {
                 CambiarRepresentacion('SB');
             }
-            else if(instLower=='bond') //para mostrar el cpk
+            else if(instLower=='bonds') //para mostrar bonds
             {
                 CambiarRepresentacion('Bonds');
             }
-            else if(instLower=='backbone') //para mostrar el cpk
+            else if(instLower=='trace') //para mostrar el trace
             {
                 CambiarRepresentacion('Skeleton');
             }
             else
             {
-                document.getElementById("Console_output").value='HTM0L3: Error. Unknown command';
+                document.getElementById("Console_output").value='HTM0L3: Error. Unknown command'+inst;
             }
 
 
         }
         else
         {
-            document.getElementById("Console_output").value='HTM0L3: Error. Unknown command';
+            document.getElementById("Console_output").value='HTM0L3: Error. Unknown command'+comando;
         }
 
     }
