@@ -76,7 +76,7 @@ function Main()
     this.ObjP= new Process();
 
     //--------------------------
-    molecule=this.ObjP.ReadFile(pdbInicial);
+    molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
     createBonds(this);
     initCamera(CzPers);
 
