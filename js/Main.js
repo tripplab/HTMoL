@@ -11,8 +11,8 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 
 // =============================== User defined variables =================================
 // Server IP
-var WebIP="148.247.230.41";
-var PDBDIR="http://"+WebIP+"/HTMoL/pdbfiles/";
+var WebIP="localhost";
+var PDBDIR="http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
 // PDB file with trajectory info specified in the header
 var URL_TRJ_AutoLoad_default=PDBDIR+"lysozyme.pdb";
 // A PDB file with no trajectory info in the header
