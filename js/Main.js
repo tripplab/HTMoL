@@ -16,10 +16,10 @@ var PDBDIR="http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
 // PDB file with trajectory info specified in the header
 var URL_TRJ_AutoLoad_default=PDBDIR+"lysozyme.pdb";
 // A PDB file with no trajectory info in the header
-var URL_PDB_Load_default=PDBDIR+"2vep_md_prot.pdb";
+var URL_PDB_Load_default=PDBDIR+"enzima.pdb";
 // Trajectory info for the previous PDB file. 
 // The file has to be in the directory specified by TRJDIR defined at server.js
-var URL_TRJ_Load_default="2vep_md_prot_fit.xtc";
+var URL_TRJ_Load_default="enzima.xtc";
 
 // =======================================================================================
 
