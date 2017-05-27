@@ -129,8 +129,8 @@ var Turns={
             atom.ColorRGB=[1.0, 1.0, 1.0, 1.0]; //Es blanco
             break;
         case 'C':
-            atom.ColorName="gray";
-            atom.ColorRGB=[0.411765,0.411765,0.411765,1.0]; //Es gris
+            atom.ColorName="cyan";
+            atom.ColorRGB=[0.25,0.75,0.75,1.0]; //Es cyan
             break;
         case 'O':
             atom.ColorName="red";
