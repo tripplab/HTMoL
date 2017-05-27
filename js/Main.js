@@ -241,10 +241,10 @@ function Main()
            if(main.ObjP.Model.Frames!=0 && main.ObjP.Model.Frames!="")
            {
            main.filerequest();
-           console.log("HTMoL3: "+trjauto);
+           //console.log("HTMoL3: "+trjauto);
            trjauto=true;
            autoplay=false;
-           console.log("HTMoL3: "+trjauto);
+           //console.log("HTMoL3: "+trjauto);
            DinamicaActiva=true;
             }
            data.innerHTML="";
