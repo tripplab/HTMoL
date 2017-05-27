@@ -7,11 +7,12 @@
 
   self.addEventListener('message', function(e) {
       if (e.data.cmd == "startfile") {
-          if (e.data.bitrate == "infinity") {
-              console.log("HTMoL3: "+"bitrate es infinity");
-          } else {
-              console.log("HTMoL3: bitrate es "+e.data.bitrate);
-          }
+
+//          if (e.data.bitrate == "infinity") {
+//              console.log("HTMoL3: "+"bitrate es infinity");
+//          } else {
+//              console.log("HTMoL3: bitrate es "+e.data.bitrate);
+//          }
   
   // =============================== User defined variables =================================
 
@@ -155,7 +156,7 @@
               stream.on('end', function() {
                   if (dcd==true) {
                     leer(part);
-                    console.log("HTMoL3: final");
+                    //console.log("HTMoL3: final");
                               bnd = true;
                               readend = 0;
                               readstart = 0;
@@ -181,7 +182,7 @@
                           self.postMessage({ cmd: "final", wast: part.byteLength - 1 });
                           bnd = !bnd;
                           if (readend >= tam) {
-                              console.log("HTMoL3: final");
+                              //console.log("HTMoL3: final");
                               bnd = true;
                               readend = 0;
                               readstart = 0;
