@@ -87,7 +87,7 @@
           setTimeout(function() {
               client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
           }, 600);
-          console.log("HTMoL3: aa");
+          //console.log("HTMoL3: aa");
           client.on('stream', function(stream, meta) {
               // Buffer for parts:
 
@@ -467,7 +467,7 @@
                   part = buffer.slice(buf[3].byteLength);
                   bndrev = true;
               }
-              console.log("HTMoL3: "+part.byteLength);
+              //console.log("HTMoL3: "+part.byteLength);
 
               if (part.byteLength >= 92) {
                   nextbuf = new DataView(part).getInt32(88);
