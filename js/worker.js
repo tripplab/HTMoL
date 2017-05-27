@@ -702,7 +702,12 @@
                   
 
                   if (n_fixed != 0) {
+                      //throw new Error("HTMoL3: Error. DCD Trajectories with Fixed Atoms are Not Supported");
+                    try {
                       throw new Error("HTMoL3: Error. DCD Trajectories with Fixed Atoms are Not Supported");
+                    } catch (e) {
+                      console.log(e.name + ': ' + e.message);
+                    }
                   }
 
                   timestep = swap32(hdrbuf[9],endianess); //Cantidad De Cuadros Por segundo
