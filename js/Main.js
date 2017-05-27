@@ -80,42 +80,6 @@ function Main()
     createBonds(this);
     initCamera(CzPers);
  
-        if (RepresentacionInicial=='SpheresBonds')
-        {
-            InitBufSB();
-        }
-        else if(RepresentacionInicial=='Bonds')
-        {
-            InitBufBonds();
-        }
-        else if(RepresentacionInicial=='CPK')
-        {
-            InitBufCPK();
-        }
-
-        main.Buttons();
-
-       if(molecule!=null)
-       {
-           data.innerHTML="HTMoL3: Loading...";
-           window.setTimeout(function(){
-           if(main.ObjP.Model.Frames!=0 && main.ObjP.Model.Frames!="")
-           {
-           main.filerequest();
-           //console.log("HTMoL3: "+trjauto);
-           trjauto=true;
-           autoplay=false;
-           //console.log("HTMoL3: "+trjauto);
-           DinamicaActiva=true;
-            }
-           data.innerHTML="";
-       },100);
-       }
-       else{
-        data.innerHTML="HTMoL3: Error (Main.js). Invalid URL or Connection not available.";
-       }
-
-
     //---------------------------
 
     //AtomosSeleccionados=molecule.LstAtoms;
