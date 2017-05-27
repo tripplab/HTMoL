@@ -1322,7 +1322,7 @@ var menuStyle="";
         {
             if(bndfinal==true)
             {
-                console.log("HTMoL3: ya lo borro");
+                //console.log("HTMoL3: ya lo borro");
                 clearInterval(intervalreq);
             }
             else
@@ -1331,7 +1331,7 @@ var menuStyle="";
                 {
                     //main.DeleteModel();
                     //main.MakeModel(url);
-                    console.log("HTMoL3: lo va a borrar");
+                    //console.log("HTMoL3: lo va a borrar");
                     clearInterval(intervalreq);
                 }
                 if(totalframes>200 && (totalframes-numframe)<=200 && requireddata==true)
@@ -1392,7 +1392,7 @@ $('Console').mousedown(handle_mousedown);
 
 
  $(function() {
-    $( "#Console" ).draggable();
+//    $( "#Console" ).draggable();
   });
 
 /*
