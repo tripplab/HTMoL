@@ -79,6 +79,10 @@ function Main()
     //molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
     //createBonds(this);
     //initCamera(CzPers);
+    
+      url=URL_TRJ_AutoLoad_default;
+      main.MakeModel(url);
+
 
     //---------------------------
 
