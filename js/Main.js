@@ -81,7 +81,7 @@ function Main()
     //initCamera(CzPers);
     
       url=URL_TRJ_AutoLoad_default;
-      this.MakeModel(url);
+      MakeModel(url);
 
 
     //---------------------------
