@@ -675,7 +675,7 @@
                   rec_scale64 = false; //Se desactiva la bandera son enteros comunes 32bits(4 bytes)
               } else if(swap32(doc[0],true)==84 && doc[1]==1146244931){
                   endianess=true;
-                  console.log("HTMoL3: Need To Change Endianess");
+                  console.log("HTMoL3: I need to change DCD file endianess");
               }else if(doc[0]==null){
                 throw new Error("HTMoL3: Connection Delay, Still Loading.....");
               }
@@ -684,7 +684,7 @@
               }
               if (!rec_scale64) { //Proceso si el archivo maneja enteros de 32bits
                   hdrbuf = new Int32Array(doc.subarray(2, 22)); //Se Lee encabezado(80 Bytes)
-                  console.log(hdrbuf);
+                  //console.log(hdrbuf);
                   if (hdrbuf[-1] != 0) { //Si el ultimo valor del encabezado 0 es formato X-PLOR de lo contrario es CHARMM
                       charmm = true;
                   } else {
