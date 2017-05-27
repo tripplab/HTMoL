@@ -950,14 +950,14 @@ function Main()
             }
             else
             {
-                document.getElementById("Console_output").value='HTM0L3: Error. Unknown command'+inst;
+                document.getElementById("Console_output").value='HTM0L3: Error. Unknown command '+inst;
             }
 
 
         }
         else
         {
-            document.getElementById("Console_output").value='HTM0L3: Error. Unknown command'+comando;
+            document.getElementById("Console_output").value='HTM0L3: Error. Unknown command '+txt;
         }
 
     }
