@@ -677,12 +677,7 @@
                   endianess=true;
                   console.log("HTMoL3: I need to change DCD file endianess");
               }else if(doc[0]==null){
-                //throw new Error("HTMoL3: Connection Delay, Still Loading.....");
-                try {
-                    throw new Error("HTMoL3: Connection Delay, Still Loading.....");
-                } catch (e) {
-                    console.log(e.name + ': ' + e.message);
-                }
+                throw new Error("HTMoL3: Connection delay, but don't worry, I'm still loading DCD file...");
               }
               else{
                   throw new Error("HTMoL3: Error. DCD CORD or Initial 84 Not Found");
@@ -702,12 +697,7 @@
                   
 
                   if (n_fixed != 0) {
-                      //throw new Error("HTMoL3: Error. DCD Trajectories with Fixed Atoms are Not Supported");
-                    try {
                       throw new Error("HTMoL3: Error. DCD Trajectories with Fixed Atoms are Not Supported");
-                    } catch (e) {
-                      console.log(e.name + ': ' + e.message);
-                    }
                   }
 
                   timestep = swap32(hdrbuf[9],endianess); //Cantidad De Cuadros Por segundo
