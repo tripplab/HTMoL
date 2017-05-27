@@ -14,7 +14,7 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 var WebIP="localhost";
 var PDBDIR="http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
 // PDB file with trajectory info specified in the header
-var URL_TRJ_AutoLoad_default=PDBDIR+"lysozyme.pdb";
+var URL_TRJ_AutoLoad_default=PDBDIR+"prueba.pdb";
 // A PDB file with no trajectory info in the header
 var URL_PDB_Load_default=PDBDIR+"enzima.pdb";
 // Trajectory info for the previous PDB file. 
