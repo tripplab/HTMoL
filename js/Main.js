@@ -80,9 +80,6 @@ function Main()
     //createBonds(this);
     //initCamera(CzPers);
     
-      url=URL_TRJ_AutoLoad_default;
-      MakeModel(url);
-
 
     //---------------------------
 
@@ -258,6 +255,11 @@ function Main()
         data.innerHTML="HTMoL3: Error (Main.js). Invalid URL or Connection not available.";
        }
     }
+    
+          url=URL_TRJ_AutoLoad_default;
+      this.MakeModel(url);
+
+
 
     this.Parse=function(txt)
     {
