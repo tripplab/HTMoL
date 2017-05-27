@@ -677,8 +677,7 @@
                   endianess=true;
                   console.log("HTMoL3: I need to change DCD file endianess");
               }else if(doc[0]==null){
-                //throw new Error("HTMoL3: Connection Delay, Still Loading.....");
-                  console.log("HTMoL3: Loading DCD file");
+                throw new Error("HTMoL3: Connection Delay, Still Loading.....");
               }
               else{
                   throw new Error("HTMoL3: Error. DCD CORD or Initial 84 Not Found");
