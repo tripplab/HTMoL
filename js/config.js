@@ -1,7 +1,7 @@
 /////////////////// VARIABLES DE CONFIGURACIÓN ////////////////////
 
-var RepresentacionInicial='SpheresBonds';
-//var RepresentacionInicial='Bonds';
+//var RepresentacionInicial='SpheresBonds';
+var RepresentacionInicial='Bonds';
 //var RepresentacionInicial='CPK';
 //var RepresentacionInicial='Skeleton';
 
@@ -11,7 +11,7 @@ var NoPaso = 100; //es el número de átomos por bloque para realizar la llamada
 //Float32Array para los vértices
 //Uint16Array para índices
 
-var pdbInicial='pdbfiles/1crn.pdb';
+var pdbInicial='pdbfiles/prueba.pdb';
 
 var radius = 0.2; //es el radio definido para la representación Spheres Bonds
 
