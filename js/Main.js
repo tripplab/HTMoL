@@ -1009,7 +1009,7 @@ var menuStyle="";
             +"<div class='menu_iconos'>"
                 +"<button onclick='menu_open()' class='B_open' ><span class ='icon-carpeta-abierta'  id='a1'></span><span class='tooltip1'>Open</span> </button>"
                                 +"<br>"
-                +"<button onclick='menu_repre()' class='B_repre'><span class ='icon-molecula'  id='a2'></span><span class='tooltip2'>Model</span></button>"
+                +"<button onclick='menu_repre()' class='B_repre'><span class ='icon-molecula'  id='a2'></span><span class='tooltip2'>Representation</span></button>"
                                 +"<br>"
                                 +"<button onclick='menu_select()' class='B_select'><span class ='icon-seleccionar-objeto'  id='a3'><span class='tooltip3'>Select</span></span></button>"
                                 +"<br>"
