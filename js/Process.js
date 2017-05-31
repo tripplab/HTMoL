@@ -170,7 +170,9 @@ function Process()
 		   var text = $.ajax({
 		       url: URL, 
 			   dataType: 'text',
-			   async: false     
+// "false" value gives browser warning "[Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience."
+// "true" value breaks the app, no time to debug			   
+			   async: true     
 		   }).responseText;
 		   if (text!=null&&text.substr(0,6)!="<html>"){
 	        return this.Parse(text);
