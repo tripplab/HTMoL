@@ -169,8 +169,8 @@ function Process()
 	{
 		   var text = $.ajax({
 		       url: URL, 
-			   dataType: 'text'
-//			   async: true //false     
+			   dataType: 'text',
+			   async: true //false     
 		   }).responseText;
 		   if (text!=null&&text.substr(0,6)!="<html>"){
 	        return this.Parse(text);
