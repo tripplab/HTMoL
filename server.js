@@ -10,6 +10,8 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 
 */
 
+// Update Node.js, instructions at http://www.hostingadvice.com/how-to/update-node-js-latest-version
+
 // =============================== User defined variables =================================
 
 // Apache listens at port 80 by default. We have to use a different port for Node.
