@@ -80,6 +80,9 @@
               1048576, 1321122, 1664510, 2097152, 2642245, 3329021, 4194304,
               5284491, 6658042, 8388607, 10568983, 13316085, 16777216
           ];
+        
+          var data;
+          data = document.getElementById("data");
 
           readstart = e.data.readstart;
           readend = e.data.readend;
