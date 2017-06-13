@@ -325,6 +325,8 @@ function ProcesarSeleccion() //poner a color seleccionado, pregunta: va a estar 
 {
     //console.time("procesarSeleccion");
     var ArrCont=[];
+                        console.log(molecule.LstAtoms.length);
+                        console.log(AtomosSeleccionados.length);
     for (var t = 0; t < AtomosSeleccionados.length; t++)
     {
         var atom = AtomosSeleccionados[t];
@@ -1085,8 +1087,6 @@ function CAmino()
 function EliminarSeleccion()
 {
     var ArrCont = [];
-                        console.log(molecule.LstAtoms.length);
-                        console.log(AtomosSeleccionados.length);
             if (AtomosSeleccionados.length != molecule.LstAtoms.length) //significa que todos estan seleccionados
             {
                 /////////////////////////////////////////////////
