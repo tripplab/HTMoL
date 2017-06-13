@@ -1085,6 +1085,8 @@ function CAmino()
 function EliminarSeleccion()
 {
     var ArrCont = [];
+                        console.log(molecule.LstAtoms.length);
+                        console.log(AtomosSeleccionados.length);
             if (AtomosSeleccionados.length != molecule.LstAtoms.length) //significa que todos estan seleccionados
             {
                 /////////////////////////////////////////////////
@@ -1101,7 +1103,6 @@ function EliminarSeleccion()
                                         colorSet = atomTemp.ColorDos;
                                     }
                         var mul = (atomTemp.PositionBSolid - 1) * nColor;
-                        console.log(nColor);
                         for (var z = 0; z < nColor;) {
                             ColorTotal[atomTemp.BloqueSolid - 1][mul + z] = colorSet[0];
                             ColorTotal[atomTemp.BloqueSolid - 1][mul + z + 1] = colorSet[1];
