@@ -342,7 +342,7 @@ Packer.prototype.pack = function(value){
       var constructor = value.constructor;
       if (constructor == Array){
         this.pack_array(value);
-      } else if (constructor == Blob || constructor == File) {
+      } else if (constructor == 'Blob' || constructor == 'File') {
         this.pack_bin(value);
       } else if (constructor == ArrayBuffer) {
         if(binaryFeatures.useArrayBufferView) {
@@ -1218,7 +1218,7 @@ BinaryClient.prototype.send = function(data, meta){
       stream.write(data);
     } 
   } else if (util.isNode !== true) {
-    if(data.constructor == Blob || data.constructor == File) {
+    if(data.constructor == 'Blob' || data.constructor == 'File') {
       (new BlobReadStream(data, {chunkSize: this._options.chunkSize})).pipe(stream);
     } else if (data.constructor == ArrayBuffer) {
       var blob;

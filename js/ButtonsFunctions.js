@@ -1101,6 +1101,7 @@ function EliminarSeleccion()
                                         colorSet = atomTemp.ColorDos;
                                     }
                         var mul = (atomTemp.PositionBSolid - 1) * nColor;
+                        console.log(nColor);
                         for (var z = 0; z < nColor;) {
                             ColorTotal[atomTemp.BloqueSolid - 1][mul + z] = colorSet[0];
                             ColorTotal[atomTemp.BloqueSolid - 1][mul + z + 1] = colorSet[1];
