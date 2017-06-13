@@ -34,13 +34,13 @@ var z = 0;
                     normalData.push(y);
                     normalData.push(z);
                     
-                    //////////////////////VÉRTICES PARA ESFERA DE RADIO PARA SPHERES BONDS ////////////////
+                    //////////////////////VÉRTICES PARA ESFERA DE RADIO PARA CPK ////////////////
                     verArray.push(radius * x);
                     verArray.push(radius * y);
                     verArray.push(radius * z);
                     ////////////////////////////////////////////////////////
 
-                    //////////////////////VÉRTICES PARA LAS ESFERAS CON RADIO CPK ///////////////////////////
+                    //////////////////////VÉRTICES PARA LAS ESFERAS CON RADIO VDW ///////////////////////////
                     verArrayH.push(radiusH * x);  //para hidrógeno
                     verArrayH.push(radiusH * y);
                     verArrayH.push(radiusH * z);
