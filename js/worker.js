@@ -81,15 +81,11 @@
               5284491, 6658042, 8388607, 10568983, 13316085, 16777216
           ];
         
-          var data;
-          data = document.getElementById("data");
-
           readstart = e.data.readstart;
           readend = e.data.readend;
           fpath = e.data.fpath;
           //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
-              data.innerHTML="HTMoL3: Loading...";
               client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
           }, 2000);
           //console.log("HTMoL3: aa");
