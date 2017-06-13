@@ -13,7 +13,7 @@ var NoPaso = 100; //es el número de átomos por bloque para realizar la llamada
 
 var pdbInicial='prueba.pdb';
 
-var radius = 0.2; //es el radio definido para la representación Spheres Bonds
+var radius = 0.4; //es el radio definido para la representación Spheres Bonds
 
 var mxSize = 20999999; //es el número máximo de bytes que va a leer de una archivo, 20999999 representa aprox 21 megas
 
