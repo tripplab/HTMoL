@@ -17,5 +17,5 @@ var radius = 0.2; //es el radio definido para la representación Spheres Bonds
 
 var mxSize = 20999999; //es el número máximo de bytes que va a leer de una archivo, 20999999 representa aprox 21 megas
 
-var latitudeBands = 4; //16;  //no poner menos de tres
-var longitudeBands = 4; // 16; //no poner menos de tres
+var latitudeBands = 5; //16;  //no poner menos de tres
+var longitudeBands = 5; // 16; //no poner menos de tres
