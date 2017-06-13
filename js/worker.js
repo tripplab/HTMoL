@@ -86,6 +86,7 @@
           fpath = e.data.fpath;
           //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
+              data.innerHTML="HTMoL3: Loading...";
               client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
           }, 2000);
           //console.log("HTMoL3: aa");
