@@ -87,7 +87,7 @@
           //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
               client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
-          }, 600);
+          }, 6000);
           //console.log("HTMoL3: aa");
           client.on('stream', function(stream, meta) {
               // Buffer for parts:
