@@ -1258,7 +1258,7 @@ function ChangeVertexPosition()
                             //z=z+3;
                             //}
                             
-                                 if (atom.NameAtom == 'H') {
+                                 if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
@@ -1357,7 +1357,7 @@ function ChangeVertexPosition()
                                     //z=z+3;
                                     //}
 
-                                 if (atom.NameAtom == 'H') {
+                                 if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
@@ -1431,7 +1431,7 @@ function ChangeVertexPosition()
                                 }
                                 else if (atom.Representation=='CPK')
                                 {
-                                  if (atom.NameAtom == 'H') {
+                                  if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
@@ -1538,7 +1538,7 @@ function ChangeVertexPositionStatic()
                             //z=z+3;
                             //}
 
-                                 if (atom.NameAtom == 'H') {
+                                 if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
@@ -1638,7 +1638,7 @@ function ChangeVertexPositionStatic()
                                     //z=z+3;
                                     //}
 
-                                 if (atom.NameAtom == 'H') {
+                                 if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
@@ -1722,7 +1722,7 @@ function ChangeVertexPositionStatic()
                                     //z=z+3;
                                     //}
 
-                                 if (atom.NameAtom == 'H') {
+                                 if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
