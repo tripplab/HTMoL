@@ -255,6 +255,12 @@ function Process()
 		   	var PDBRecordName = lines[i].substr(0,6);    
 			var PDBserial = parseInt(lines[i].substr(6,5),10); // so you get a decimal number even with a leading 0 and an old browser ([IE8, Firefox 20, Chrome 22 and older][1])   
 			var PDBname = lines[i].substr(12,4); PDBname = PDBname.trim(); // removes whitespace from both sides
+			if(/^\d/.test(PDBname)) // if found, removes a number found at the begining of atom name
+			{
+			       console.log("HTMoL: Parsing PDB file (Process). Found a number in atom name: "+PDBname);
+			       PDBname = PDBname.substring(1);
+			       console.log("changed it to: "+PDBname);
+			}
 			var PDBaltLoc = lines[i].substr(16,1);
 			var PDBresName = lines[i].substr(17,3);
 			var PDBchainID = lines[i].substr(21,1);
@@ -268,15 +274,7 @@ function Process()
 			// var PDBelement = lines[i].substr(76,2);
 		       	var PDBelement = PDBname.trim().substr(0,1);	// removes whitespace from both sides of name and use first character
 			var PDBcharge = lines[i].substr(78,2);
-			    
-			    if(/^\d/.test(PDBname)) // if found, removes a number found at the begining of atom name
-			    {
-			       //console.log("Found a number in atom name: "+PDBname);
-			       PDBname = PDBname.substring(1);
-			       //console.log("changed it to: "+PDBname);
-			    }
-			    
-// console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
+			console.log("serial:"+PDBserial+" name:"+PDBname+" resName:"+PDBresName+" chainID:"+PDBchainID+" resSeq:"+PDBresSeq+" element:"+PDBelement);
 
 			var atom=new Atom
 		       	(
