@@ -122,6 +122,25 @@ input:active {
 	                    0 -1px black;
 	     }
 
+		#info{
+		display: inline;
+	 	top:95%;
+		right: 0%;
+	 	position:absolute;
+	 	width: 100%;
+	 	height:10px;
+	 	margin-right:1%;
+	 	color:white;
+	 	text-shadow: 1px 1px 0 black,
+	                   -1px -1px black,
+	                    1px -1px black,
+	                   -1px 1px black,
+	                    0 1px black,
+	                    1px 0 black,
+	                   -1px 0 black,
+	                    0 -1px black;
+	     }
+
 			 @media screen and (min-width: 500px) {
     .Console {
       top: 0px;
