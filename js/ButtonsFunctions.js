@@ -1389,9 +1389,9 @@ function ChangeVertexPosition()
                                     ////////////si el átomo está en cpk
                                     for (var z=0; z<verArray.length;)
                                     {
-                                    vertexPositionData[i].push(verArrayH[z]   + coordsX[s] -Cx);
-                                    vertexPositionData[i].push(verArrayH[z+1] + coordsY[s] -Cy);
-                                    vertexPositionData[i].push(verArrayH[z+2] + coordsZ[s] -Cz);
+                                    vertexPositionData[i].push(verArrayN[z]   + coordsX[s] -Cx);
+                                    vertexPositionData[i].push(verArrayN[z+1] + coordsY[s] -Cy);
+                                    vertexPositionData[i].push(verArrayN[z+2] + coordsZ[s] -Cz);
 
                                     z=z+3;
                                     }
