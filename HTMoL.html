@@ -1413,7 +1413,8 @@ function RewFor(op) {
         else if(event.data.cmd=="endfinal")
         {
 			bndfinal=true;
-            data.innerHTML="Trajectory read succesfully!";
+            data.innerHTML="Trajectory read succesfully! ";
+            info.innerHTML=info.innerHTML+" Trajectory: "+fpath+" "+molecule.Frames+" frames";
 	    }
         else
         {
