@@ -101,6 +101,9 @@ input:active {
 	text-align: right;
 	padding: 2px;
 	margin: 0;
+		border-style: solid;
+		border-color: green;
+		border-width: 5px;
     }
 
 		#data{
@@ -142,6 +145,10 @@ input:active {
 	                    1px 0 black,
 	                   -1px 0 black,
 	                    0 -1px black;
+		text-align: right;
+		border-style: solid;
+		border-color: blue;
+		border-width: 5px;
 	     }
 
 			 @media screen and (min-width: 500px) {
