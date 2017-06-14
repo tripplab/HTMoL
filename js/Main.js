@@ -217,7 +217,7 @@ function Main()
     {
         main.CleanScene();
         molecule=main.ObjP.ReadFile(url);
-
+        info.innerHTML="HTMoLv3.5: "+url+" with "+molecule.LstAtoms.length+" atoms";
         createBonds(main);
         initCamera(CzPers);
         if (RepresentacionInicial=='SpheresBonds')
