@@ -77,7 +77,7 @@ function Main()
 
     //--------------------------
     molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
-    info.innerHTML="HTMoLv3.5: "+pdbinicial+" with "+molecule.LstAtoms.length+" atoms";
+    info.innerHTML="HTMoLv3.5: "+pdbInicial+" with "+molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
  
