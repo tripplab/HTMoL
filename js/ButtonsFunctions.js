@@ -1386,7 +1386,18 @@ function ChangeVertexPosition()
                                 }
                                 else if (atom.Representation=='CPK')
                                 {
-                                    ////////////si el átomo está en cpk
+                                  if (atom.Element == 'H') {
+                                      console.log(apuntador, atom.Element);
+                                    for (var z=0; z<verArray.length;)
+                                    {
+                                    vertexPositionData[i].push(verArrayH[z]   + coordsX[s] -Cx);
+                                    vertexPositionData[i].push(verArrayH[z+1] + coordsY[s] -Cy);
+                                    vertexPositionData[i].push(verArrayH[z+2] + coordsZ[s] -Cz);
+
+                                    z=z+3;
+                                    }
+                                  } else {
+                                      console.log(apuntador, atom.Element);
                                     for (var z=0; z<verArray.length;)
                                     {
                                     vertexPositionData[i].push(verArrayN[z]   + coordsX[s] -Cx);
@@ -1394,8 +1405,8 @@ function ChangeVertexPosition()
                                     vertexPositionData[i].push(verArrayN[z+2] + coordsZ[s] -Cz);
 
                                     z=z+3;
-                                    }
-
+                                    }                                  
+                                  }
                                 }
 
                             }
