@@ -916,16 +916,19 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
 
      function framecounter(frame)
             {
-                if(bndknowframe==true)
-                {
-                    totalframes=sizeglob/molecule.LstAtoms.length;
-                    data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes1) +  "%) of " + parseInt(totalframes1);
-                }
-                else
-                {
-                    totalframes=sizeglob/molecule.LstAtoms.length;
-                    data.innerHTML="frame " + (frame) + " of " + parseInt(totalframes);
-                }
+                //if(bndknowframe==true)
+                //{
+                //    totalframes=sizeglob/molecule.LstAtoms.length;
+                //    data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes1) +  "%) of " + parseInt(totalframes1);
+                //}
+                //else
+                //{
+                //    totalframes=sizeglob/molecule.LstAtoms.length;
+                //    data.innerHTML="frame " + (frame) + " of " + parseInt(totalframes);
+                //}
+		    
+		totalframes=sizeglob/molecule.LstAtoms.length;
+		data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes) +  "%) of " + parseInt(totalframes);
             }
 
 
