@@ -35,23 +35,23 @@ function SetView(mol, name){
     return function(event) {
          var newRotationMatrix = mat4.create();
         mat4.identity(newRotationMatrix);
-        if (name.name=='F')
+        if (name.name=='FrontView')
         {
             mat4.rotate(newRotationMatrix, degToRad(0), [0, 1, 0]); //vista frontal
         }
-        else if(name.name=='L')
+        else if(name.name=='LeftView')
         {
             mat4.rotate(newRotationMatrix, degToRad(90), [0, 1, 0]); //vista izquierda
         }
-        else if(name.name=='R')
+        else if(name.name=='RightView')
         {
             mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista derecha
         }
-        else if(name.name=='U')
+        else if(name.name=='UpView')
         {
             mat4.rotate(newRotationMatrix, degToRad(90), [1, 0, 0]); //vista de arriba
         }
-        else if(name.name=='D')
+        else if(name.name=='DownView')
         {
             mat4.rotate(newRotationMatrix, degToRad(270), [1, 0, 0]); //vista de abajo
         }
