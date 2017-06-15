@@ -111,12 +111,12 @@ var Turns={
     ]
 
     var LstViews={
-        "Front":{name:"F"},
-        "Left":{name:"L"},
-        "Right":{name:"R"},
-        "Up":{name:"U"},
-        "Down":{name:"D"},
-        "Back":{name:"B"}
+        "Front":{name:"FrontView"},
+        "Left":{name:"LeftView"},
+        "Right":{name:"RightView"},
+        "Up":{name:"UpView"},
+        "Down":{name:"DownView"},
+        "Back":{name:"BackView"}
     }
 
     function AsignaColor(atom)
