@@ -928,7 +928,9 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
                 //}
 		    
 		totalframes=sizeglob/molecule.LstAtoms.length;
-		data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes) +  "%) of " + parseInt(totalframes);
+		var percentage=parseInt((frame*100)/totalframes);
+		//data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes) +  "%) of " + parseInt(totalframes);
+		data.innerHTML=(frame) + "<progress value='"+percentage+"' max='100'></progress>"+percentage+"%";
             }
 
 
