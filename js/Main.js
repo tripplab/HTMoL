@@ -1310,10 +1310,9 @@ var menuStyle="";
                 button.value = 'Play';
             }
         }
-       if(autoplay)
-        {
-            data.innerHTML='HTMoL3: Loading trajectory ... '
-        }
+//       if(autoplay) {
+            data.innerHTML='HTMoL3: Loading trajectory file '+fpath;
+//        }
         worker1.postMessage({cmd:"startfile",
                            fpath:fpath,
                            natoms:molecule.GetAtoms().length,
