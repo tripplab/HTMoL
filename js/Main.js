@@ -1311,7 +1311,7 @@ var menuStyle="";
             }
         }
 //       if(autoplay) {
-            data.innerHTML='HTMoL3: Loading trajectory file '+fpath;
+            data.innerHTML='HTMoL: Loading trajectory file '+fpath;
 //        }
         worker1.postMessage({cmd:"startfile",
                            fpath:fpath,
