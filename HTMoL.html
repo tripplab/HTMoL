@@ -179,6 +179,9 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
     var indexAlmacenado=[];
 
     var molecule;
+    var tinit=0 // MD start time in picoseconds (ps)
+    var md_dt=0.002; // MD timestep in picoseconds (ps)
+    var nstxtcout=10000; // Output frequency for trajectory (xtc|dcd) file
 
     var nVertices= (latitudeBands +1) * (longitudeBands + 1)  * 3;  //  867 para 16 latitudes y 16 longitudes
     //var nVertices= 48;
@@ -929,8 +932,10 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
 		    
 		totalframes=sizeglob/molecule.LstAtoms.length;
 		var percentage=parseInt((frame*100)/totalframes);
+		var md_time=0;
+  	        md_time=(frame*nstxtcout*md_dt)+tinit;
 		//data.innerHTML="frame " + (frame) + "(" + parseInt((frame*100)/totalframes) +  "%) of " + parseInt(totalframes);
-		data.innerHTML=(frame) + "<progress value='"+percentage+"' max='100'></progress>"+percentage+"%";
+		data.innerHTML=(frame) + "<progress value='"+percentage+"' max='100'></progress>"+percentage+"% ("+md_time+" ps)";
             }
 
 
