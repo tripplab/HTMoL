@@ -1209,24 +1209,24 @@ function initBuffersBonds(Prendidos)
 
         if (Prendidos)
         {
-            colores.push(1);
-            colores.push(1);
-            colores.push(1);
+            colores.push(atm_0.ColorRGB[0]);
+            colores.push(atm_0.ColorRGB[1]);
+            colores.push(atm_0.ColorRGB[2]);
             colores.push(1); //el color alpha
-            colores.push(1);
-            colores.push(1);
-            colores.push(1);
+            colores.push(atm_1.ColorRGB[0]);
+            colores.push(atm_1.ColorRGB[1]);
+            colores.push(atm_1.ColorRGB[2]);
             colores.push(1); //
         }
         else
         {
-            colores.push(1);
-            colores.push(1);
-            colores.push(1);
+            colores.push(atm_0.ColorRGB[0]);
+            colores.push(atm_0.ColorRGB[1]);
+            colores.push(atm_0.ColorRGB[2]);
             colores.push(0); //el color alpha
-            colores.push(1);
-            colores.push(1);
-            colores.push(1);
+            colores.push(atm_1.ColorRGB[0]);
+            colores.push(atm_1.ColorRGB[1]);
+            colores.push(atm_1.ColorRGB[2]);
             colores.push(0); //
         }
 
@@ -1245,13 +1245,13 @@ function initBuffersBonds(Prendidos)
             ChainIndexBnd.push( 0.5 );
             ChainIndexBnd.push( 0.5 );
         }
+        colorBndDif.push(atm_0.ColorRGBDiffuse[0]);
+        colorBndDif.push(atm_0.ColorRGBDiffuse[1]);
+        colorBndDif.push(atm_0.ColorRGBDiffuse[2]);
         colorBndDif.push(0);
-        colorBndDif.push(0);
-        colorBndDif.push(0);
-        colorBndDif.push(0);
-        colorBndDif.push(0);
-        colorBndDif.push(0);
-        colorBndDif.push(0);
+        colorBndDif.push(atm_1.ColorRGBDiffuse[0]);
+        colorBndDif.push(atm_1.ColorRGBDiffuse[1]);
+        colorBndDif.push(atm_1.ColorRGBDiffuse[2]);
         colorBndDif.push(0);
 
     }

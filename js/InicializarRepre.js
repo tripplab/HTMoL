@@ -1,5 +1,14 @@
 //esta es la inicialización o cambio de representación de toda la molécula
 
+function InitBufRepreDefault(command)
+{
+    var todo=command.split(";");
+    todo.forEach(function(item,index){
+        main.Parse(item);
+    });
+}
+
+
 function InitBufSB()
 {
     OptRep=false;//Para que no entre en Spline
