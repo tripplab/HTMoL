@@ -1,13 +1,8 @@
 /////////////////// VARIABLES DE CONFIGURACIÓN ////////////////////
-
-var RepresentacionInicial='Bonds'; // 'SpheresBonds'; 'CPK'; 'Skeleton';
-
 var NoPaso = 100; //es el número de átomos por bloque para realizar la llamada a la tarjeta gráfica, no puede ser mayor de 200 debido 
 //a la capacidad de los arreglos flotantes de js
 //Float32Array para los vértices
 //Uint16Array para índices
-
-var pdbInicial='prueba.pdb';
 
 var radius = 0.4; //es el radio definido para la representación Spheres Bonds
 
