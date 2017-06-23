@@ -1207,8 +1207,8 @@ function RewFor(op) {
 
          var modal= document.getElementById('myModal');
        var span= document.getElementsByClassName('close')[0];
-       document.getElementById('downloadPDB').innerHTML="<H2>"+pdbInicial+"</H2> <a color='black' href='http://localhost/HTMoLv3.5/pdbfiles/"+pdbInicial+"' download><img src='http://localhost/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
-       document.getElementById('downloadXTC').innerHTML= "<H2>"+xtcInicial+"</H2> <a color='black' href='http://localhost/HTMoLv3.5/trjfiles/"+xtcInicial+"' download><img src='http://localhost/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
+       document.getElementById('downloadPDB').innerHTML="<H2>"+pdbInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/pdbfiles/"+pdbInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
+       document.getElementById('downloadXTC').innerHTML= "<H2>"+xtcInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/trjfiles/"+xtcInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
        
        var button = document.createElement( 'button' );
        button.value = 'Descargar';
