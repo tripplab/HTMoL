@@ -1008,7 +1008,7 @@ var menuStyle="";
         +"</div>"
         +"<div id='Menu_MenuPrincipal' class='menu_MenuPrincipal'>"
             +"<div class='menu_iconos'>"
-                +"<button onclick='menu_open()' class='B_open' ><span class ='icon-carpeta-abierta'  id='a1'></span><span class='tooltip1'>Open</span> </button>"
+                +"<button onclick='menu_open()' class='B_open' ><span class ='icon-carpeta-abierta'  id='a1'></span><span class='tooltip1'>Files</span> </button>"
                                 +"<br>"
                 +"<button onclick='menu_repre()' class='B_repre'><span class ='icon-molecula'  id='a2'></span><span class='tooltip2'>Representation</span></button>"
                                 +"<br>"
