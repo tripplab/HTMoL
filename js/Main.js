@@ -1166,9 +1166,11 @@ var menuStyle="";
         button.innerHTML+='<li><a href="#" id="ByURL">By URL</a></li>';
         button.innerHTML+='<li><a href="#" id="trajauto">Auto trajectory</a></li>';
         button.innerHTML+='<li><a href="#" id="loadtraj">Load trajectory</a></li>';
+        button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
+        button.innerHTML+='<li><a href="#" id="dwnTRJ">Download TRJ</a></li>';
+        
         button = document.getElementById( "ByURL" );
         button.onclick=this.ScenebyURL();
-
 
         var buttontraj = document.getElementById( "loadtraj" );
         buttontraj.onclick=this.ScenebyTrajectory();
