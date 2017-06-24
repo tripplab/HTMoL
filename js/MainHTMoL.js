@@ -1205,7 +1205,8 @@ function RewFor(op) {
        document.getElementById("Console_input").focus();
 
 
-         var modal= document.getElementById('myModal');
+/* 
+       var modal= document.getElementById('myModal');
        var span= document.getElementsByClassName('close')[0];
        document.getElementById('downloadPDB').innerHTML="<H2>"+pdbInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/pdbfiles/"+pdbInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
        document.getElementById('downloadXTC').innerHTML= "<H2>"+xtcInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/trjfiles/"+xtcInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
@@ -1231,6 +1232,7 @@ function RewFor(op) {
                 modal.style.display="none"
             }
        }
+ */
        
         tick();
         InitBufRepreDefault(commandsDefault);
