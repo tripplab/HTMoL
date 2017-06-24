@@ -4,7 +4,7 @@ var NoPaso = 100; //es el número de átomos por bloque para realizar la llamada
 //Float32Array para los vértices
 //Uint16Array para índices
 
-var radius = 0.1; //es el radio definido para la representación Spheres Bonds
+var radius = 0.01; //es el radio definido para la representación Spheres Bonds
 
 var mxSize = 20999999; //es el número máximo de bytes que va a leer de una archivo, 20999999 representa aprox 21 megas
 
