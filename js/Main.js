@@ -77,7 +77,8 @@ function Main()
 
     //--------------------------
     molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
-    info.innerHTML="HTMoLv3.5: "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
+//    info.innerHTML="HTMoLv3.5: "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
+    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
  
@@ -217,7 +218,8 @@ function Main()
     {
         main.CleanScene();
         molecule=main.ObjP.ReadFile(url);
-        info.innerHTML="HTMoLv3.5: "+url+" ("+molecule.LstAtoms.length+" atoms)";
+//        info.innerHTML="HTMoLv3.5: "+url+" ("+molecule.LstAtoms.length+" atoms)";
+        info.innerHTML=molecule.LstAtoms.length+" atoms";
         createBonds(main);
         initCamera(CzPers);
         if (RepresentacionInicial=='SpheresBonds')
