@@ -1117,7 +1117,7 @@ var menuStyle="";
 
         document.getElementById('WebGL-Out').innerHTML = hope;
         var tagjs = document.createElement("script");
-        tagjs.setAttribute("src", "fonts/optimer_regular.typeface.js");
+        //tagjs.setAttribute("src", "fonts/optimer_regular.typeface.js");
         document.getElementsByTagName("head")[0].appendChild(tagjs);
         Container=container;
         //Container.onmouseover=function (){main.Obj3D.updatecontrols=true};

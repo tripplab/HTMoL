@@ -116,6 +116,8 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 {
 
     var numElementos=0;
+    var char_scale=5;
+    var char_offset=1.0;
         
         
         for(var i=0; i<Num.length; i++)
@@ -127,15 +129,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos1[j]   + xx3 ); //es el x
-                    diPosition.push( diPos1[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos1[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos1[j] * char_scale  + xx3 ); //es el x
+                    diPosition.push( diPos1[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos1[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd1.length; j++)
@@ -152,15 +154,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos2[j]   + xx3 ); //es el x
-                    diPosition.push( diPos2[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos2[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos2[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos2[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos2[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd2.length; j++)
@@ -178,15 +180,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos3[j]   + xx3 ); //es el x
-                    diPosition.push( diPos3[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos3[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos3[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos3[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos3[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd3.length; j++)
@@ -203,15 +205,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos4[j]   + xx3 ); //es el x
-                    diPosition.push( diPos4[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos4[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos4[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos4[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos4[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd4.length; j++)
@@ -227,15 +229,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos5[j]   + xx3 ); //es el x
-                    diPosition.push( diPos5[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos5[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos5[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos5[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos5[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd5.length; j++)
@@ -252,15 +254,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos6[j]   + xx3 ); //es el x
-                    diPosition.push( diPos6[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos6[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos6[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos6[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos6[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd6.length; j++)
@@ -277,15 +279,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos7[j]   + xx3 ); //es el x
-                    diPosition.push( diPos7[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos7[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos7[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos7[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos7[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd7.length; j++)
@@ -302,15 +304,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos8[j]   + xx3 ); //es el x
-                    diPosition.push( diPos8[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos8[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos8[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos8[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos8[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd8.length; j++)
@@ -327,15 +329,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos9[j]   + xx3 ); //es el x
-                    diPosition.push( diPos9[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos9[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos9[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos9[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos9[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd9.length; j++)
@@ -352,15 +354,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPos0[j]   + xx3 ); //es el x
-                    diPosition.push( diPos0[j+1] + yy3 ); //es el y
-                    diPosition.push( diPos0[j+2] + zz3 ); //es el z
+                    diPosition.push( diPos0[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPos0[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPos0[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diInd0.length; j++)
@@ -377,15 +379,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diPunto[j]   + xx3 ); //es el x
-                    diPosition.push( diPunto[j+1] + yy3 ); //es el y
-                    diPosition.push( diPunto[j+2] + zz3 ); //es el z
+                    diPosition.push( diPunto[j] * char_scale   + xx3 ); //es el x
+                    diPosition.push( diPunto[j+1] * char_scale + yy3 ); //es el y
+                    diPosition.push( diPunto[j+2] * char_scale + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.2;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diIndPunto.length; j++)
@@ -427,15 +429,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diGrado[j]   + xx3 ); //es el x
-                    diPosition.push( diGrado[j+1] + yy3 ); //es el y
-                    diPosition.push( diGrado[j+2] + zz3 ); //es el z
+                    diPosition.push( diGrado[j] * char_scale * 2   + xx3   + char_offset); //es el x
+                    diPosition.push( diGrado[j+1] * char_scale * 2 + yy3 ); //es el y
+                    diPosition.push( diGrado[j+2] * char_scale * 2 + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diIndGrado.length; j++)
@@ -479,15 +481,15 @@ function DrawNumber(Num, xx3, yy3, zz3, AngleBool)
 
                 for(var j=0; j<numElementos;)
                 {
-                    diPosition.push( diNM[j]   + xx3 ); //es el x
-                    diPosition.push( diNM[j+1] + yy3 ); //es el y
-                    diPosition.push( diNM[j+2] + zz3 ); //es el z
+                    diPosition.push( diNM[j] * char_scale * 2   + xx3  + char_offset); //es el x
+                    diPosition.push( diNM[j+1] * char_scale * 2 + yy3 ); //es el y
+                    diPosition.push( diNM[j+2] * char_scale * 2 + zz3 ); //es el z
 
                     j=j+3;
                 }
 
                 //le doy el offset para que el siguiente número se imprima un poco más en x
-                xx3 = xx3 + 0.3;
+                xx3 = xx3 + char_offset;
 
                 //agrego los índices
                 for(var j=0; j< diIndNM.length; j++)
