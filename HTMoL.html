@@ -12,10 +12,13 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
         // var RepresentacionInicial='CPK';
         // var RepresentacionInicial='Skeleton';
 
-        var pdbInicial='enzima.pdb'; //"prueba.pdb"; //
-        var xtcInicial='enzima.xtc'; //"prueba.xtc"; //
+        var pdbInicial='mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb' // 'enzima.pdb'
+        var xtcInicial='enzima.xtc';
 	     
-        var commandsDefault="select 1-60;show CPK;select 200-240;show CPK;color blue";
+        var commandsDefault="select 0:0:A;show CPK;color atom;"; // for mem_chol
+//        var commandsDefault="select 0:0:A;show CPK;select 0:0:B;show CPK;color atom;"; // for amb
+//        var commandsDefault="select 0:0:C;show CPK;color red;select 0:0:B;show CPK;color green;select 1-22;show CPK;color blue;select 0:0:E;show CPK;color atom;select 0:0:F;show CPK;color atom;"; // for lido_dppc
+//        var commandsDefault="select 1-66;show CPK;select 200-240;show CPK;color blue"; // for enzima
 	     
     </script>
 

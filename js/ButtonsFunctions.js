@@ -1152,11 +1152,15 @@ function CambiarColor(color) //función para cambiar el color
     {
         colorRGB = [1.0, 1.0, 1.0, 1.0];;
     }
+    else if(color=='green')
+    {
+        colorRGB = [0.0, 1.0, 0.0, 1.0];;
+    }
     else if(color=='blue')
     {
         colorRGB = [0.0, 0.0, 1.0, 1.0];
     }
-    else if(color=='atom') 
+    else //if(color=='atom') 
     {
         real = true;
     }
