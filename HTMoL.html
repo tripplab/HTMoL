@@ -4,21 +4,22 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HTMoL v3.5</title>
 
+<!--  THIS IS WHERE USER DEFINITIONS ARE MADE: TITLE, STRUCTURE-TRAJECTORY, SELECTIONS, REPRESENTATION -->
+
+    <title>HTMoL v3.5</title>    
+    
      <script type="text/javascript">
-         var RepresentacionInicial='SpheresBonds';
-        // var RepresentacionInicial='Bonds';
-        // var RepresentacionInicial='CPK';
-        // var RepresentacionInicial='Skeleton';
 
-        var pdbInicial='mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb' // 'enzima.pdb'
+        var pdbInicial='enzima.pdb'; // 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
         var xtcInicial='enzima.xtc';
 	     
-        var commandsDefault="select 0:0:A;show CPK;color atom;"; // for mem_chol
+        var RepresentacionInicial='SpheresBonds'; // do not change
+        var commandsDefault="select 1-9;show CPK;color green;select 3540-3549;show CPK;color red;select 0:TRP:0;show CPK;color atom;SELECT 0:0:0;"; // for enzima
+//        var commandsDefault="show trace;"; // for enzima
+//        var commandsDefault="select 0:0:A;show CPK;color atom;"; // for mem_chol
 //        var commandsDefault="select 0:0:A;show CPK;select 0:0:B;show CPK;color atom;"; // for amb
 //        var commandsDefault="select 0:0:C;show CPK;color red;select 0:0:B;show CPK;color green;select 1-22;show CPK;color blue;select 0:0:E;show CPK;color atom;select 0:0:F;show CPK;color atom;"; // for lido_dppc
-//        var commandsDefault="select 1-66;show CPK;select 200-240;show CPK;color blue"; // for enzima
 	     
     </script>
 
@@ -205,7 +206,7 @@ Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp -->
     <div id='info'>
 	HTMoLv3.5
     </div>
-    <canvas id="canvas" > <!-- not change value -->
+    <canvas id="canvas" > <!-- do not change value -->
 
 
 </div>
