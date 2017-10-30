@@ -23,6 +23,7 @@ var URL_TRJ_Load_default="enzima.xtc";
 
 // =======================================================================================
 
+var htmolver="v3.5"
 var zoom,data,MainMenu;
 var worker1;
 var sizeglob=0;
@@ -77,8 +78,8 @@ function Main()
 
     //--------------------------
     molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
-//    info.innerHTML="HTMoLv3.5: "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
-    info.innerHTML=molecule.LstAtoms.length+" atoms";
+    info.innerHTML="HTMoL"+htmolver+": "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
+//    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
  
