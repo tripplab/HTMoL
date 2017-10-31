@@ -34,7 +34,7 @@ var z = 0;
                     normalData.push(y);
                     normalData.push(z);
                     
-                    //////////////////////VÉRTICES PARA ESFERA DE RADIO PARA CPK ////////////////
+                    //////////////////////VÉRTICES PARA ESFERA DE RADIO PARA VDW ////////////////
                     verArray.push(radius * x);
                     verArray.push(radius * y);
                     verArray.push(radius * z);

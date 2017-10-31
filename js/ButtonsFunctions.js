@@ -1,7 +1,7 @@
 //var buttonOp;
 function R_Cpk() {
     return function(event) {
-        CambiarRepresentacion("CPK");
+        CambiarRepresentacion("VDW");
     }
 }
 
@@ -37,31 +37,31 @@ function SetView(mol, name){
         mat4.identity(newRotationMatrix);
         if (name.name=='FrontView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(0), [0, 1, 0]); //vista frontal
+            mat4.rotate(newRotationMatrix, degToRad(270), [1, 0, 0]); //vista frontal 0
         }
         else if(name.name=='LeftView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(90), [0, 1, 0]); //vista izquierda
+            mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista izquierda
         }
         else if(name.name=='RightView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista derecha
+            mat4.rotate(newRotationMatrix, degToRad(90), [0, 1, 0]); //vista derecha
         }
         else if(name.name=='UpView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(90), [1, 0, 0]); //vista de arriba
+            mat4.rotate(newRotationMatrix, degToRad(0), [1, 0, 0]); //vista de arriba 90
         }
         else if(name.name=='DownView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(270), [1, 0, 0]); //vista de abajo
+            mat4.rotate(newRotationMatrix, degToRad(180), [1, 0, 0]); //vista de abajo 270
         }
         else //back
         {
-            mat4.rotate(newRotationMatrix, degToRad(180), [0, 1, 0]); //vista de atras
+            mat4.rotate(newRotationMatrix, degToRad(90), [1, 0, 0]); //vista de atras
         }
 
         mat4.identity(RotationMatrix);
-         mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
+        mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
     }
 }
 
@@ -448,9 +448,9 @@ function CambiarRepresentacion(Repre) //Representacion es en lo que se va a camb
 {
     if (AtomosSeleccionados.length==molecule.LstAtoms.length)
     {
-        if (Repre=='CPK')
+        if (Repre=='VDW')
         {
-            InitBufCPK();
+            InitBufVDW();
         }
         else if (Repre == 'SB')
         {
@@ -518,7 +518,7 @@ function CambiarRepresentacion(Repre) //Representacion es en lo que se va a camb
                 {
                     //No hacer nada ya que esa es la misma representación
                 }
-                else if(Repre=='CPK')
+                else if(Repre=='VDW')
                 {
                     var mul = (atom.PositionBSolid - 1) * nVertices;
                     //checar el radio del elemento específico
@@ -767,10 +767,10 @@ function CambiarRepresentacion(Repre) //Representacion es en lo que se va a camb
 
             }
 
-            else if (atom.Representation=='CPK')                ////-------------------------------------------------------
+            else if (atom.Representation=='VDW')                ////-------------------------------------------------------
             {
                 atom.Representation=Repre;
-                if (Repre=='CPK')
+                if (Repre=='VDW')
                 {
                     //No hacer nada ya que esa es la misma representación
                 }
@@ -935,7 +935,7 @@ function CambiarRepresentacion(Repre) //Representacion es en lo que se va a camb
 
 
                 }
-                else if(Repre=='CPK')
+                else if(Repre=='VDW')
                 {
                     //checar si está inicializado el átomo en el bloque de esferas y ponerlo en cpk
 
@@ -979,7 +979,7 @@ function CambiarRepresentacion(Repre) //Representacion es en lo que se va a camb
                         BuffLineCol=true;
 
                     }
-                    else if(Repre=='CPK')
+                    else if(Repre=='VDW')
                     {
                         var mul = (atom.PositionBSolid - 1) * nVertices;
                         for (var z = 0; z < nVertices;) {
@@ -1250,7 +1250,7 @@ function ChangeVertexPosition()
                             }
 
                         }
-                        else if (atom.Representation=='CPK')
+                        else if (atom.Representation=='VDW')
                         {
                             ////////////si el átomo está en cpk
                             //for (var z=0; z<verArray.length;)
@@ -1349,7 +1349,7 @@ function ChangeVertexPosition()
                                     }
 
                                 }
-                                else if (atom.Representation=='CPK')
+                                else if (atom.Representation=='VDW')
                                 {
                                     ////////////si el átomo está en cpk
                                     //for (var z=0; z<verArray.length;)
@@ -1433,7 +1433,7 @@ function ChangeVertexPosition()
                                     }
 
                                 }
-                                else if (atom.Representation=='CPK')
+                                else if (atom.Representation=='VDW')
                                 {
                                   if (atom.Element == 'H') {
                                       //console.log(apuntador, atom.Element);
@@ -1530,7 +1530,7 @@ function ChangeVertexPositionStatic()
                             }
 
                         }
-                        else if (atom.Representation=='CPK')
+                        else if (atom.Representation=='VDW')
                         {
                             ////////////si el átomo está en cpk
                             //for (var z=0; z<verArray.length;)
@@ -1630,7 +1630,7 @@ function ChangeVertexPositionStatic()
                                     }
 
                                 }
-                                else if (atom.Representation=='CPK')
+                                else if (atom.Representation=='VDW')
                                 {
                                     ////////////si el átomo está en cpk
                                     //for (var z=0; z<verArray.length;)
@@ -1714,9 +1714,9 @@ function ChangeVertexPositionStatic()
                                     }
 
                                 }
-                                else if (atom.Representation=='CPK')
+                                else if (atom.Representation=='VDW')
                                 {
-                                    ////////////si el átomo está en cpk
+                                    ////////////si el átomo está en vdw
                                     //for (var z=0; z<verArray.length;)
                                     //{
                                     //vertexPositionData[i].push(verArrayH[z]  + atom.X -Cx);

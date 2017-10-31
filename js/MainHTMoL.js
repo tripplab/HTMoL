@@ -44,7 +44,7 @@
 
     var LstBtnsChain = [] //es para los botones de las cadenas
 
-    ///////////////////////estos radios son para las esferas CPK dependiendo del elemento
+    ///////////////////////estos radios son para las esferas VDW dependiendo del elemento
     var radiusH = 1.0;
     var rC_PB_TI_CA= 1.4; //6;
     var radiusN = 1.4; //6;
@@ -53,7 +53,7 @@
     var radiusP = 1.4; //6; //9;
     var rDefault = 1.0; //1.7;
 
-    ///////////////en estos arreglos se guardan los vértices para las demás plantillas de esferas CPK
+    ///////////////en estos arreglos se guardan los vértices para las demás plantillas de esferas VDW
     var verArrayH=[];
     var verArrayC_PB_TI_CA=[];
     var verArrayN=[];
@@ -1132,9 +1132,9 @@ function RewFor(op) {
         {
             InitBufBonds();
         }
-        else if(RepresentacionInicial=='CPK')
+        else if(RepresentacionInicial=='VDW')
         {
-            InitBufCPK();
+            InitBufVDW();
         }
         initBufDigit();
         initBuffAxis();

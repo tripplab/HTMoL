@@ -1,10 +1,8 @@
 /*
-Licensed under the MIT license.
-http://www.opensource.org/licenses/mit-license.php
+This file is part of HTMoL:
+Copyright (C) 2014  Dr. Mauricio Carrillo-Tripp
+http://tripplab.com*/
 
-this file is part of HTMoL:
-Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Vega Ramirez Adan
-*/
 var identify=false,center=false,distance=false,nameatom=false,numberatom=false,detailsatom=false,angle=false,alfabeta=false;
 var AXIS;
  
@@ -164,13 +162,13 @@ var Turns={
         "brown",
         "white"
     ];
-
        
         //lista de colores
-        var white=[1.0, 1.0, 1.0, 1.0];
-        var red=  [1.0, 0.0, 0.0, 1.0];
-        var green=[0.0, 1.0, 0.0, 1.0];
-        var blue= [0.0, 1.0, 0.0, 1.0];
+        var white=  [1.0, 1.0, 1.0, 1.0];
+        var red=    [1.0, 0.0, 0.0, 1.0];
+        var green=  [0.0, 1.0, 0.0, 1.0];
+        var blue=   [0.0, 1.0, 0.0, 1.0];
+        var yellow= [1.0, 1.0, 0.0, 1.0];
 
       var AtomsBonds={
         'N':['CA','CD','H1','H2','H3'],
@@ -380,8 +378,8 @@ var Turns={
         'O3':['C3'],
         'O4':['C4'],
         'O5':['C5'],
-        //Aqui empiezan lo enlaces del CLR(Cholesterol) y Todos los enlaces de Carbono
-        
+
+	//Aqui empiezan lo enlaces del CLR(Cholesterol) y Todos los enlaces de Carbono        
         'C':['O','OXT','CA'],
         'C1':['C2','C10','H11','H12'],
         'C2':['C3','H21','H22'],

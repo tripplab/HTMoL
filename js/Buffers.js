@@ -481,7 +481,7 @@ function initBuffersSpheresSB()
 
 }
 
-function initBuffersSpheresCPK()
+function initBuffersSpheresVDW()
 {
     var atmX= null;
     var atmY= null;
@@ -504,7 +504,7 @@ function initBuffersSpheresCPK()
 
             molecule.LstAtoms[apuntador].BloqueSolid = 1;
             molecule.LstAtoms[apuntador].PositionBSolid = i + 1;
-            molecule.LstAtoms[apuntador].Representation = "CPK";
+            molecule.LstAtoms[apuntador].Representation = "VDW";
 
             LstBSphe[0].push(molecule.LstAtoms[apuntador]);
             //-----------------------------------------------------------------------------------------
@@ -727,7 +727,7 @@ function initBuffersSpheresCPK()
 
                     molecule.LstAtoms[apuntador].BloqueSolid = i + 1;
                     molecule.LstAtoms[apuntador].PositionBSolid = j + 1;
-                    molecule.LstAtoms[apuntador].Representation = "CPK";
+                    molecule.LstAtoms[apuntador].Representation = "VDW";
 
                     LstBSphe[i].push(molecule.LstAtoms[apuntador]);
                     //-----------------------------------------------------------------------------------------
@@ -931,7 +931,7 @@ function initBuffersSpheresCPK()
 
                     molecule.LstAtoms[apuntador].BloqueSolid = i + 1;
                     molecule.LstAtoms[apuntador].PositionBSolid = j + 1;
-                    molecule.LstAtoms[apuntador].Representation = "CPK";
+                    molecule.LstAtoms[apuntador].Representation = "VDW";
 
                     LstBSphe[i].push(molecule.LstAtoms[apuntador]);
                     //-----------------------------------------------------------------------------------------

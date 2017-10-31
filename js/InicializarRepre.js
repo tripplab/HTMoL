@@ -24,12 +24,12 @@ function InitBufSB()
 
 }
 
-function InitBufCPK()
+function InitBufVDW()
 {
     OptRep=false;//Para que no entre en Spline
     cleanMemory();
 
-    initBuffersSpheresCPK();
+    initBuffersSpheresVDW();
 
     initBuffersBonds(false);
 

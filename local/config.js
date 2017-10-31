@@ -8,21 +8,21 @@ var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in anothe
 var TRJDIR="trjfiles/"; // path to trajectory file
 
 // Coordinates file name
-var pdbInicial='enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
+var pdbInicial='lido_dppc.pdb'; //'enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial='enzima.xtc';
 
 // Definition of representations
-var RepresentacionInicial='SpheresBonds'; // do not change representation here, use the 'show' command below
+var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
-var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
+var SphereResolution = 10; // value has to be >3, use 5 for low resolution, 16 for high resolution
 
-// Examples for visualization. Select corresponding line acordingly
-var commandsDefault="select 1-9;show CPK;color white;select 3540-3549;show CPK;color red;select 0:TRP:0;show CPK;color atom;SELECT 0:0:0;"; // for enzima
+// OPTIONAL. Examples for visualization. Select corresponding line acordingly
+//var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;SELECT 0:0:0;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
-//        var commandsDefault="select 0:0:A;show CPK;color atom;"; // for mem_chol
-//        var commandsDefault="select 0:0:A;show CPK;select 0:0:B;show CPK;color atom;"; // for amb
-//        var commandsDefault="select 0:0:C;show CPK;color red;select 0:0:B;show CPK;color green;select 1-22;show CPK;color blue;select 0:0:E;show CPK;color atom;select 0:0:F;show CPK;color atom;"; // for lido_dppc
+//        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
+//        var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
+        var commandsDefault="select 0:0:C;show VDW;color red;select 0:0:B;show VDW;color green;select 1-22;show VDW;color blue;select 0:0:E;show VDW;color atom;select 0:0:F;show VDW;color atom;"; // for lido_dppc
 
 // MD trajectory information
 var tinit=0 // MD start time in picoseconds (ps)

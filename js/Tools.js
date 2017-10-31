@@ -101,7 +101,7 @@ function Tools()
 				if (atom.State=='Active')
 				{
 				    atom.Draw.material.color.setHex(DataAtom[atom.Element].color);
-				    atom.CPK.material.color=atom.Draw.material.color;
+				    atom.VDW.material.color=atom.Draw.material.color;
 				}
 			    }
 			  }
@@ -273,7 +273,7 @@ function Tools()
 					{
 					    var atom=a.GetAtoms()[at];
 						atom.Draw.material.color.setHex(Obj.Color);
-						atom.CPK.material.color=atom.Draw.material.color;
+						atom.VDW.material.color=atom.Draw.material.color;
 					}
 				  }
 				  Obj.Representations.Skeleton.Evaluation('color');
@@ -338,7 +338,7 @@ function Tools()
 				    {
 					var atom=a.GetAtoms()[at];
 				       atom.Draw.material.color.setHex(Obj.Color);
-				       atom.CPK.material.color.setHex(Obj.Color);
+				       atom.VDW.material.color.setHex(Obj.Color);
 				    }
 				}
 			    }
@@ -398,7 +398,7 @@ function Tools()
 						    if(atom.Element==element)
 						    {
 							atom.Draw.material.color.setHex(Obj.Color);
-							atom.CPK.material.color.setHex(Obj.Color);
+							atom.VDW.material.color.setHex(Obj.Color);
 						    }
 						}
 				    }
@@ -443,7 +443,7 @@ function Tools()
 	this.Evaluations=function()
 	{
 		Obj.Representations.Skeleton.Evaluation();
-		Obj.Representations.CPK.Evaluation();
+		Obj.Representations.VDW.Evaluation();
 		Obj.Representations.Bonds.Evaluation();
         Obj.EvaluationMeasures();
         Obj.EvaluationMarkers();
@@ -533,7 +533,7 @@ function Tools()
 			    var atom=measure.LstAtoms[u];
 			    atom.Draw.material.wireframe=false;
 			    atom.Draw.material.color.setHex(DataAtom[atom.Element].color);
-			    atom.CPK.material.color=atom.Draw.material.color;
+			    atom.VDW.material.color=atom.Draw.material.color;
 			}
 		    }else
 		    {
@@ -548,7 +548,7 @@ function Tools()
 			    var atom=measure.LstAtoms[u];
 			    atom.Draw.material.wireframe=true;
 			    atom.Draw.material.color.setHex(0x40FF00);
-			    atom.CPK.material.color=atom.Draw.material.color;
+			    atom.VDW.material.color=atom.Draw.material.color;
 			}
 		    }
 		}

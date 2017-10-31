@@ -217,9 +217,9 @@ function Main()
         {
             InitBufBonds();
         }
-        else if(RepresentacionInicial=='CPK')
+        else if(RepresentacionInicial=='VDW')
         {
-            InitBufCPK();
+            InitBufVDW();
         }
 
         main.Buttons();
@@ -923,11 +923,11 @@ function Main()
                 }
                 document.getElementById("Console_output").value=sqnc;
             }
-            else if(instLower=='cpk') //para mostrar el cpk
+            else if(instLower=='vdw') //para mostrar el vdw
             {
-                CambiarRepresentacion('CPK');
+                CambiarRepresentacion('VDW');
             }
-            else if(instLower=='sb') //para mostrar en spheres bonds
+            else if(instLower=='sb') //para mostrar en spheres bonds, cpk
             {
                 CambiarRepresentacion('SB');
             }
@@ -1018,11 +1018,11 @@ var menuStyle="";
         +"<div id='menu_repre' class='menu_open' >"
            +" <ul class='menu' id=M_R>"
                 +"<li><a href='#' onclick='close_all()'><span class =' icon-boton-cancelar' style='font-size:18px;'></span></a></li>"
-                +" <li><a href='#' id='CPK'>VDW</a></li>"
-               +" <li><a href='#'id='Bonds'>Lines</a></li>"
-                +"<li><a href='#'title='Spheres Bonds' id='Spheres Bonds'>CPK</a></li>"
-                +"<li><a href='#'id='Skeleton'>Trace</a></li>"
-                +"<li><a href='#'id='Spline'>Spline</a></li>"
+                +" <li><a href='#' id='VDW'>VDW</a></li>"
+               +" <li><a href='#' id='Bonds'>Lines</a></li>"
+                +"<li><a href='#' title='Spheres Bonds' id='Spheres Bonds'>CPK</a></li>"
+                +"<li><a href='#' id='Skeleton'>Trace</a></li>"
+                +"<li><a href='#' id='Spline'>Spline</a></li>"
             +"</ul>"
         +"</div>"
         +"<div id='menu_select' class='menu_open' style='overflow:auto;'>"
@@ -1084,8 +1084,8 @@ var menuStyle="";
             +"    <li><a href='#' id='FrontView'>Front</a></li>"
             +"    <li><a href='#' id='LeftView'>Left</a></li>"
              +"   <li><a href='#' id='RightView'>Right</a></li>"
-             +"   <li><a href='#' id='UpView'>Up</a></li>"
-             +"   <li><a href='#' id='DownView'>Down</a></li>"
+             +"   <li><a href='#' id='UpView'>Top</a></li>"
+             +"   <li><a href='#' id='DownView'>Bottom</a></li>"
               +"  <li><a href='#' id='BackView'>Back</a></li>"
            +" </ul>"
 +"</div>"
@@ -1117,7 +1117,7 @@ var menuStyle="";
         zoom = document.getElementById("zoom");
 
         //Botones para las representaciones
-        var buttonOp = document.getElementById( "CPK" );
+        var buttonOp = document.getElementById( "VDW" );
         buttonOp.onclick=R_Cpk();
 
         buttonOp = document.getElementById( "Spheres Bonds" );
