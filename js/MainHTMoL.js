@@ -228,6 +228,19 @@
     var AxisNormals=[]; //para el arreglo de js de las normales
     var AxisChainIndex=[]; //para el arreglo en javascript del indice de la cadena 
 
+    ///para la caja Box
+    var BoxPositionBuffer=[];
+    var BoxColorBuffer= []; //es para el buffer de los enlaces
+    var BoxColorDifBuffer = []; //buffer
+    var BoxNormalBuffer=[];
+    var BoxChainBuffer=[]; //para el buffer del indice de la cadena
+
+    var BoxVertices = [];
+    var Boxcolores=[];
+    var BoxcolorDif =[]; //para el color diffuso, este se pone en 0
+    var BoxNormals=[]; //para el arreglo de js de las normales
+    var BoxChainIndex=[]; //para el arreglo en javascript del indice de la cadena 
+
     /////////////////////////////////////////////////////////////////////////////////
 
     var NBSphe=0;
@@ -250,7 +263,6 @@
 
     function drawScene(diffuse)
     {
-
 
         gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -643,7 +655,7 @@
 
             gl.bindBuffer(gl.ARRAY_BUFFER, AxisPositionBuffer);
             gl.vertexAttribPointer(currentProgram.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
-            gl.drawArrays(gl.LINES, 0, AxisPositionBuffer.numItems);
+	    gl.drawArrays(gl.LINES, 0, AxisPositionBuffer.numItems);
             gl.bindBuffer(gl.ARRAY_BUFFER, null);
     }
 
@@ -699,6 +711,7 @@
                     setMatrixUniforms();
                     gl.bindBuffer(gl.ARRAY_BUFFER, lineVertexPositionBuffer);
                     gl.vertexAttribPointer(currentProgram.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+                    gl.lineWidth(3);
                     gl.drawArrays(gl.LINES, 0, lineVertexPositionBuffer.numItems);
                     gl.bindBuffer(gl.ARRAY_BUFFER, null);
                 }

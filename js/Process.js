@@ -64,6 +64,9 @@ function Molecule()
     this.CenterZ=0;
     this.Frames=0;
     this.TrjPath="";
+    this.BoxX=0;
+    this.BoxY=0;
+    this.BoxZ=0;
     this.GetChain=function()
     {
         return this.LstChain;
@@ -82,6 +85,18 @@ function Molecule()
     this.GetBSkeleton=function()
     {
         return this.LstBondsSkeleton;
+    }
+    this.GetBoxX=function()
+    {
+        return this.BoxX;
+    }
+    this.GetBoxY=function()
+    {
+        return this.BoxY;
+    }
+    this.GetBoxZ=function()
+    {
+        return this.BoxZ;
     }
     
 }
@@ -164,7 +179,7 @@ function createBonds(main)
 
 function Process()
 {
-    this.Model= new Molecule();
+        this.Model= new Molecule();
 	this.ReadFile= function(URL)
 	{
 		   var text = $.ajax({
@@ -183,8 +198,8 @@ function Process()
 	   
 	this.Parse= function(text)
 	{
-		var cont=0;
-	   	this.Model=new Molecule();
+	    var cont=0;
+	    this.Model=new Molecule();
 	    var cmpAmino='',cmpChain='';
 	    var chain=new Chain();
 	    var aminoacid=new Aminoacid();
@@ -220,10 +235,17 @@ function Process()
 	       		this.Model.TrjPath=lines[i].substr(10);
 			console.log("from trajectory file "+this.Model.TrjPath+"");
 	       	}
-		    if(lines[i].substr(0,6)=="HEADER")
-		    {
-				this.Model.Name=lines[i].substr(62,4);
-		    }
+		if(lines[i].substr(0,6)=="HEADER")
+		{
+			this.Model.Name=lines[i].substr(62,4);
+		}
+		if(lines[i].substr(0,6)=="CRYST1")
+		{
+			this.Model.BoxX=parseFloat(lines[i].substr(7,8));
+			this.Model.BoxY=parseFloat(lines[i].substr(16,8));
+			this.Model.BoxZ=parseFloat(lines[i].substr(25,8));
+			//console.log("Box X: "+this.Model.BoxX+" Box Y: "+this.Model.BoxY+" Box Z: "+this.Model.BoxZ);
+		}
 		
 // According to http://www.wwpdb.org/documentation/file-format-content/format33/sect9.html#ATOM
 // COLUMNS        DATA  TYPE    FIELD        DEFINITION
@@ -411,8 +433,8 @@ function Process()
 		    
 	    }
 	    this.Model.CenterX=this.Model.CenterX/this.Model.LstAtoms.length;
-		this.Model.CenterY=this.Model.CenterY/this.Model.LstAtoms.length;
-		this.Model.CenterZ=this.Model.CenterZ/this.Model.LstAtoms.length
+	    this.Model.CenterY=this.Model.CenterY/this.Model.LstAtoms.length;
+	    this.Model.CenterZ=this.Model.CenterZ/this.Model.LstAtoms.length
 	    chain.LstAminoAcid.push(aminoacid);
 	    this.Model.LstChain.push(chain);
 	    

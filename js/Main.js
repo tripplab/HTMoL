@@ -68,6 +68,7 @@ function Main()
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
+    console.log("Box X: "+molecule.BoxX+" Box Y: "+molecule.BoxY+" Box Z: "+molecule.BoxZ);
  
     //---------------------------
 
@@ -230,13 +231,13 @@ function Main()
            window.setTimeout(function(){
            if(main.ObjP.Model.Frames!=0 && main.ObjP.Model.Frames!="")
            {
-           main.filerequest();
-           //console.log("HTMoL3: "+trjauto);
-           trjauto=true;
-           autoplay=false;
-           //console.log("HTMoL3: "+trjauto);
-           DinamicaActiva=true;
-            }
+              main.filerequest();
+              //console.log("HTMoL3: "+trjauto);
+              trjauto=true;
+              autoplay=false;
+              //console.log("HTMoL3: "+trjauto);
+              DinamicaActiva=true;
+           }
            data.innerHTML="";
        },100);
        }
@@ -246,7 +247,7 @@ function Main()
     }
     
  
-    this.Parse=function(txt)
+    this.Parse=function(txt) // Parsing commands in the console
     {
 
         var comando=txt.substr(0, txt.indexOf(" ")).toLowerCase();//obtengo la primer palabra que es un comando
