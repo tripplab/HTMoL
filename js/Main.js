@@ -9,20 +9,6 @@ v2.0 Javier Garcia-Vieyra
 v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
 */
 
-// =============================== User defined variables =================================
-// Server IP
-var WebIP="148.247.198.32";
-var PDBDIR="http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
-// PDB file with trajectory info specified in the header
-var URL_TRJ_AutoLoad_default=PDBDIR+"prueba.pdb";
-// A PDB file with no trajectory info in the header
-var URL_PDB_Load_default=PDBDIR+"enzima.pdb";
-// Trajectory info for the previous PDB file. 
-// The file has to be in the directory specified by TRJDIR defined at server.js
-var URL_TRJ_Load_default="enzima.xtc";
-
-// =======================================================================================
-
 var htmolver="v3.5"
 var zoom,data,MainMenu;
 var worker1;
@@ -59,7 +45,7 @@ function Main()
     //-----------------------------------Bloque inicial para declarar el worker----------------------------------
     if (typeof(Worker)=="undefined")
     {
-        alert("HTMoL: Alert. Workers no soportados.");
+        alert("HTMoL: Alert. Workers not supported");
     }
     else
     {

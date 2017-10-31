@@ -26,10 +26,10 @@
     var indexAlmacenado=[];
 
     var molecule;
-    var tinit=0 // MD start time in picoseconds (ps)
-    var md_dt=0.002; // MD timestep in picoseconds (ps)
-    var nstxtcout=10000; // Output frequency for trajectory (xtc|dcd) file
 
+    latitudeBands=SphereResolution;
+    longitudeBands=SphereResolution;
+    
     var nVertices= (latitudeBands +1) * (longitudeBands + 1)  * 3;  //  867 para 16 latitudes y 16 longitudes
     //var nVertices= 48;
     var nColor= (latitudeBands +1) * (longitudeBands + 1)  * 4; // 1156

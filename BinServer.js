@@ -7,7 +7,7 @@ Developers:
 v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
 v2.0 Javier Garcia-Vieyra
 v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
-
+v3.5 Leonardo Alvarez-Rivera
 */
 
 // Update Node.js, instructions at http://www.hostingadvice.com/how-to/update-node-js-latest-version
@@ -15,14 +15,14 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 // =============================== User defined variables =================================
 
 // Apache listens at port 80 by default. We have to use a different port for Node.
-var NodePort=69;
+//var NodePort=69;
 // MD trajectory files will be at this default location
-var TRJDIR="trjfiles/";
+//var TRJDIR="trjfiles/";
 
 // ========================================================================================
 
-
 var fs = require('fs');
+eval(fs.readFileSync('local/config.js')+''); // this line reads the HTMoL configuration file, needed to know server port and location of trajectory files
 var http = require('http');
 var express = require('express');
 var app = express();
@@ -76,4 +76,4 @@ bs.on('connection', function(client){
 //
 
 server.listen(NodePort);
-console.log("HTMoL3: HTTP and BinaryJS server started on port " + NodePort);
+console.log("HTMoLv3.5: HTTP and BinaryJS server started on port " + NodePort);

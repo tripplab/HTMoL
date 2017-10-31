@@ -1,3 +1,4 @@
+  self.importScripts('../local/config.js');
   self.importScripts('binary.js');
   var readstart = 0,
       readend = 0,
@@ -14,14 +15,6 @@
 //              console.log("HTMoL3: bitrate es "+e.data.bitrate);
 //          }
   
-  // =============================== User defined variables =================================
-
-    // Define server IP and NodePort
-    var WebIP="148.247.198.32";
-    var NodePort="69";
-
-// ========================================================================================
-
           var client = new BinaryClient("ws://"+WebIP+":"+NodePort);
           var sizeint = new Array(3);
           var minint = new Array(3);
