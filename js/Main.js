@@ -1170,7 +1170,7 @@ var menuStyle="";
         button.innerHTML+='<li><a href="#" id="trajauto">Auto trajectory</a></li>';
         button.innerHTML+='<li><a href="#" id="loadtraj">Load trajectory</a></li>';
         button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
-        button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+xtcInicial+'" download>Download TRJ</a></li>';
+        button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+trjInicial+'" download>Download TRJ</a></li>';
         
         button = document.getElementById( "ByURL" );
         button.onclick=this.ScenebyURL();
