@@ -1275,6 +1275,7 @@ function RewFor(op) {
        
         tick();
         InitBufRepreDefault(commandsDefault);
+	main.loadTrjByScene();
     }
 
 
