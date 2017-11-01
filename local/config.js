@@ -12,6 +12,8 @@ var pdbInicial='enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.
 // Trajectory file name
 var trjInicial='enzima.xtc';
 
+var autoplay=true;
+
 // Definition of representations
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
