@@ -30,7 +30,7 @@ var bndknowframe=false;
 var bndreview=false;
 var sizearrayp=0;
 var trjauto=false;
-var autoplay=true;
+var autoload=true;
 var fpath;
 
 function Main()
@@ -1221,6 +1221,7 @@ var menuStyle="";
         {
             try{
                 bndfinal=false;
+                autoload=false;
                 main.filerequest();
                 DinamicaActiva=true;
             }catch(e)
@@ -1230,7 +1231,18 @@ var menuStyle="";
         }
     }
 
-
+    this.loadTrjByScene=function()
+      {
+        try{
+          trjauto=false;
+          bndfinal=false;
+          main.filerequest();
+          DinamicaActiva=true;
+        }catch(e)
+        {
+          data.innerHTML='HTMoL3: Error. Invalid file or connection not available '.concat(e);
+        }
+      }
 
     this.filerequest=function()
     {
@@ -1282,12 +1294,16 @@ var menuStyle="";
         var duration = Math.round((endTime - startTime) / 1000) ;
         var bitsLoaded = downloadSize * 8 ;
         bitrate = Math.round(bitsLoaded / duration) ;
-        if(!trjauto)                                                            //en este bloque se asigna la trayectoria
+        if(!trjauto && autoload==false)                                                            //en este bloque se asigna la trayectoria
         {
             // We can set a default trajectory file to be displayed at the prompt
             fpath = window.prompt("Name of the trajectory file",URL_TRJ_Load_default);
             molecule.TrjPath=fpath;
             bndknowframe=false;
+        }else if (autoload==true) {
+          fpath=trjInicial;
+          molecule.TrjPath=trjInicial;
+          bndknowframe=false;
         }
         else
         {
