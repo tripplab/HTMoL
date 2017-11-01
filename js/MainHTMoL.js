@@ -254,8 +254,6 @@
     var DistanceBool = false; //se activa para en el picking mostrar la distancia de los átomos
     var AngleBool = false;
 
-    var AxisBool = false;
-
     var atomCenter = null //va a ser para centrarlo por atomo
     var Cxtemp = 0;
     var Cytemp = 0;
@@ -582,6 +580,7 @@
             if (AxisBool) 
             {
                 DrawAxis();
+                DrawBox();
             }
 
         }
@@ -606,6 +605,7 @@
         if (AxisBool) 
         {
             DrawAxis();
+            DrawBox();
         }
 
     }
@@ -631,8 +631,6 @@
             gl.bindBuffer(gl.ARRAY_BUFFER, null);
           }
 
-          
-
     function DrawAxis ()
     {
             gl.bindBuffer(gl.ARRAY_BUFFER, AxisNormalBuffer);
@@ -656,6 +654,32 @@
             gl.bindBuffer(gl.ARRAY_BUFFER, AxisPositionBuffer);
             gl.vertexAttribPointer(currentProgram.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
 	    gl.drawArrays(gl.LINES, 0, AxisPositionBuffer.numItems);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null);
+    }
+
+    function DrawBox ()
+    {
+            gl.bindBuffer(gl.ARRAY_BUFFER, BoxNormalBuffer);
+            gl.vertexAttribPointer(currentProgram.vertexNormalAttribute, 3, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, BoxColorBuffer);
+            gl.vertexAttribPointer(currentProgram.textureCoordAttribute, AxisColorBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, BoxColorDifBuffer);
+            gl.vertexAttribPointer(currentProgram.ColorDif, AxisColorDifBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, BoxChainBuffer);
+            gl.vertexAttribPointer(currentProgram.Opcion, AxisChainBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+            setMatrixUniforms();
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, BoxPositionBuffer);
+            gl.vertexAttribPointer(currentProgram.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+	    gl.drawArrays(gl.LINES, 0, BoxPositionBuffer.numItems);
             gl.bindBuffer(gl.ARRAY_BUFFER, null);
     }
 
@@ -1118,6 +1142,7 @@ function RewFor(op) {
 
         {
             DrawAxis();
+            DrawBox();
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1151,6 +1176,7 @@ function RewFor(op) {
         }
         initBufDigit();
         initBuffAxis();
+        initBuffBox();
 
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
 

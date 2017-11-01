@@ -68,7 +68,6 @@ function Main()
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
-    console.log("Box X: "+molecule.BoxX+" Box Y: "+molecule.BoxY+" Box Z: "+molecule.BoxZ);
  
     //---------------------------
 

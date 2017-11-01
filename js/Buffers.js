@@ -1667,12 +1667,11 @@ function initBufferSpline() {//Julio
 function initBuffAxis()
 {
 
-
-    //var a ser 3 ejes, x, y y z
-    //todos los ejes salen de 0,0,0
-    //eje x de 0,0,0  a  10,0,0 rojo
-    //eje y de 0,0,0  a  0,10,0 verde
-    //eje z de 0,0,0  a  0,0,10 azul
+    //van a ser 3 ejes, X, Y y Z
+    //todos los ejes salen del origen 0,0,0
+    //eje X de 0,0,0  a  10,0,0 rojo
+    //eje Y de 0,0,0  a  0,10,0 verde
+    //eje Z de 0,0,0  a  0,0,10 azul
     AxisVertices =[ 0,0,0, 100,0,0, 0,0,0, 0,100,0, 0,0,0, 0,0,100  ];
     Axiscolores = [ 1,0,0,1, 1,0,0,1, 0,1,0,1, 0,1,0,1, 0,0,1,1, 0,0,1,1  ];
     AxiscolorDif = [ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 ];
@@ -1711,6 +1710,56 @@ function initBuffAxis()
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(AxiscolorDif), gl.DYNAMIC_DRAW);
     AxisColorDifBuffer.itemSize=4;
     AxisColorDifBuffer.numItems=AxiscolorDif.length/4;
+}
+
+function initBuffBox()
+{
+    var BX=molecule.BoxX;
+    var BY=molecule.BoxY;
+    var BZ=molecule.BoxZ;
+    var CX=molecule.CenterX;
+    var CY=molecule.CenterY;
+    var CZ=molecule.CenterZ;
+    
+    //console.log("Box X: "+BX+" Box Y: "+BY+" Box Z: "+BZ);
+    //console.log("Center X: "+CX+" Center Y: "+CY+" Center Z: "+CZ);
+
+    BoxVertices =[ 0-CX,0-CY,0-CZ, BX-CX,0-CY,0-CZ, 0-CX,0-CY,0-CZ, 0-CX,BY-CY,0-CZ, BX-CX,0-CY,0-CZ, BX-CX,BY-CY,0-CZ, BX-CX,BY-CY,0-CZ, 0-CX,BY-CY,0-CZ, 0-CX,0-CY,BZ-CZ, BX-CX,0-CY,BZ-CZ, 0-CX,0-CY,BZ-CZ, 0-CX,BY-CY,BZ-CZ, BX-CX,0-CY,BZ-CZ, BX-CX,BY-CY,BZ-CZ, BX-CX,BY-CY,BZ-CZ, 0-CX,BY-CY,BZ-CZ, 0-CX,0-CY,0-CZ, 0-CX,0-CY,BZ-CZ, BX-CX,0-CY,0-CZ, BX-CX,0-CY,BZ-CZ, 0-CX,BY-CY,0-CZ, 0-CX,BY-CY,BZ-CZ, BX-CX,BY-CY,0-CZ, BX-CX,BY-CY,BZ-CZ ];
+
+    Boxcolores = [ 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1, 1,1,0,1 ];
+    BoxcolorDif = [ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 ];
+    BoxNormals = [ 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1, 1,1,1 ];
+    BoxChainIndex = [ 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5, 0.5,0.5 ];
+
+    BoxPositionBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, BoxPositionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(BoxVertices), gl.DYNAMIC_DRAW);
+    BoxPositionBuffer.itemSize = 3;
+    BoxPositionBuffer.numItems = BoxVertices.length/3;
+
+    BoxColorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, BoxColorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(Boxcolores), gl.DYNAMIC_DRAW);
+    BoxColorBuffer.itemSize=4;
+    BoxColorBuffer.numItems=Boxcolores.length/4;
+
+    BoxNormalBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, BoxNormalBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(BoxNormals), gl.DYNAMIC_DRAW);
+    BoxNormalBuffer.itemSize=3;
+    BoxNormalBuffer.numItems=BoxNormals.length/3;
+
+    BoxChainBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, BoxChainBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(BoxChainIndex), gl.DYNAMIC_DRAW);
+    BoxChainBuffer.itemSize=2;
+    BoxChainBuffer.numItems=BoxChainIndex.length/2;
+
+    BoxColorDifBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, BoxColorDifBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(BoxcolorDif), gl.DYNAMIC_DRAW);
+    BoxColorDifBuffer.itemSize=4;
+    BoxColorDifBuffer.numItems=BoxcolorDif.length/4;
 }
 
 

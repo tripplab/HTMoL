@@ -37,27 +37,35 @@ function SetView(mol, name){
         mat4.identity(newRotationMatrix);
         if (name.name=='FrontView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(270), [1, 0, 0]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista frontal 0
         }
         else if(name.name=='LeftView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista izquierda
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista izquierda
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista izquierda
+	  mat4.rotate(newRotationMatrix, degToRad(90), [0, 0, 1]); //vista izquierda
         }
         else if(name.name=='RightView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(90), [0, 1, 0]); //vista derecha
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista derecha
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista derecha
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista derecha
         }
         else if(name.name=='UpView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(0), [1, 0, 0]); //vista de arriba 90
+            mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
         }
         else if(name.name=='DownView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(180), [1, 0, 0]); //vista de abajo 270
+            mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
+            mat4.rotate(newRotationMatrix, degToRad(180), [0, 1, 0]); //vista de arriba 90
         }
         else //back
         {
-            mat4.rotate(newRotationMatrix, degToRad(90), [1, 0, 0]); //vista de atras
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista atras
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista atras
+	  mat4.rotate(newRotationMatrix, degToRad(180), [0, 0, 1]); //vista atras
         }
 
         mat4.identity(RotationMatrix);

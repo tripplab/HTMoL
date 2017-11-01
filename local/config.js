@@ -16,6 +16,8 @@ var trjInicial='enzima.xtc';
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
+var AxisBool = true; // draw Axis and Box
+
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
         var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;SELECT 0:0:0;"; // for enzima
