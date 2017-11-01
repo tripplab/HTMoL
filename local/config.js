@@ -10,7 +10,7 @@ var TRJDIR="trjfiles/"; // path to trajectory file
 // Coordinates file name
 var pdbInicial='enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
 // Trajectory file name
-var trjInicial='enzima.xtc';
+var trjInicial='enzima.xtc'; // Examples also included: 'mem_chol.dcd'; // 'amb.xtc' // 'lido_dppc.xtc'
 
 var autoplay=false;
 
