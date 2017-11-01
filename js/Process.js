@@ -437,7 +437,7 @@ function Process()
 	    this.Model.CenterZ=this.Model.CenterZ/this.Model.LstAtoms.length
 	    chain.LstAminoAcid.push(aminoacid);
 	    this.Model.LstChain.push(chain);
-	    
+
 	    return this.Model;
 	}
 

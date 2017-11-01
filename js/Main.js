@@ -68,7 +68,12 @@ function Main()
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
- 
+        var newRotationMatrix = mat4.create();
+        mat4.identity(newRotationMatrix);
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista frontal 0
+        mat4.identity(RotationMatrix);
+        mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
     //---------------------------
 
     //AtomosSeleccionados=molecule.LstAtoms;
@@ -165,7 +170,8 @@ function Main()
     }
     this.CleanScene=function()
     {
-        cleanMemory();
+        console.log("CleanScene");
+	cleanMemory();
         //se limpian los botones de la dinámica
         var button=document.getElementById("playpause");
         var reg=document.getElementById("Rew");
@@ -187,6 +193,8 @@ function Main()
         var newRotationMatrix = mat4.create();
         mat4.identity(newRotationMatrix);
         mat4.rotate(newRotationMatrix, degToRad(0), [0, 1, 0]); //vista frontal
+	//  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
+	//  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista frontal 0
         mat4.identity(RotationMatrix);
         mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
 
