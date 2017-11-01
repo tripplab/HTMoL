@@ -8,7 +8,7 @@ var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in anothe
 var TRJDIR="trjfiles/"; // path to trajectory file
 
 // Coordinates file name
-var pdbInicial='mem_chol.pdb' // 'enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
+var pdbInicial='enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial='enzima.xtc';
 
@@ -18,9 +18,9 @@ var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
-//var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;SELECT 0:0:0;"; // for enzima
+        var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;SELECT 0:0:0;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
-        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
+//        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
 //        var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
 //        var commandsDefault="select 0:0:C;show VDW;color red;select 0:0:B;show VDW;color green;select 1-22;show VDW;color blue;select 0:0:E;show VDW;color atom;select 0:0:F;show VDW;color atom;"; // for lido_dppc
 
@@ -38,8 +38,8 @@ var URL_TRJ_Load_default=".xtc";
 //var URL_TRJ_AutoLoad_default=PDBDIR+"prueba.pdb";
 
 // Optimization
-var LineW = 1; // width of lines
-var LigthPWR = 0.9 // Intensity of light
+var LineW = 2; // width of lines
+var LigthPWR = 0.5 // Intensity of light
 var mxSize = 20999999; // maximum trajectory file size in bytes. 20999999 is about 21 Mb
 var NoPaso = 100; // number of atoms to process in block in the GPU, values has to be <200 due to JavaScript float arrays capacity. Float32Array is used for vertex, and Uint16Array for index
 
