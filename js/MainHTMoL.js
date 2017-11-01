@@ -273,7 +273,7 @@
         gl.useProgram(currentProgram);
 
         gl.uniform1i(currentProgram.useLightingUniform, 1);
-        gl.uniform3f(currentProgram.ambientColorUniform,0.2,0.2,0.2);
+        gl.uniform3f(currentProgram.ambientColorUniform,LigthPWR,LigthPWR,LigthPWR);
         gl.uniform3f(currentProgram.pointLightingLocationUniform,0.0,0.0,0.0);
         gl.uniform3f(currentProgram.pointLightingColorUniform,0.8,0.8,0.8);
 
@@ -711,7 +711,7 @@
                     setMatrixUniforms();
                     gl.bindBuffer(gl.ARRAY_BUFFER, lineVertexPositionBuffer);
                     gl.vertexAttribPointer(currentProgram.vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
-                    gl.lineWidth(3);
+                    gl.lineWidth(LineW);
                     gl.drawArrays(gl.LINES, 0, lineVertexPositionBuffer.numItems);
                     gl.bindBuffer(gl.ARRAY_BUFFER, null);
                 }
