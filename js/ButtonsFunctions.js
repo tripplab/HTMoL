@@ -1168,10 +1168,25 @@ function CambiarColor(color) //función para cambiar el color
     {
         colorRGB = [0.0, 0.0, 1.0, 1.0];
     }
-    else //if(color=='atom') 
+    else if(color=='magenta')
+    {
+        colorRGB = [1.0, 0.0, 1.0, 1.0];
+    }
+    else if(color=='yellow')
+    {
+        colorRGB = [1.0, 1.0, 0.0, 1.0];
+    }
+    else if(color=='atom') 
     {
         real = true;
     }
+    else
+    {
+        var RGBstr = color.split(',');
+        colorRGB = [ RGBstr[0], RGBstr[1], RGBstr[2], 1.0];
+    }
+    
+    
     for(var i=0; i<AtomosSeleccionados.length; i++)
     {
         var atom = AtomosSeleccionados[i];
