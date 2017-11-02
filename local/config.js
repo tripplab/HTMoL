@@ -1,29 +1,31 @@
 // =============================== User defined variables =================================
 
 // Binary Server information
-var WebIP="148.247.198.32"; // IP
-var NodePort="69"; // Port
+var WebIP="148.247.198.32"; // Server Name or IP. Use 'localhost' for testing
+var NodePort="69"; // Port for comunication, other than 80 (reserved for Apache)
 
 var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in another Apache server: "http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
-var TRJDIR="trjfiles/"; // path to trajectory file
+var TRJDIR="trjfiles/"; // path to trajectory file at BinServer
 
 // Coordinates file name
 var pdbInicial='enzima.pdb'; // Examples also included: 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial='enzima.xtc'; // Examples also included: 'mem_chol.dcd'; // 'amb.xtc' // 'lido_dppc.xtc'
 
-var autoplay=false;
+var autoplay=false; // How to start the MD visualization
 
 // Definition of representations
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
-var AxisBool = true; // draw Axis and Box
+var AxisBool = true; // draw Axis (X red, Y green, Z blue) and Box (yellow)
 
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
-        var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;SELECT 0:0:0;"; // for enzima
+        var commandsDefault="select 1-9;show VDW;color white;select 3540-3549;show VDW;color red;select 0:TRP:0;show VDW;color atom;select none;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
+//        var commandsDefault="show sb;"; // for enzima. CPK representation, set radius=0.3
+//        var commandsDefault="show bonds;"; // for enzima. Line representation
 //        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
 //        var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
 //        var commandsDefault="select 0:0:C;show VDW;color red;select 0:0:B;show VDW;color green;select 1-22;show VDW;color blue;select 0:0:E;show VDW;color atom;select 0:0:F;show VDW;color atom;"; // for lido_dppc

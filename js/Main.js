@@ -277,7 +277,11 @@ function Main()
             //alert(inst.match(regex));
             //alert(AtomosSeleccionados.length);
 
-            if (inst=='all')
+            if (inst=='none')
+            {
+                EliminarSeleccion();
+            }
+            else if (inst=='all')
             {
                 AtomosSeleccionados=molecule.LstAtoms;
             }
