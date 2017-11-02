@@ -1,4 +1,16 @@
-    const FIRSTIDX = 9;
+/*
+This file is part of HTMoL:
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
+http://tripplab.com
+
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.5 Leonardo Alvarez-Rivera
+*/
+
+const FIRSTIDX = 9;
     const ANGS_PER_NM = 10;
     var xtc_magicints = [0, 0, 0, 0, 0, 0, 0, 0, 0,8, 10, 12, 16, 20, 25, 32, 40, 50, 64,
     80, 101, 128, 161, 203, 256, 322, 406, 512, 645, 812, 1024, 1290,

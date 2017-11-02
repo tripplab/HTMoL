@@ -1,7 +1,14 @@
 /*
 This file is part of HTMoL:
-Copyright (C) 2014  Dr. Mauricio Carrillo-Tripp
-http://tripplab.com*/
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
+http://tripplab.com
+
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.5 Leonardo Alvarez-Rivera
+*/
 
 var identify=false,center=false,distance=false,nameatom=false,numberatom=false,detailsatom=false,angle=false,alfabeta=false;
 var AXIS;

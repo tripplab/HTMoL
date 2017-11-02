@@ -1,4 +1,16 @@
- //función para imprimir el valor por medio de triángulos
+/*
+This file is part of HTMoL:
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
+http://tripplab.com
+
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.5 Leonardo Alvarez-Rivera
+*/
+
+//función para imprimir el valor por medio de triángulos
  var indxOffset=0; //es para el offset que me genere cáda dígito --------------------------------------hacerlo global
 
  function NumDistance(a1X,a1Y,a1Z,a2X,a2Y,a2Z)

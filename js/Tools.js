@@ -1,10 +1,15 @@
 /*
-Licensed under the MIT license.
-http://www.opensource.org/licenses/mit-license.php
+This file is part of HTMoL:
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
+http://tripplab.com
 
-this file is part of HTMoL:
-Copyright (C) 2014  Alvarez Rivera Leonardo,Becerra Toledo Francisco Javier, Vega Ramirez Adan
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.5 Leonardo Alvarez-Rivera
 */
+
 function Parameters()
 {
 	var Obj=this;

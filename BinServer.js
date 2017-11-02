@@ -1,6 +1,6 @@
 /*
 This file is part of HTMoL:
-Copyright (C) 2015 Mauricio Carrillo-Tripp  
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
 http://tripplab.com
 
 Developers:
@@ -11,15 +11,6 @@ v3.5 Leonardo Alvarez-Rivera
 */
 
 // Update Node.js, instructions at http://www.hostingadvice.com/how-to/update-node-js-latest-version
-
-// =============================== User defined variables =================================
-
-// Apache listens at port 80 by default. We have to use a different port for Node.
-//var NodePort=69;
-// MD trajectory files will be at this default location
-//var TRJDIR="trjfiles/";
-
-// ========================================================================================
 
 var fs = require('fs');
 eval(fs.readFileSync('local/config.js')+''); // this line reads the HTMoL configuration file, needed to know server port and location of trajectory files
@@ -72,8 +63,6 @@ bs.on('connection', function(client){
 	}
   });
 });
-//
-//
 
 server.listen(NodePort);
-console.log("HTMoLv3.5: HTTP and BinaryJS server started on port " + NodePort);
+console.log("HTMoLv3.5: BinServer started on port " + NodePort);

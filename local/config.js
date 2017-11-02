@@ -1,4 +1,19 @@
-// =============================== User defined variables =================================
+
+/*
+This file is part of HTMoL:
+Copyright (C) 2014 Dr. Mauricio Carrillo-Tripp  
+http://tripplab.com
+
+Developers:
+v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
+v2.0 Javier Garcia-Vieyra
+v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.5 Leonardo Alvarez-Rivera
+*/
+
+// ======================================= HTMoL ========================================== //
+// =================================== tripplab.com ======================================= // 
+// =============================== User defined variables ================================= //
 
 // Binary Server information
 var WebIP="148.247.198.32"; // Server Name or IP. Use 'localhost' for testing
@@ -14,15 +29,14 @@ var trjInicial='enzima.xtc'; // Examples also included: 'mem_chol.dcd'; // 'amb.
 
 var autoplay=false; // How to start the MD visualization
 
-// Definition of representations
+// Definition of molecular representations
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
-var AxisBool = true; // draw Axis (X red, Y green, Z blue) and Box (yellow)
-
+var AxisBool = true; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
-        var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;"; // for enzima
+var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
 //        var commandsDefault="show cpk;"; // for enzima. CPK representation, set radius=0.3
 //        var commandsDefault="show lines;"; // for enzima. Line representation
@@ -49,4 +63,4 @@ var LigthPWR = 0.5 // Intensity of light
 var mxSize = 20999999; // maximum trajectory file size in bytes. 20999999 is about 21 Mb
 var NoPaso = 100; // number of atoms to process in block in the GPU, values has to be <200 due to JavaScript float arrays capacity. Float32Array is used for vertex, and Uint16Array for index
 
-// ========================================================================================
+// ======================================================================================== //
