@@ -940,11 +940,11 @@ function Main()
             {
                 CambiarRepresentacion('VDW');
             }
-            else if(instLower=='sb') //para mostrar en spheres bonds, cpk
+            else if(instLower=='cpk') //para mostrar en spheres bonds, cpk
             {
                 CambiarRepresentacion('SB');
             }
-            else if(instLower=='bonds') //para mostrar bonds
+            else if(instLower=='lines') //para mostrar bonds
             {
                 CambiarRepresentacion('Bonds');
             }

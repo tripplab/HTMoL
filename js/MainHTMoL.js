@@ -1342,8 +1342,8 @@ function RewFor(op) {
         {
 			bndfinal=true;
             data.innerHTML="Trajectory read succesfully! ";
-//            info.innerHTML=info.innerHTML+" "+molecule.TrjPath+" ("+sizeglob/molecule.LstAtoms.length+" frames)";
-            info.innerHTML=info.innerHTML+" "+sizeglob/molecule.LstAtoms.length+" frames";
+            info.innerHTML=info.innerHTML+" "+molecule.TrjPath+" ("+sizeglob/molecule.LstAtoms.length+" frames)";
+            //info.innerHTML=info.innerHTML+" "+sizeglob/molecule.LstAtoms.length+" frames";
 	    }
         else
         {
