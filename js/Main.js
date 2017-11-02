@@ -55,7 +55,7 @@ function Main()
         worker1 = new Worker("js/worker.js?=" + marcaTime);
         worker1.postMessage = worker1.webkitPostMessage || worker1.postMessage;
         worker1.onerror= function(e){
-            data.innerHTML="HTMoL3: "+e.message;
+            data.innerHTML="HTMoL: "+e.message;
         }
         worker1.addEventListener("message", manejadorEventoWorker1, false);
     }
@@ -65,7 +65,8 @@ function Main()
 
     //--------------------------
     molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
-    info.innerHTML="HTMoL"+htmolver+": "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
+    var about="<a href='http://htmol.tripplab.com/' target='_blank' style='color:orange;font-weight: bold;'>HTMoL</a>"; // Please do not change nor remove
+    info.innerHTML=about+htmolver+": "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
