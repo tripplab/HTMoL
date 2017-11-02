@@ -71,12 +71,7 @@ function Main()
     createBonds(this);
     initCamera(CzPers);
     // Set initial view
-        var newRotationMatrix = mat4.create();
-        mat4.identity(newRotationMatrix);
-	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
-	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista frontal 0
-        mat4.identity(RotationMatrix);
-        mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
+    UserSetView(molecule, 'FrontView');
     //---------------------------
 
     //AtomosSeleccionados=molecule.LstAtoms;
@@ -961,6 +956,10 @@ function Main()
 
 
         }
+        else if (comando=='view')
+        {
+	  UserSetView(molecule, inst);
+	}
         else
         {
             document.getElementById("Console_output").value='HTM0L3: Error. Unknown command '+txt;

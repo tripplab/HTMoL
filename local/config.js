@@ -33,10 +33,10 @@ var autoplay=false; // How to start the MD visualization
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
-var AxisBool = true; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
+var AxisBool = false; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
-var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;"; // for enzima
+var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;view BackView;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
 //        var commandsDefault="show cpk;"; // for enzima. CPK representation, set radius=0.3
 //        var commandsDefault="show lines;"; // for enzima. Line representation

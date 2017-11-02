@@ -41,7 +41,7 @@ function R_Spline() {
 
 function SetView(mol, name){
     return function(event) {
-         var newRotationMatrix = mat4.create();
+        var newRotationMatrix = mat4.create();
         mat4.identity(newRotationMatrix);
         if (name.name=='FrontView')
         {
@@ -66,19 +66,66 @@ function SetView(mol, name){
         }
         else if(name.name=='DownView')
         {
-            mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
             mat4.rotate(newRotationMatrix, degToRad(180), [0, 1, 0]); //vista de arriba 90
         }
         else //back
         {
-	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista atras
-	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista atras
-	  mat4.rotate(newRotationMatrix, degToRad(180), [0, 0, 1]); //vista atras
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista atras
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista atras
+	    mat4.rotate(newRotationMatrix, degToRad(180), [0, 0, 1]); //vista atras
         }
 
         mat4.identity(RotationMatrix);
         mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
     }
+}
+
+function UserSetView(mol, name){
+
+        var newRotationMatrix = mat4.create();
+        mat4.identity(newRotationMatrix);
+        if (name=='Custom')
+        {
+	  mat4.rotate(newRotationMatrix, degToRad(45), [0, 0, 1]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(45), [0, 1, 0]); //vista frontal 0
+        }
+        else if (name=='FrontView')
+        {
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista frontal 0
+        }
+        else if(name=='LeftView')
+        {
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista izquierda
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista izquierda
+	  mat4.rotate(newRotationMatrix, degToRad(90), [0, 0, 1]); //vista izquierda
+        }
+        else if(name=='RightView')
+        {
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista derecha
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista derecha
+	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista derecha
+        }
+        else if(name=='UpView')
+        {
+            mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
+        }
+        else if(name=='DownView')
+        {
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista de arriba 90
+            mat4.rotate(newRotationMatrix, degToRad(180), [0, 1, 0]); //vista de arriba 90
+        }
+        else //back
+        {
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista atras
+	    mat4.rotate(newRotationMatrix, degToRad(270), [0, 1, 0]); //vista atras
+	    mat4.rotate(newRotationMatrix, degToRad(180), [0, 0, 1]); //vista atras
+        }
+
+        mat4.identity(RotationMatrix);
+        mat4.multiply(newRotationMatrix, RotationMatrix, RotationMatrix);
+
 }
 
 function ByAmino(mol, name) {
