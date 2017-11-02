@@ -68,6 +68,7 @@ function Main()
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
     createBonds(this);
     initCamera(CzPers);
+    // Set initial view
         var newRotationMatrix = mat4.create();
         mat4.identity(newRotationMatrix);
 	  mat4.rotate(newRotationMatrix, degToRad(270), [0, 0, 1]); //vista frontal 0
