@@ -33,16 +33,16 @@ var autoplay=false; // How to start the MD visualization
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
 var radius = 0.01; // SpheresBonds radius
 var SphereResolution = 5; // value has to be >3, use 5 for low resolution, 16 for high resolution
-var AxisBool = false; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
+var AxisBool = true; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
-var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;view BackView;"; // for enzima
+var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;view BackView;zoom -3;"; // for enzima
 //        var commandsDefault="show trace;"; // for enzima
 //        var commandsDefault="show cpk;"; // for enzima. CPK representation, set radius=0.3
 //        var commandsDefault="show lines;"; // for enzima. Line representation
 //        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
 //        var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
-//        var commandsDefault="select 0:0:C;show VDW;color red;select 0:0:B;show VDW;color green;select 1-22;show VDW;color white;select 0:0:E;show VDW;color yellow;select 0:0:F;show VDW;color 0.6,0.4,0.0;"; // for lido_dppc
+//        var commandsDefault="select 45-66;show VDW;color red;select 23-44;show VDW;color green;select 1-22;show VDW;color white;select 0:0:E;show VDW;color yellow;select 0:0:F;show VDW;color 0.6,0.4,0.0;zoom 10;view Custom;"; // for lido_dppc
 
 // MD trajectory information
 var tinit=0 // MD start time in picoseconds (ps)

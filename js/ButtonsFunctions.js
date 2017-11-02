@@ -87,8 +87,9 @@ function UserSetView(mol, name){
         mat4.identity(newRotationMatrix);
         if (name=='Custom')
         {
-	  mat4.rotate(newRotationMatrix, degToRad(45), [0, 0, 1]); //vista frontal 0
-	  mat4.rotate(newRotationMatrix, degToRad(45), [0, 1, 0]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(270), [1, 0, 0]); //vista frontal 0
+	  mat4.rotate(newRotationMatrix, degToRad(220), [0, 0, 1]); //vista frontal 0
+	  //mat4.rotate(newRotationMatrix, degToRad(-15), [1, 1, 1]); //vista frontal 0
         }
         else if (name=='FrontView')
         {

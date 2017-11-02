@@ -960,6 +960,10 @@ function Main()
         {
 	  UserSetView(molecule, inst);
 	}
+        else if (comando=='zoom')
+        {
+	  ZoomView(inst);
+	}
         else
         {
             document.getElementById("Console_output").value='HTM0L3: Error. Unknown command '+txt;

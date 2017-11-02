@@ -852,6 +852,13 @@ v3.5 Leonardo Alvarez-Rivera
         }
     }
 
+    function ZoomView(mag) {
+	//console.log("zoomin CameraPosition: "+CameraPosition+" "+mag)
+        CameraPosition=CameraPosition+(ZoomMotion*mag);
+        y=y+(0.1*mag);
+        drawScene(0);
+    }
+
     function zoomout() {
         return function (event){
         CameraPosition=CameraPosition+ZoomMotion;
