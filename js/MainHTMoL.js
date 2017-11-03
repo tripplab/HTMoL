@@ -854,8 +854,8 @@ v3.5 Leonardo Alvarez-Rivera
 
     function ZoomView(mag) {
 	//console.log("zoomin CameraPosition: "+CameraPosition+" "+mag)
-        CameraPosition=CameraPosition+(ZoomMotion*mag);
-        y=y+(0.1*mag);
+        CameraPosition=CameraPosition+(ZoomMotion*(-1)*mag);
+        y=y+(0.1*(-1)*mag);
         drawScene(0);
     }
 
@@ -1260,24 +1260,25 @@ function RewFor(op) {
        button.onclick=zoomout();
        zoom.appendChild( button );
        document.getElementById("Console_input").focus();
-
-
-/* 
+/**/ 
        var modal= document.getElementById('myModal');
        var span= document.getElementsByClassName('close')[0];
-       document.getElementById('downloadPDB').innerHTML="<H2>"+pdbInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/pdbfiles/"+pdbInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
-       document.getElementById('downloadXTC').innerHTML= "<H2>"+trjInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/trjfiles/"+trjInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
+
+       document.getElementById('MDTitle').innerHTML=""+MDTitle+"";
+       document.getElementById('MDdescription').innerHTML=" "+MDdescription+" <center><a href='http://htmol.tripplab.com' target='_blank'>HTMoL</a></center>";
+//       document.getElementById('downloadPDB').innerHTML="<H2>"+pdbInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/pdbfiles/"+pdbInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
+//       document.getElementById('downloadXTC').innerHTML= "<H2>"+trjInicial+"</H2> <a color='black' href='http://"+WebIP+"/HTMoLv3.5/trjfiles/"+trjInicial+"' download><img src='http://"+WebIP+"/HTMoLv3.5/images/descargar.png' width='104' height='104' border='0'></a>";
        
        var button = document.createElement( 'button' );
-       button.value = 'Descargar';
+       button.value = 'Info';
       // button.className = "icon-dowload";
        button.type="button"
-       button.id="downloadFiles";
+       button.id="MDInfo";
+       button.innerHTML="MD";
        button.onclick=function(){
         modal.style.display="block";
        }
        controles.appendChild( button );
-
 
        span.onclick=function(){
             modal.style.display="none";
@@ -1289,7 +1290,7 @@ function RewFor(op) {
                 modal.style.display="none"
             }
        }
- */
+ /**/
        
         tick();
         InitBufRepreDefault(commandsDefault);
