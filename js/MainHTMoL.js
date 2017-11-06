@@ -74,8 +74,13 @@ v3.5 Leonardo Alvarez-Rivera
     var verArrayDefault=[];
     /////////////////////////////////////////
 
-
-
+// A PDB file with no trajectory info in the header
+var URL_PDB_Load_default=PDBDIR+".pdb";
+// Trajectory info for the previous PDB file. 
+// The file has to be in the directory specified by TRJDIR
+var URL_TRJ_Load_default=".xtc";
+// PDB file with trajectory info specified in the header
+//var URL_TRJ_AutoLoad_default=PDBDIR+"prueba.pdb";
 
     function initGL(canvas) {
         try {

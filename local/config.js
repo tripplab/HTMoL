@@ -17,17 +17,17 @@ v3.5 Leonardo Alvarez-Rivera
 
 // Binary Server information
 var WebIP="148.247.198.32"; // Server Name or IP. Use 'localhost' for testing
-var NodePort="69"; // Port for comunication, other than 80 (reserved for Apache)
+var NodePort="69"; // Define internet port for comunication, other than 80 (reserved for Apache)
 
 var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in another Apache server: "http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
-var TRJDIR="trjfiles/"; // path to trajectory file at BinServer
+var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable to leave the directory structure as is.
 
 // Coordinates file name
 var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd'; // 'amb.xtc' // 'lido_dppc.xtc'
 
-var autoplay=false; // How to start the MD visualization
+var autoplay=true; // How to start the MD visualization
 
 // Definition of molecular representations
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
@@ -37,28 +37,23 @@ var AxisBool = false; // Draw Axis (X red, Y green, Z blue) and Box (yellow)
 
 // OPTIONAL. Examples for visualization. Select corresponding line acordingly
 var commandsDefault="select 1-9;show VDW;color 1.0,0.0,1.0;select 3540-3549;show VDW;color 1.0,1.0,0.0;select 0:TRP:0;show VDW;color atom;select none;view BackView;zoom 3;"; // for enzyme
-//        var commandsDefault="show trace;"; // for lysozyme
-//        var commandsDefault="show cpk;select S:0:0;show VDW;color atom;"; // for lysozyme. CPK representation, set radius=0.3
-//        var commandsDefault="show lines;"; // for lysozyme. Line representation
-//        var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
-//        var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
-//        var commandsDefault="select 45-66;show VDW;color red;select 23-44;show VDW;color green;select 1-22;show VDW;color white;select 0:0:E;show VDW;color yellow;select 0:0:F;show VDW;color 0.6,0.4,0.0;zoom -10;view Custom;"; // for lido_dppc
+// var commandsDefault="show trace;"; // for lysozyme
+// var commandsDefault="show cpk;select S:0:0;show VDW;color atom;"; // for lysozyme. CPK representation, set radius=0.3
+// var commandsDefault="show lines;"; // for lysozyme. Line representation
+// var commandsDefault="select 0:0:A;show VDW;color atom;"; // for mem_chol
+// var commandsDefault="select 0:0:A;show VDW;select 0:0:B;show VDW;color atom;"; // for amb
+// var commandsDefault="select 45-66;show VDW;color red;select 23-44;show VDW;color green;select 1-22;show VDW;color white;select 0:0:E;show VDW;color yellow;select 0:0:F;show VDW;color 0.6,0.4,0.0;zoom -10;view Custom;"; // for lido_dppc
 
 // MD trajectory information
 var tinit=0 // MD start time in picoseconds (ps)
 var md_dt=0.002; // MD timestep in picoseconds (ps)
 var nstxtcout=10000; // Output frequency saved in trajectory (xtc|dcd) file
 
-var MDTitle="MYCOBACTERIUM TUBERCULOSIS PHOSPHORIBOSYL ISOMERASE"; // MD Title
-var MDdescription=" <p>Summary: Evolution of Substrate Specificity. MD demonstrated that the narrowing of substrate specificity of an enzyme is concomitant with loss of ancestral protein conformational states. </p> <p>PDB ID: <a href='https://www.rcsb.org/pdb/explore/explore.do?structureId=2Y89' target='_blank'>2Y89</a></p> <p>Simulation: GROMACS 4.5.3 with CHARMM27 all-atom force field with CMAP version 2.0 and explicit TIP3P water and neutralized with NaCl. Minimized for 5,000 conjugate gradient steps and heated up to 300 K during 600 ps with protein atoms harmonically restrained. Equilibration under NvT (300 K) and then under NpT (1 atm), 1 ns each, using the V-rescale and isotropic Berendsen barostat without atom restraints. Long-range electrostatics included with Reaction Field. van der Waals 1.2-nm radius cutoff. LINCS method to restrain all bonds involving hydrogen atoms. MD of 300 ns with a time step of 2 fs.</p> <p>Published in DOI: <a href='http://dx.doi.org/10.1093/molbev/mst115' target='_blank'>10.1093/molbev/mst115</a></p> "; // MD description. Provide Summary, PDB ID, Simulation details, Publication link, etc.
-
-// A PDB file with no trajectory info in the header
-var URL_PDB_Load_default=PDBDIR+".pdb";
-// Trajectory info for the previous PDB file. 
-// The file has to be in the directory specified by TRJDIR
-var URL_TRJ_Load_default=".xtc";
-// PDB file with trajectory info specified in the header
-//var URL_TRJ_AutoLoad_default=PDBDIR+"prueba.pdb";
+// OPTIONAL. It is adviced to provide the following information.
+ // MD Title
+var MDTitle="MYCOBACTERIUM TUBERCULOSIS PHOSPHORIBOSYL ISOMERASE";
+ // MD description. Provide Summary, PDB ID, Simulation details, Publication link, etc. Each section should be inside a <p></p> block.
+var MDdescription=" <p>Summary: Evolution of Substrate Specificity. MD demonstrated that the narrowing of substrate specificity of an enzyme is concomitant with loss of ancestral protein conformational states. </p> <p>PDB ID: <a href='https://www.rcsb.org/pdb/explore/explore.do?structureId=2Y89' target='_blank'>2Y89</a></p> <p>Simulation: GROMACS 4.5.3 with CHARMM27 all-atom force field with CMAP version 2.0 and explicit TIP3P water and neutralized with NaCl. Minimized for 5,000 conjugate gradient steps and heated up to 300 K during 600 ps with protein atoms harmonically restrained. Equilibration under NvT (300 K) and then under NpT (1 atm), 1 ns each, using the V-rescale and isotropic Berendsen barostat without atom restraints. Long-range electrostatics included with Reaction Field. van der Waals 1.2-nm radius cutoff. LINCS method to restrain all bonds involving hydrogen atoms. MD of 300 ns with a time step of 2 fs.</p> <p>Published in Molecular Biology and Evolution 30:2024 (2013) DOI: <a href='http://dx.doi.org/10.1093/molbev/mst115' target='_blank'>10.1093/molbev/mst115</a></p> ";
 
 // Optimization
 var LineW = 2; // width of lines
