@@ -23,9 +23,9 @@ var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in anothe
 var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable to leave the directory structure as is.
 
 // Coordinates file name
-var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb'; // 'amb.pdb' // 'lido_dppc.pdb'
+var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb' 'amb.pdb' 'lido_dppc.pdb'
 // Trajectory file name
-var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd'; // 'amb.xtc' // 'lido_dppc.xtc'
+var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd' 'amb.xtc' 'lido_dppc.xtc'
 
 var autoplay=true; // How to start the MD visualization
 
@@ -60,5 +60,9 @@ var LineW = 2; // width of lines
 var LigthPWR = 0.5 // Intensity of light
 var mxSize = 20999999; // maximum trajectory file size in bytes. 20999999 is about 21 Mb
 var NoPaso = 100; // number of atoms to process in block in the GPU, values has to be <200 due to JavaScript float arrays capacity. Float32Array is used for vertex, and Uint16Array for index
+
+// MD Server
+var showOpen = true; // Enable the option to open PDB and trajectory files from the main menu
+var showDownload = true; // Enable the option to download the PDB and trajectory files from the main menu
 
 // ======================================================================================== //
