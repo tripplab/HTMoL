@@ -26,3 +26,17 @@ v3.5 Leonardo Alvarez-Rivera
 
 
 Copyright (C) 2014
+
+The HTMoL License Agreement specifies that any reports or published results shared with HTMoL shall acknowledge its use and credit the developers as:
+
+"HTMoL: NEXT-GENERATION MOLECULAR DYNAMICS WEB VISUALIZATION"
+
+Any published work which utilizes HTMoL shall include the following reference:
+
+Mauricio Carrillo-Tripp, Leonardo Alvarez-Rivera, Omar IsraelLara-Ramírez, Francisco Javier Becerra-Toledo, Adan Vega-Ramírez,Emmanuel Quijas-Valades, Eduardo González-Zavala, Julio CesarGonzález-Vázquez, Javier García-Vieyra, Nelly Beatriz Santoyo-Rivera,Amilcar Meneses-Viveros and Sergio V. Chapa-Vergara. HTMoL: full-stack solution for remote access, visualization, and analysis of Molecular Dynamics trajectory data. Submmited (2017)
+
+Electronic documents shall include a direct link to the official HTMoL page:
+
+http://htmol.tripplab.com
+
+Proper citation is essential to continued funding for HTMoL development, as it is a primary way in which we demonstrate the value of our software to the scientific community. Thank you for your attention to these details.
