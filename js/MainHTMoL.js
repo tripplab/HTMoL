@@ -1233,6 +1233,7 @@ function RewFor(op) {
        button.className = "icon-paso-atras";
        button.type="button";
        button.style.fontSize = "15px";
+       button.style.display="none";
        button.id="Rew";
        button.onclick=RewFor(1);
        controles.appendChild( button );
@@ -1242,6 +1243,7 @@ function RewFor(op) {
        button.className = "icon-paso-de-avance";
        button.type="button";
        button.style.fontSize = "15px";
+       button.style.display="none";
        button.id="Forw";
        button.onclick=RewFor(2);
        controles.appendChild( button );
