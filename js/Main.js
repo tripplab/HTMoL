@@ -1019,8 +1019,8 @@ var menuStyle="";
                                 +"<br>"
                 +"<button onclick='menu_repre()' class='B_repre'><span class ='icon-molecula'  id='a2'></span><span class='tooltip2'>Representation</span></button>"
                                 +"<br>"
-                               // +"<button onclick='menu_select()' class='B_select'><span class ='icon-seleccionar-objeto'  id='a3'><span class='tooltip3'>Select</span></span></button>"
-                               // +"<br>"
+                                +"<button onclick='menu_select()' class='B_select'><span class ='icon-seleccionar-objeto'  id='a3'><span class='tooltip3'>Select</span></span></button>"
+                                +"<br>"
                 +"<button onclick='menu_action()' class='B_action'><span class ='icon-ajustes'  id='a4'></span><span class='tooltip4'>Actions</span> </button>"
                                 +"<br>"
                 +"<button onclick='menu_view()' class='B_view' ><span class ='icon-orientacion' id='a5'></span><span class='tooltip5'>View</span> </button>"
@@ -1036,8 +1036,7 @@ var menuStyle="";
         +"<div id='menu_repre' class='menu_open' >"
            +" <ul class='menu' id=M_R>"
                 +"<li><a href='#' onclick='close_all()'><span class =' icon-boton-cancelar' style='font-size:18px;'></span></a></li>"
-                +" <li><a href='#' id='Default'>Default</a></li>"
-		+" <li><a href='#' id='VDW'>VDW</a></li>"
+                +" <li><a href='#' id='VDW'>VDW</a></li>"
                +" <li><a href='#' id='Bonds'>Lines</a></li>"
                 +"<li><a href='#' title='Spheres Bonds' id='Spheres Bonds'>CPK</a></li>"
                 +"<li><a href='#' id='Skeleton'>Trace</a></li>"
@@ -1078,22 +1077,22 @@ var menuStyle="";
                             +"  <li><a href='#' id='DeleteMeasures'>Delete</a></li>"
                       +"</ul>"
 
-                 +" <li><a href='#' id='Axis'>Axis</a></li>"
-                +" <li><a href='#' onclick='consola()'>Consola</a></li>"
-                +"<li><a href='#' style='display:none;'>Markers&#9662;</a>"
+                +"<li><a href='#'>Markers&#9662;</a>"
                    +" <ul>"
                      +"   <li><a href='#' id='ShowMarkers'>Show Markers</a></li>"
                        +" <li><a href='#' id='HideMarkers'>Hide Markers</a></li>"
                         +"<li><a href='#' id='DeleteMarkers'>Delete Markers</a></li>"
                     +"</ul>"
                 +"</li>"
-                +"<li><a href='#' style='display:none;'>A.Selected&#9662;</a>"
+                +"<li><a href='#'>A.Selected&#9662;</a>"
                     +"<ul>"
                        +" <li><a href='#'id='Center'>Center Atom</a></li>"
                        +" <li><a href='#' id='None1'>None</a></li>"
                    +" </ul>"
                +" </li>"
-                +"<li><a href='#' style='display:none;' title='Helix and Sheet' id='ViewHS'>H&S</a></li>"
+                +"<li><a href='#'  title='Helix and Sheet' id='ViewHS'>H&S</a></li>"
+               +" <li><a href='#' id='Axis'>Axis</a></li>"
+              +" <li><a href='#' onclick='consola()'>Consola</a></li>"
             +"</ul>"
         +"</div>"
 
@@ -1136,10 +1135,7 @@ var menuStyle="";
         zoom = document.getElementById("zoom");
 
         //Botones para las representaciones
-	var buttonOp = document.getElementById( "default" );
-        buttonOp.onclick=R_default(); 
-	    
-        buttonOp = document.getElementById( "VDW" );
+        var buttonOp = document.getElementById( "VDW" );
         buttonOp.onclick=R_Cpk();
 
         buttonOp = document.getElementById( "Spheres Bonds" );
@@ -1174,12 +1170,12 @@ var menuStyle="";
         }
 
         var button = document.getElementById( "Molecule" );
-      //  button.innerHTML+='<li><a href="#" id="ByURL">By URL</a></li>';
-       // button.innerHTML+='<li><a href="#" id="trajauto">Auto trajectory</a></li>';
-       // button.innerHTML+='<li><a href="#" id="loadtraj">Load trajectory</a></li>';
+        button.innerHTML+='<li><a href="#" id="ByURL">By URL</a></li>';
+        button.innerHTML+='<li><a href="#" id="trajauto">Auto trajectory</a></li>';
+        button.innerHTML+='<li><a href="#" id="loadtraj">Load trajectory</a></li>';
         button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
         button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+trjInicial+'" download>Download TRJ</a></li>';
-       /* 
+        
         button = document.getElementById( "ByURL" );
         button.onclick=this.ScenebyURL();
 
@@ -1192,7 +1188,7 @@ var menuStyle="";
             url=URL_TRJ_AutoLoad_default;
             main.MakeModel(url);
         }
-*/
+
         main.Buttons();
 
     }
@@ -1326,14 +1322,6 @@ var menuStyle="";
           fpath=trjInicial;
           molecule.TrjPath=trjInicial;
           bndknowframe=false;
-		//muestra el icono de pause cuando es reproducción automatica
-	  if(autoplay)
-	  {
-	    var button = document.getElementById("playpause");
-	    button.value="Pause";
-	    button.className = "icon-boton-de-pausa";
-	    RegFrame=false;
-	  }
         }
         else
         {
