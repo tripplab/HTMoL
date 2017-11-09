@@ -1225,6 +1225,7 @@ function RewFor(op) {
         button.style.fontSize = "15px";
         button.id="playpause";
         button.onclick=PauseTraj();
+	button.style.display="none";
         controles.appendChild( button );
 
 
@@ -1234,6 +1235,7 @@ function RewFor(op) {
        button.type="button";
        button.style.fontSize = "15px";
        button.id="Rew";
+	    button.style.display="none";
        button.onclick=RewFor(1);
        controles.appendChild( button );
 
@@ -1242,6 +1244,7 @@ function RewFor(op) {
        button.className = "icon-paso-de-avance";
        button.type="button";
        button.style.fontSize = "15px";
+	    button.style.display="none";
        button.id="Forw";
        button.onclick=RewFor(2);
        controles.appendChild( button );
