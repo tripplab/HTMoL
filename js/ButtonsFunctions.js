@@ -10,62 +10,31 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 v3.5 Leonardo Alvarez-Rivera
 */
 
-function R_default(){
-  return function(event)
-  {
-
-    if (RepresentacionInicial=='SpheresBonds')
-    {
-        InitBufRepreDefault("select 0:0:0;");
-            CambiarRepresentacion("SB");
-            InitBufRepreDefault(commandsDefault);
-    }
-    else if(RepresentacionInicial=='Bonds')
-    {
-      InitBufRepreDefault("select 0:0:0;");
-          CambiarRepresentacion("Bonds");
-          InitBufRepreDefault(commandsDefault);
-    }
-    else if(RepresentacionInicial=='VDW')
-    {
-      InitBufRepreDefault("select 0:0:0;");
-          CambiarRepresentacion("SB");
-          InitBufRepreDefault(commandsDefault);
-    }
-  }
-}
-
-
 function R_Cpk() {
     return function(event) {
-	InitBufRepreDefault("select 0:0:0;");
         CambiarRepresentacion("VDW");
     }
 }
 
 function R_SB() {
     return function(event) {
-	InitBufRepreDefault("select 0:0:0;");
         CambiarRepresentacion("SB");
     }
 }
 
 function R_B() {
     return function(event) {
-	InitBufRepreDefault("select 0:0:0;");
         CambiarRepresentacion("Bonds");
     }
 }
 
 function R_Skele() {
     return function(event) {
-	InitBufRepreDefault("select 0:0:0;");
         CambiarRepresentacion("Skeleton");
     }
 }
 function R_Spline() {
     return function(event) {
-	InitBufRepreDefault("select 0:0:0;");
         CambiarRepresentacion("Spline");
     }
 }
