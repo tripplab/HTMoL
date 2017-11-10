@@ -1170,11 +1170,11 @@ var menuStyle="";
         }
 
         var button = document.getElementById( "Molecule" );
-        button.innerHTML+='<li><a href="#" id="ByURL">By URL</a></li>';
-        button.innerHTML+='<li><a href="#" id="trajauto">Auto trajectory</a></li>';
-        button.innerHTML+='<li><a href="#" id="loadtraj">Load trajectory</a></li>';
-        button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
-        button.innerHTML+='<li><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+trjInicial+'" download>Download TRJ</a></li>';
+        button.innerHTML+='<li id="btnByURL"><a href="#" id="ByURL">By URL</a></li>';
+        button.innerHTML+='<li style="display:none;"><a href="#" id="trajauto">Auto trajectory</a></li>';
+        button.innerHTML+='<li id="btnLoadTraj"><a href="#" id="loadtraj">Load trajectory</a></li>';
+        button.innerHTML+='<li id="btnDLPDB"><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
+        button.innerHTML+='<li id="btnDLTRJ"><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+trjInicial+'" download>Download TRJ</a></li>';
         
         button = document.getElementById( "ByURL" );
         button.onclick=this.ScenebyURL();
@@ -1188,6 +1188,16 @@ var menuStyle="";
             url=URL_TRJ_AutoLoad_default;
             main.MakeModel(url);
         }
+	
+	  if(showOpen==false){
+        document.getElementById("btnByURL").style.display="none";
+        document.getElementById("btnLoadTraj").style.display="none";
+      }
+
+      if(showDownload==false){
+      document.getElementById("btnDLPDB").style.display="none";
+      document.getElementById("btnDLTRJ").style.display="none";
+    }
 
         main.Buttons();
 
