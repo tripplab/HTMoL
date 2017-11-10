@@ -1322,6 +1322,13 @@ var menuStyle="";
           fpath=trjInicial;
           molecule.TrjPath=trjInicial;
           bndknowframe=false;
+		  if(autoplay)
+          {
+            var button = document.getElementById("playpause");
+            button.value="Pause";
+            button.className = "icon-boton-de-pausa";
+            RegFrame=false;
+          }
         }
         else
         {
