@@ -1170,11 +1170,11 @@ var menuStyle="";
         }
 
         var button = document.getElementById( "Molecule" );
-        button.innerHTML+='<li id="btnByURL"><a href="#" id="ByURL">By URL</a></li>';
-        button.innerHTML+='<li style="display:none;"><a href="#" id="trajauto">Auto trajectory</a></li>';
-        button.innerHTML+='<li id="btnLoadTraj"><a href="#" id="loadtraj">Load trajectory</a></li>';
         button.innerHTML+='<li id="btnDLPDB"><a href="http://'+WebIP+'/HTMoLv3.5/pdbfiles/'+pdbInicial+'" download>Download PDB</a></li>';
         button.innerHTML+='<li id="btnDLTRJ"><a href="http://'+WebIP+'/HTMoLv3.5/trjfiles/'+trjInicial+'" download>Download TRJ</a></li>';
+        button.innerHTML+='<li id="btnByURL"><a href="#" id="ByURL">Load PDB</a></li>';
+        button.innerHTML+='<li id="btnLoadTraj"><a href="#" id="loadtraj">Load TRJ</a></li>';
+        button.innerHTML+='<li style="display:none;"><a href="#" id="trajauto">Auto trajectory</a></li>';
         
         button = document.getElementById( "ByURL" );
         button.onclick=this.ScenebyURL();
