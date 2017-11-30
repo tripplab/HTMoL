@@ -33,6 +33,14 @@ var sizearrayp=0;
 var trjauto=false;
 var autoload=true;
 var fpath;
+var bsip="69.69.69.69";
+var bslat=69;
+var bslon=69;
+var bsCont="NA";
+var bsPais="NA";
+var bsCd="NA";
+var bscurrentdate = new Date(); 
+var bsdatetime = "69/69/69 69:69";
 
 function Main()
 {
@@ -42,7 +50,6 @@ function Main()
 //;
 //alert(prr.replace(/[ ,]+/g, ","));
 
-
     //-----------------------------------Bloque inicial para declarar el worker----------------------------------
     if (typeof(Worker)=="undefined")
     {
@@ -50,6 +57,26 @@ function Main()
     }
     else
     {
+        UserInfo.getInfo(function(data) { // the "data" object contains the BinaryClient info
+	  bsip=data.ip_address;
+	  bslat=data.position.latitude;
+	  bslon=data.position.longitude;
+	  bsCont=data.continent.name;
+	  bsPais=data.country.name;
+	  bsCd=data.city.name;
+	  //console.dir(bsip+bslat+bslon+bsCont+bsPais+bsCd);
+        }, function(err) {
+          // the "err" object contains useful information in case of an error
+        },50000); // TODO: this takes a long time to finish, convert the function into synchronous, or figure out how to use 'req.ip' from express.js
+	
+	var bsdatetime = "" + bscurrentdate.getDate() + "/"
+                + (bscurrentdate.getMonth()+1)  + "/" 
+                + bscurrentdate.getFullYear() + " @ "  
+                + bscurrentdate.getHours() + ":"  
+                + bscurrentdate.getMinutes() + ":" 
+                + bscurrentdate.getSeconds();
+	//console.log(bsdatetime);
+
         //Para modificar worker1.js y evitar caché
         var marcaTime = parseInt(Math.random() * 1000000);
         worker1 = new Worker("js/worker.js?=" + marcaTime);
@@ -1355,12 +1382,22 @@ var menuStyle="";
 //       if(autoplay) {
             data.innerHTML='HTMoL: Loading trajectory file '+fpath;
 //        }
+	    
         worker1.postMessage({cmd:"startfile",
                            fpath:fpath,
                            natoms:molecule.GetAtoms().length,
                            bitrate:bitrate,
                            readstart: readstart,
-                           readend:readend});
+                           readend:readend,
+			  bsip:bsip,
+			  bslat:bslat,
+			  bslon:bslon,
+			  bsCont:bsCont,
+			  bsPais:bsPais,
+			  bsCd:bsCd,
+			  bsdatetime:bsdatetime
+	});
+	
         var intervalreq= setInterval(function()
         {
             if(bndfinal==true)
@@ -1398,11 +1435,19 @@ var menuStyle="";
                                         natoms:molecule.GetAtoms().length,
                                         bitrate:bitrate,
                                         readstart: readstart,
-                                        readend:readend});
-                }
+                           readend:readend,
+			  bsip:bsip,
+			  bslat:bslat,
+			  bslon:bslon,
+			  bsCont:bsCont,
+			  bsPais:bsPais,
+			  bsCd:bsCd,
+			  bsdatetime:bsdatetime
+		    });
+		}
             }
         },2000);
-    }
+    } // senddataworker
 
 }
 

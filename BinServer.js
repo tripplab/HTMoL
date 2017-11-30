@@ -12,6 +12,7 @@ v3.5 Leonardo Alvarez-Rivera
 
 // Update Node.js, instructions at http://www.hostingadvice.com/how-to/update-node-js-latest-version
 
+const util = require('util');
 var fs = require('fs');
 eval(fs.readFileSync('local/config.js')+''); // this line reads the HTMoL configuration file, needed to know server port and location of trajectory files
 var http = require('http');
@@ -26,38 +27,43 @@ var server = http.createServer(app);
 var BinaryServer = require('binaryjs').BinaryServer;
 var bs = BinaryServer({server: server});
 
-// Wait for new user connections
-bs.on('connection', function(client){
-  client.on('stream', function(stream, meta){
+var appName = "HTMoL BinServer: ";
 
-  	if(meta.reqsize==true){
-	  	var path = TRJDIR + meta.fpath;
+// Wait for new BinaryClient connections
+bs.on('connection', function(client){
+//console.log(util.inspect(client, false, null));
+  client.on('stream', function(stream, meta){
+	// when the BinaryClient requests a trajectory file:
+  	if(meta.reqsize==true){ // the client is asking for the file size
+	  	var path = TRJDIR + meta.fpath; // path to the trajectory file (meta.fpath) on the server
 		fs.exists(path, function(exists) { 
-			if (exists) { 
-			console.log("HTMoL3: "+path);
+			if (exists) { // if the file exists, print some info on the server's console
+			console.log(appName+"cID "+client.id+" IP "+meta.bsip+" requests "+path+" "+meta.bsdatetime);
+			console.log(appName+"cID "+client.id+" "+meta.bsCont+" "+meta.bsPais+" "+meta.bsCd+" Geo: lat "+meta.bslat+" lon "+meta.bslon);
+			//console.log(appName+"requested file is "+path);
 			var stats = fs.statSync(path);
-			var fileSizeInBytes = stats["size"];
-			console.log("HTMoL3: "+fileSizeInBytes);
-			client.send("size" + fileSizeInBytes);
+			var fileSizeInBytes = stats["size"]; // found out the file's size
+			//console.log(appName+"file size is "+fileSizeInBytes);
+			client.send("size" + fileSizeInBytes); // send the size info to the BinaryClient
 			 }else{
-			 	client.send('error');
+			 	client.send('error'); // if something went wrong send an error message
 			 }
 		});
-	}else{
+	}else{ // the client needs the file
 	  	var path = TRJDIR + meta.fpath;
 		fs.exists(path, function(exists) { 
 			if (exists) {
-				if(meta.verif==true){
+				if(meta.verif==true){ // send a chunk first to check for file format
 					var file = fs.createReadStream(path,{start: 4, end: 7});
 				  	client.send(file,{natoms:true}); 
-				}else{
+				}else{ // send the whole file
 					var file = fs.createReadStream(path,{start: meta.start, end: meta.end});
 				  	//file._readableState.highWaterMark=100536;
-					console.log("HTMoL3: "+file._readableState.highWaterMark);
+					//console.log(appName+"watermark is "+file._readableState.highWaterMark);
 				  	client.send(file,{natoms:false}); 
 				  }
 			 }else{
-			 	client.send('error');
+			 	client.send('error'); // if something went wrong send an error message
 			 }
 	});
 	}
@@ -65,4 +71,4 @@ bs.on('connection', function(client){
 });
 
 server.listen(NodePort);
-console.log("HTMoLv3.5: BinServer started on port " + NodePort);
+console.log(appName+"started on port " + NodePort);

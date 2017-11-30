@@ -1258,7 +1258,7 @@ BinaryClient.prototype._receiveStream = function(streamId){
 
 BinaryClient.prototype.createStream = function(meta){
   if(this._socket.readyState !== WebSocket.OPEN) {
-    throw new Error('Client is can not connect or has closed. Server might be down or unreachable.');
+    throw new Error('BinServer might be down or unreachable. <br />Please try again later.');
     return;
   }
   var self = this;

@@ -10,6 +10,7 @@ v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades
 v3.5 Leonardo Alvarez-Rivera
 */
 
+  
   self.importScripts('../local/config.js');
   self.importScripts('binary.js');
   var readstart = 0,
@@ -19,6 +20,7 @@ v3.5 Leonardo Alvarez-Rivera
 
 
   self.addEventListener('message', function(e) {
+    //console.dir(e.data.cmd)
       if (e.data.cmd == "startfile") {
 
 //          if (e.data.bitrate == "infinity") {
@@ -89,11 +91,20 @@ v3.5 Leonardo Alvarez-Rivera
           readstart = e.data.readstart;
           readend = e.data.readend;
           fpath = e.data.fpath;
-          //retardo para alcanzar a crear el binaryclient
+	  bsip = e.data.bsip;
+	  bslat = e.data.bslat;
+	  bslon = e.data.bslon;
+	  bsCont = e.data.bsCont;
+	  bsPais = e.data.bsPais;
+	  bsCd = e.data.bsCd;
+	  bsdatetime = e.data.bsdatetime;
+	  
+	  //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
-              client.send("fpath", { fpath: fpath, reqsize: true, verif: false });
+              client.send("fpath", { fpath: fpath, reqsize: true, verif: false, bsip: bsip, bslat: bslat, bslon: bslon, bsCont: bsCont, bsPais: bsPais, bsCd: bsCd, bsdatetime: bsdatetime}); // ask for the file size
+              console.log("HTMoL: BinaryClient requesting "+fpath+" from "+readstart+" to "+readend);
           }, 2000);
-          //console.log("HTMoL3: aa");
+	  
           client.on('stream', function(stream, meta) {
               // Buffer for parts:
 
@@ -101,25 +112,28 @@ v3.5 Leonardo Alvarez-Rivera
               stream.on('data', function(data) {
                   try {
                       if (data == 'error') {
-                          throw Error("HTMoL3: Error. File does not exists or corrupt");
-                      } else if (data.slice(0, 4) == "size") {
-                          tam = parseInt(data.slice(4));
+                          throw Error("HTMoL: Error. File does not exists or corrupt.");
+                      } else if (data.slice(0, 4) == "size") { // the previous call to client.send worked, we got info on the data object
+                          tam = parseInt(data.slice(4)); // found out what the file size is
                           //    self.postMessage({cmd:"sizefile",
                           //          sizef:tam); 
-                          client.send("fpath", { fpath: fpath, reqsize: false, verif: true, start: 4, end: 7 });
-                      } else if (meta.natoms == true) {
+                          client.send("fpath", { fpath: fpath, reqsize: false, verif: true, start: 4, end: 7 }); // now ask for a chunk to determine trajectory file format
+                          console.log("HTMoL: verif OK, size = "+tam);
+                      } else if (meta.natoms == true) { 
                           if (new DataView(data).getInt32(0) == e.data.natoms) {
                               init = 1;
                               xtc = true;   
-                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend });                       
+                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file                       
+                              console.log("HTMoL: is XTC");
                           } else if(new DataView(data).getInt32(0) == 1146244931 || new DataView(data).getInt32(0,1) == 1146244931 ) {
                               dcd=true;
-                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend });
+                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file
+                              console.log("HTMoL: is DCD");
                           }
                           else{
-                            throw new Error("HTMoL3: Unrecognized or damaged file. Number of atoms on file are not equal (TRJ:"+new DataView(data).getInt32(0)+" PDB:"+e.data.natoms+")");
+                            throw new Error("HTMoL: Unrecognized or damaged file. Number of atoms on file are not equal (TRJ:"+new DataView(data).getInt32(0)+" PDB:"+e.data.natoms+")");
                           }
-                      } else {
+                      } else { // receiving the whole file
                           //    console.log(part.byteLength);
                           trans += data.byteLength;
                           var tmp = new Uint8Array(part.byteLength + data.byteLength);
@@ -153,7 +167,7 @@ v3.5 Leonardo Alvarez-Rivera
                           {
                             
                           }
-                      }
+                      } // received the whole file
                   } catch (err) {
                       throw err;
                   }
@@ -203,7 +217,7 @@ v3.5 Leonardo Alvarez-Rivera
 
           function checkfile(buffer) {
               if (new DataView(buffer).getInt32(0) != 1995) {
-                  throw new Error("HTMoL3: Erro. File is not an XTC-File! ");
+                  throw new Error("HTMoL3: Error. File is not an XTC-File! ");
                   stop = 1;
                   return -1;
               }
