@@ -38,9 +38,7 @@ bs.on('connection', function(client){
 	  	var path = TRJDIR + meta.fpath; // path to the trajectory file (meta.fpath) on the server
 		fs.exists(path, function(exists) { 
 			if (exists) { // if the file exists, print some info on the server's console
-			console.log(appName+"cID "+client.id+" IP "+meta.bsip+" requests "+path+" "+meta.bsdatetime);
-			console.log(appName+"cID "+client.id+" "+meta.bsCont+" "+meta.bsPais+" "+meta.bsCd+" Geo: lat "+meta.bslat+" lon "+meta.bslon);
-			//console.log(appName+"requested file is "+path);
+			//console.log(appName+"Started communication, requested file is "+path);
 			var stats = fs.statSync(path);
 			var fileSizeInBytes = stats["size"]; // found out the file's size
 			//console.log(appName+"file size is "+fileSizeInBytes);
@@ -49,7 +47,7 @@ bs.on('connection', function(client){
 			 	client.send('error'); // if something went wrong send an error message
 			 }
 		});
-	}else{ // the client needs the file
+	}else if(meta.success!==true){ // the client needs the file
 	  	var path = TRJDIR + meta.fpath;
 		fs.exists(path, function(exists) { 
 			if (exists) {
@@ -64,9 +62,15 @@ bs.on('connection', function(client){
 				  }
 			 }else{
 			 	client.send('error'); // if something went wrong send an error message
-			 }
-	});
+			 } // if else exists
+		}); // fs.exists
+	} // if else meta.reqsize
+        else{
+		console.log(appName+"cID "+client.id+" IP "+meta.bsip+" requests "+meta.fpath+" "+meta.bsdatetime);
+		console.log(appName+"cID "+client.id+" "+meta.bsCont+" "+meta.bsPais+" "+meta.bsCd+" Geo: lat "+meta.bslat+" lon "+meta.bslon);    
+		//console.log(appName+"end of transmission");	  
 	}
+    
   });
 });
 

@@ -101,7 +101,7 @@ v3.5 Leonardo Alvarez-Rivera
 	  
 	  //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
-              client.send("fpath", { fpath: fpath, reqsize: true, verif: false, bsip: bsip, bslat: bslat, bslon: bslon, bsCont: bsCont, bsPais: bsPais, bsCd: bsCd, bsdatetime: bsdatetime}); // ask for the file size
+              client.send("fpath", { success: false, fpath: fpath, reqsize: true, verif: false}); // ask for the file size
               console.log("HTMoL: BinaryClient requesting "+fpath+" from "+readstart+" to "+readend);
           }, 2000);
 	  
@@ -117,17 +117,17 @@ v3.5 Leonardo Alvarez-Rivera
                           tam = parseInt(data.slice(4)); // found out what the file size is
                           //    self.postMessage({cmd:"sizefile",
                           //          sizef:tam); 
-                          client.send("fpath", { fpath: fpath, reqsize: false, verif: true, start: 4, end: 7 }); // now ask for a chunk to determine trajectory file format
+                          client.send("fpath", { success: false, fpath: fpath, reqsize: false, verif: true, start: 4, end: 7 }); // now ask for a chunk to determine trajectory file format
                           console.log("HTMoL: verif OK, size = "+tam);
                       } else if (meta.natoms == true) { 
                           if (new DataView(data).getInt32(0) == e.data.natoms) {
                               init = 1;
                               xtc = true;   
-                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file                       
+                              client.send("fpath", { success: false, fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file                       
                               console.log("HTMoL: is XTC");
                           } else if(new DataView(data).getInt32(0) == 1146244931 || new DataView(data).getInt32(0,1) == 1146244931 ) {
                               dcd=true;
-                              client.send("fpath", { fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file
+                              client.send("fpath", { success: false, fpath: fpath, reqsize: false, verif: false, start: readstart, end: readend }); // the Binaryclient is ready to ask for the whole file
                               console.log("HTMoL: is DCD");
                           }
                           else{
@@ -173,6 +173,7 @@ v3.5 Leonardo Alvarez-Rivera
                   }
               });
               stream.on('end', function() {
+		
                   if (dcd==true) {
                     leer(part);
                     //console.log("HTMoL3: final");
@@ -181,6 +182,8 @@ v3.5 Leonardo Alvarez-Rivera
                               readstart = 0;
                               bndrev = false;
                               self.postMessage({ cmd: "endfinal" });
+			      client.send("fpath", { success: true, fpath: fpath, reqsize: false, verif: false, bsip: bsip, bslat: bslat, bslon: bslon, bsCont: bsCont, bsPais: bsPais, bsCd: bsCd, bsdatetime: bsdatetime }); // tell BinServer the Binaryclient has received the whole file
+
                   } else {
                       if (!meta.natoms) {
                           //if(trans==5000000){
@@ -207,13 +210,13 @@ v3.5 Leonardo Alvarez-Rivera
                               readstart = 0;
                               bndrev = false;
                               self.postMessage({ cmd: "endfinal" });
+			      client.send("fpath", { success: true, fpath: fpath, reqsize: false, verif: false, bsip: bsip, bslat: bslat, bslon: bslon, bsCont: bsCont, bsPais: bsPais, bsCd: bsCd, bsdatetime: bsdatetime }); // tell BinServer the Binaryclient has received the whole file
                           }
 
-                      }
-                  }
-
-              });
-          });
+                      } // if (!meta.natoms)
+                  } // if else                  		
+              }); // stream.on('end'
+          }); // client.on('stream'
 
           function checkfile(buffer) {
               if (new DataView(buffer).getInt32(0) != 1995) {
@@ -783,7 +786,7 @@ v3.5 Leonardo Alvarez-Rivera
       } else {
           //console.log(e.data.getdataworker);
           //console.log(iarr);
-      }
+      } // if (e.data.cmd == "startfile")
 
       //self.postMessage(e.data);
-  }, false);
+  }, false); // self.addEventListener('message'

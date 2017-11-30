@@ -64,10 +64,9 @@ function Main()
 	  bsCont=data.continent.name;
 	  bsPais=data.country.name;
 	  bsCd=data.city.name;
-	  //console.dir(bsip+bslat+bslon+bsCont+bsPais+bsCd);
         }, function(err) {
           // the "err" object contains useful information in case of an error
-        },50000); // TODO: this takes a long time to finish, convert the function into synchronous, or figure out how to use 'req.ip' from express.js
+        });
 	
 	var bsdatetime = "" + bscurrentdate.getDate() + "/"
                 + (bscurrentdate.getMonth()+1)  + "/" 
@@ -75,7 +74,6 @@ function Main()
                 + bscurrentdate.getHours() + ":"  
                 + bscurrentdate.getMinutes() + ":" 
                 + bscurrentdate.getSeconds();
-	//console.log(bsdatetime);
 
         //Para modificar worker1.js y evitar caché
         var marcaTime = parseInt(Math.random() * 1000000);
