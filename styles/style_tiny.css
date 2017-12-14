@@ -592,6 +592,9 @@ color: #fff;
      border-style: solid;
      border-color: transparent black transparent transparent;
 }
+.console-menu {
+     display: none;
+}
 .tooltip5::after {
   content: " ";
      position: absolute;

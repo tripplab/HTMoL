@@ -1116,8 +1116,8 @@ var menuStyle="";
                    +" </ul>"
                +" </li>"
                 +"<li style='display:none;'><a href='#'  title='Helix and Sheet' id='ViewHS'>H&S</a></li>"
-               +" <li><a href='#' id='Axis'>Axis</a></li>"
-              +" <li><a href='#' onclick='consola()'>Consola</a></li>"
+               +" <li><a href='#' id='Axis'>Axis &amp; SimBox (on/off)</a></li>"
+              +" <li><a href='#' onclick='consola()'><span class='console-menu'>Console (on/off)</span></a></li>"
             +"</ul>"
         +"</div>"
 
