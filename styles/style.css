@@ -548,7 +548,7 @@ color: #fff;
   position: absolute;
   width: 35px;
   height: 25px;
-  top: 65%;
+  top: 48%; /*65%;*/ /*menu button above is hidden now*/
   left: 38%;
   border-radius: 3px;
   background-color:#000 ;
@@ -565,7 +565,7 @@ color: #fff;
   position: absolute;
   width: 35px;
   height: 25px;
-  top: 85%;
+  top: 65%; /*85%;*/ /*menu button above is hidden now*/
   left: 38%;
   border-radius: 3px;
   background-color:#000 ;

@@ -1046,7 +1046,7 @@ var menuStyle="";
                                 +"<br>"
                                 +"<button onclick='menu_select()' class='B_select' style='display:none;'><span class ='icon-seleccionar-objeto'  id='a3'><span class='tooltip3'>Select</span></span></button>"
                                // +"<br>"
-                +"<button onclick='menu_action()' class='B_action'><span class ='icon-ajustes'  id='a4'></span><span class='tooltip4'>Actions</span> </button>"
+                                +"<button onclick='menu_action()' class='B_action'><span class ='icon-ajustes'  id='a4'></span><span class='tooltip4'>Tools</span> </button>"
                                 +"<br>"
                 +"<button onclick='menu_view()' class='B_view' ><span class ='icon-orientacion' id='a5'></span><span class='tooltip5'>View</span> </button>"
             +"</div>"
