@@ -7,7 +7,7 @@ http://tripplab.com
 Developers:
 v1.0 Leonardo Alvarez-Rivera, Francisco Javier Becerra-Toledo, Adan Vega-Ramirez 
 v2.0 Javier Garcia-Vieyra
-v3.0 Omar Israel Lara-Ramirez, Eduardo González-Zavala, Emmanuel Quijas-Valades, Julio Cesar González-Vázquez
+v3.0 Omar Israel Lara-Ramirez, Eduardo Gonzalez-Zavala, Emmanuel Quijas-Valades, Julio Cesar Gonzalez-Vazquez
 v3.5 Leonardo Alvarez-Rivera
 */
 
