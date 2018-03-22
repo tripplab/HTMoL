@@ -22,10 +22,12 @@ var NodePort="69"; // Define internet port for comunication, other than 80 (rese
 var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in another Apache server: "http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
 var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable to leave the directory structure as is.
 
+
 // Coordinates file name
 var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb' 'amb.pdb' 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd' 'amb.xtc' 'lido_dppc.xtc'
+var trjFormat='XTC';//value has to be 'XTC' or 'DCD'
 
 var autoplay=true; // How to start the MD visualization
 
