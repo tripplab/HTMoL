@@ -34,6 +34,7 @@ The HTMoL License Agreement specifies that any reports or published results shar
 Any published work which utilizes HTMoL shall include the following reference:
 
 Mauricio Carrillo-Tripp, Leonardo Alvarez-Rivera, Omar IsraelLara-Ramírez, Francisco Javier Becerra-Toledo, Adan Vega-Ramírez,Emmanuel Quijas-Valades, Eduardo González-Zavala, Julio CesarGonzález-Vázquez, Javier García-Vieyra, Nelly Beatriz Santoyo-Rivera,Amilcar Meneses-Viveros and Sergio V. Chapa-Vergara. HTMoL: full-stack solution for remote access, visualization, and analysis of Molecular Dynamics trajectory data. Submmited (2017)
+Preprint: https://arxiv.org/abs/1711.08078
 
 Electronic documents shall include a direct link to the official HTMoL page:
 
