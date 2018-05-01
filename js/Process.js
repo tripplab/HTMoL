@@ -192,17 +192,18 @@ function createBonds(main)
 function Process()
 {
         this.Model= new Molecule();
-	this.ReadFile= function(URL)
+	this.ReadFile= function(texto)
 	{
-		   var text = $.ajax({
+		 /*  var text = $.ajax({
 		       url: URL, 
 			   dataType: 'text',
 // "false" value gives browser warning "[Deprecation] Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience."
 // "true" value breaks the app, no time to debug			   
 			   async: false     
 		   }).responseText;
-		   if (text!=null&&text.substr(0,6)!="<html>"){
-	        return this.Parse(text);
+		   */
+		   if (texto!=null&&texto.substr(0,6)!="<html>"){
+	        return this.Parse(texto);
 	    	}
 	       else
 	        return null;
