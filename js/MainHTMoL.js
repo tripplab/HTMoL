@@ -1425,4 +1425,18 @@ function RewFor(op) {
 
     }
 
+  var main;
+    function start()
+    {
+      $.ajax({url: PDBDIR+pdbInicial, async: true, success: function(result){
+        var objPro=new Process();
+        main= new Main(result);
+          var container = document.getElementById("Contenedor");
+          main.MakeMenu(container);
+          document.getElementById("Console_output").readOnly = true;// Julio/para solo lectura para datos de salida de la consola
+
+        webGLStart();
+      }});
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
