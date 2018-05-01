@@ -1,0 +1,78 @@
+{
+  "name": "htmol",
+  "version": "3.5.0",
+  "description": "NEXT-GENERATION MOLECULAR DYNAMICS WEB VISUALIZATION",
+  "main": "BinServer.js",
+  "directories": {},
+  "dependencies": {
+    "binaryjs": "^0.2.1",
+    "express": "^4.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "sudo netstat -npl | grep node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tripplab/HTMoL.git"
+  },
+  "keywords": [
+    "molecular",
+    "dynamics",
+    "web",
+    "visualization",
+    "MD",
+    "data",
+    "sharing",
+    "publishing"
+  ],
+  "author": {
+    "name": "Mauricio Carrillo-Tripp, PhD",
+    "url": "http://tripplab.com"
+  },
+  "maintainers": [
+    {
+      "name": "Leonardo Alvarez-Rivera",
+      "email": ""
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Leonardo Alvarez-Rivera",
+      "email": ""
+    },
+    {
+      "name": "Francisco Javier Becerra-Toledo",
+      "email": ""
+    },
+    {
+      "name": "Adan Vega-Ramírez",
+      "email": ""
+    },
+    {
+      "name": "Javier García-Vieyra",
+      "email": ""
+    },
+    {
+      "name": "Omar Israel Lara-Ramírez",
+      "email": ""
+    },
+    {
+      "name": "Eduardo González-Zavala",
+      "email": ""
+    },
+    {
+      "name": "Emmanuel Quijas-Valadés",
+      "email": ""
+    },
+    {
+      "name": "Julio Cesar González-Vázquez",
+      "email": ""
+    }
+  ],
+  "license": "See LICENSE",
+  "bugs": {
+    "url": "https://github.com/tripplab/HTMoL/issues"
+  },
+  "homepage": "http://htmol.tripplab.com/"
+}
