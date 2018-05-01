@@ -42,7 +42,7 @@ var bsCd="NA";
 var bscurrentdate = new Date(); 
 var bsdatetime = "69/69/69 69:69";
 
-function Main(texto)
+function Main()
 {
 
     //var prr=
@@ -89,7 +89,7 @@ function Main(texto)
     this.ObjP= new Process();
 
     //--------------------------
-    molecule=this.ObjP.ReadFile(texto);
+    molecule=this.ObjP.ReadFile(PDBDIR+pdbInicial);
     var about="<a href='http://htmol.tripplab.com/' target='_blank' style='color:orange;font-weight: bold;'>HTMoL</a>"; // Please do not change nor remove
     info.innerHTML=about+htmolver+": "+pdbInicial+" ("+molecule.LstAtoms.length+" atoms)";
 //    info.innerHTML=molecule.LstAtoms.length+" atoms";
