@@ -16,8 +16,8 @@ v3.5 Leonardo Alvarez-Rivera
 // =============================== User defined variables ================================= //
 
 // Binary Server information
-var WebIP="?.?.?.?"; // Server Name or IP. Use 'localhost' for testing
-var NodePort="?"; // Define internet port for comunication, other than 80 (reserved for Apache)
+var WebIP="148.247.198.32"; // Server Name or IP. Use 'localhost' for testing
+var NodePort="8081"; // Define internet port for comunication, other than 80 (reserved for Apache)
 
 var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in another Apache server: "http://"+WebIP+"/HTMoLv3.5/pdbfiles/";
 var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable to leave the directory structure as is.
@@ -26,6 +26,7 @@ var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable
 var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb' 'amb.pdb' 'lido_dppc.pdb'
 // Trajectory file name
 var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd' 'amb.xtc' 'lido_dppc.xtc'
+var trjFormat='XTC';//value has to be 'XTC' or 'DCD'
 
 var autoplay=true; // How to start the MD visualization
 
