@@ -168,7 +168,7 @@ v3.5 Leonardo Alvarez-Rivera
 <!-- =======================================  -->
 
 </head>
-<body   onload="start();">
+<body   onload="webGLStart();">
 
 <!-- -->
     <div id="myModal" class="modal">
@@ -216,6 +216,11 @@ v3.5 Leonardo Alvarez-Rivera
 </div>
 
 </body>
-
+<script type="text/javascript">
+    var main= new Main();
+    var container = document.getElementById("Contenedor");
+    main.MakeMenu(container);
+    document.getElementById("Console_output").readOnly = true;// Julio/para solo lectura para datos de salida de la consola
+</script>
 
 </html>
