@@ -18,6 +18,9 @@ eval(fs.readFileSync('local/config.js')+''); // this line reads the HTMoL config
 var http = require('http');
 var express = require('express');
 var app = express();
+
+var package = JSON.parse(fs.readFileSync('package.json'));
+
 // Serve client side statically
 app.use(express.static(__dirname));
 
@@ -27,7 +30,7 @@ var server = http.createServer(app);
 var BinaryServer = require('binaryjs').BinaryServer;
 var bs = BinaryServer({server: server});
 
-var appName = "HTMoL BinServer: ";
+var appName = "HTMoL " + package.version + " BinServer: ";
 
 // Wait for new BinaryClient connections
 bs.on('connection', function(client){
