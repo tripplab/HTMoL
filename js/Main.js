@@ -51,6 +51,9 @@ function Main()
 //alert(prr.replace(/[ ,]+/g, ","));
 
     //-----------------------------------Bloque inicial para declarar el worker----------------------------------
+    console.log("entered main");
+    console.log("WebIP="+WebIP+" NodePort="+NodePort+" trjFormat="+trjFormat);
+
     if (typeof(Worker)=="undefined")
     {
         alert("HTMoL: Alert. Workers not supported");
@@ -1382,11 +1385,14 @@ var menuStyle="";
 //        }
 	    
         worker1.postMessage({cmd:"startfile",
-                           fpath:fpath,
-                           natoms:molecule.GetAtoms().length,
-                           bitrate:bitrate,
-                           readstart: readstart,
-                           readend:readend,
+                          WebIP:WebIP,
+                          NodePort:NodePort,
+                          trjFormat:trjFormat,
+                          fpath:fpath,
+                          natoms:molecule.GetAtoms().length,
+                          bitrate:bitrate,
+                          readstart: readstart,
+                          readend:readend,
 			  bsip:bsip,
 			  bslat:bslat,
 			  bslon:bslon,
@@ -1429,18 +1435,21 @@ var menuStyle="";
                         coordsZ1 = new Float32Array(sizearrayp);
                     }
                     worker1.postMessage({cmd:"startfile",
-                                        fpath:fpath,
-                                        natoms:molecule.GetAtoms().length,
-                                        bitrate:bitrate,
-                                        readstart: readstart,
+                           WebIP:WebIP,
+                           NodePort:NodePort,
+                           trjFormat:trjFormat,
+                           fpath:fpath,
+                           natoms:molecule.GetAtoms().length,
+                           bitrate:bitrate,
+                           readstart:readstart,
                            readend:readend,
-			  bsip:bsip,
-			  bslat:bslat,
-			  bslon:bslon,
-			  bsCont:bsCont,
-			  bsPais:bsPais,
-			  bsCd:bsCd,
-			  bsdatetime:bsdatetime
+			   bsip:bsip,
+			   bslat:bslat,
+			   bslon:bslon,
+			   bsCont:bsCont,
+			   bsPais:bsPais,
+			   bsCd:bsCd,
+			   bsdatetime:bsdatetime
 		    });
 		}
             }

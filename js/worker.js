@@ -10,7 +10,7 @@ v3.5 Leonardo Alvarez-Rivera
 */
 
   
-  self.importScripts('../local/config.js');
+//  self.importScripts('../local/config.js'); Parameter values should not be passed on a file but from the call to the function(e)
   self.importScripts('binary.js');
   self.importScripts('../js/ReaderXTC.js');
   self.importScripts('../js/ReaderDCD.js');
@@ -18,7 +18,6 @@ v3.5 Leonardo Alvarez-Rivera
       readend = 0,
       bnd = true,
       bndrev = false;
-
 
   self.addEventListener('message', function(e) {
     //console.dir(e.data.cmd)
@@ -30,10 +29,13 @@ v3.5 Leonardo Alvarez-Rivera
 //              console.log("HTMoL3: bitrate es "+e.data.bitrate);
 //          }
   
+          WebIP = e.data.WebIP;
+          NodePort = e.data.NodePort;
           var client = new BinaryClient("ws://"+WebIP+":"+NodePort);     
           var st = 1;
 	  var tam = 0;
     
+          trjFormat = e.data.trjFormat;
           readstart = e.data.readstart;
           readend = e.data.readend;
           fpath = e.data.fpath;
