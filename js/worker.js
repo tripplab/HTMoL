@@ -10,7 +10,7 @@ v3.5 Leonardo Alvarez-Rivera
 */
 
   
-//  self.importScripts('../local/config.js'); Parameter values should not be passed on a file but from the call to the function(e)
+//  self.importScripts('../local/config.js'); Parameter values should not be passed on a file but from the call to the function(e) of the worker
   self.importScripts('binary.js');
   self.importScripts('../js/ReaderXTC.js');
   self.importScripts('../js/ReaderDCD.js');
