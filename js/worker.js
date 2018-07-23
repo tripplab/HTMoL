@@ -14,6 +14,7 @@ v3.5 Leonardo Alvarez-Rivera
   self.importScripts('binary.js');
   self.importScripts('../js/ReaderXTC.js');
   self.importScripts('../js/ReaderDCD.js');
+  self.importScripts('../js/ReaderNC.js');
   var readstart = 0,
       readend = 0,
       bnd = true,
@@ -43,6 +44,7 @@ v3.5 Leonardo Alvarez-Rivera
 	  //instancias a las clases que se encargan de las lecturas de archivos XTC y DCD
 	  var readerXTC = new ReaderXTC(client,st,e);
           var readerDCD = new ReaderDCD(client,e);
+	  var readerNC = new ReaderNC(client,e);
 	  
 	  //retardo para alcanzar a crear el binaryclient
           setTimeout(function() {
@@ -71,16 +73,24 @@ v3.5 Leonardo Alvarez-Rivera
                           } else if(new DataView(data).getInt32(0) == 1146244931 || new DataView(data).getInt32(0,1) == 1146244931 ) {
                                readerDCD.validate();
                           }
+                          else if(trjFormat=="NC")
+                              readerNC.validate();
                           else{
                             throw new Error("HTMoL: Unrecognized or damaged file. Number of atoms on file are not equal (TRJ:"+new DataView(data).getInt32(0)+" PDB:"+e.data.natoms+")");
                           }
                       } else { // receiving the whole file
                           //    console.log(part.byteLength);
-                          if(trjFormat=="XTC")
+                         if(trjFormat=="XTC")
                           readerXTC.getFile(data,tam);
-
-                          if(trjFormat=="DCD")
+                          else if(trjFormat=="DCD")
                           readerDCD.getFile(data);
+                          else if(trjFormat=="NC")
+                          {
+                            if(data=="fin")
+                              readerNC.readFile();
+                            else
+                              readerNC.getFile(data.toString('utf8'));
+                          }
                       } // received the whole file
                   } catch (err) {
                       throw err;
