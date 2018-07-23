@@ -46,7 +46,15 @@ bs.on('connection', function(client){
 			var fileSizeInBytes = stats["size"]; // found out the file's size
 			//console.log(appName+"file size is "+fileSizeInBytes);
 			client.send("size" + fileSizeInBytes); // send the size info to the BinaryClient
-			 }else{
+			
+			var ncFormat= meta.fpath.split(".");
+		      	if(ncFormat[1]=="nc")
+				{
+				  var ncPath=TRJDIR+ncFormat[0]+'.CDL';
+				  convertirArchivo(path,ncFormat[0]);
+				  trans=0;
+				}
+			}else{
 			 	client.send('error'); // if something went wrong send an error message
 			 }
 		});
@@ -57,12 +65,30 @@ bs.on('connection', function(client){
 				if(meta.verif==true){ // send a chunk first to check for file format
 					var file = fs.createReadStream(path,{start: 4, end: 7});
 				  	client.send(file,{natoms:true}); 
-				}else{ // send the whole file
-					var file = fs.createReadStream(path,{start: meta.start, end: meta.end});
-				  	//file._readableState.highWaterMark=100536;
-					//console.log(appName+"watermark is "+file._readableState.highWaterMark);
-				  	client.send(file,{natoms:false}); 
-				  }
+				} else{ // send the whole file
+				  var ncFormat= meta.fpath.split(".");
+				  if(ncFormat[1]=="nc")
+				    {
+				      var ncPath=TRJDIR+ncFormat[0]+'.CDL';
+				      var filenc = fs.createReadStream(ncPath,'utf8');
+				      filenc.on('data',function(chunk){
+
+					trans++;
+				      //  var newchunk= chunk.replace(";",",");
+					console.log(chunk);
+					client.send(chunk,{natoms:false});
+				      });
+				      filenc.on('end',function(){
+					  client.send("fin",{natoms:false});
+				      });
+				    }else
+				    {
+				      var file = fs.createReadStream(path,{start: meta.start, end: meta.end});
+								     //file._readableState.highWaterMark=100536;
+								       //console.log(appName+"watermark is "+file._readableState.highWaterMark);
+								client.send(file,{natoms:false});
+				    }
+				 }
 			 }else{
 			 	client.send('error'); // if something went wrong send an error message
 			 } // if else exists
@@ -77,5 +103,18 @@ bs.on('connection', function(client){
   });
 });
 
+function convertirArchivo(fpath,fileName)
+{
+  var exec = require('child_process').exec, child;
+
+  child = exec('ncdump -v coordinates '+ fpath +'> '+TRJDIR+fileName+'.CDL',function (error,stdout,stderr){
+    console.log('stdout: '+ stdout);
+      console.log('stderr: '+ stderr);
+      if(error!=null)
+      {
+        console.log('exec error: '+ error);
+      }
+  });
+}
 server.listen(NodePort);
 console.log(appName+"started on port " + NodePort);
