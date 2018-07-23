@@ -23,12 +23,12 @@ var PDBDIR="pdbfiles/"; // path to coordinates file. It can be located in anothe
 var TRJDIR="trjfiles/"; // path to trajectory file at BinServer. It is advisable to leave the directory structure as is.
 
 // Coordinates file name
-var pdbInicial='enzyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb' 'amb.pdb' 'lido_dppc.pdb'
+var pdbInicial='lysozyme.pdb'; // Examples also included: 'lysozyme.pdb' 'mem_chol.pdb' 'amb.pdb' 'lido_dppc.pdb'
 // Trajectory file name
-var trjInicial= 'enzyme.xtc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd' 'amb.xtc' 'lido_dppc.xtc'
-var trjFormat='XTC';//value has to be 'XTC' or 'DCD'
+var trjInicial= 'lysozyme.nc'; // Examples also included: 'lysozyme.xtc' 'mem_chol.dcd' 'amb.xtc' 'lido_dppc.xtc'
+var trjFormat='NC';//value has to be 'XTC' or 'DCD' or 'NC'
 
-var autoplay=true; // How to start the MD visualization
+var autoplay=false; // How to start the MD visualization
 
 // Definition of molecular representations
 var RepresentacionInicial='SpheresBonds'; // Equivalent to CPK. Do not change representation here, use the 'show' command below
